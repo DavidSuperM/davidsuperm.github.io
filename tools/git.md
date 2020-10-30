@@ -13,7 +13,8 @@ master: git checkout -b feature/2020-04-22_feature_name_1
 3. 开发
 ```
 feature/2020-04-22_feature_name_1 : git add .
-feature/2020-04-22_feature_name_1 : git commit -m ""
+// 建议用idea的ui界面commit，这样是为了防止无意提交了不该提交的文件
+feature/2020-04-22_feature_name_1 : git commit -m "" 
 feature/2020-04-22_feature_name_1 : git push 
 //git push需要先和远程分支建立连接
 ```
@@ -34,6 +35,7 @@ master : git merge release/2020-05-12_feature_name_1
 - 克隆项目
 ```
 用idea的VCS->git->clone
+git clone git@github.com:michaelliao/gitskills.git
 ```
 - 切换分支cat
 ```
@@ -80,14 +82,21 @@ git reset –hard HEAD^    //回退上一个版本
 git reset –hard HEAD^^    //回退上上一个版本
 git reset –hard 3628164   //回退到指定版本 后面的版本号可从上一条命令的log中得到
 ```
+- 记录每一次的命令
+```
+git reflog
+```
 - 另存工作区的改动
 ```
 git stash show   //查看另存区的内容
 git stash           //目前已改动的地方放入另存区
 git stash pop    //取回另存区的改动
 ```
-
 - 放弃本地修改
 ```
 git checkout . && git clean -xdf
+```
+- 本地仓库和远程仓库相关联
+```
+git remote add origin git@github.com:SuperDavidM/test1.git
 ```
