@@ -9,7 +9,6 @@
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/%E6%88%AA%E5%B1%8F2020-10-31%20%E4%B8%8B%E5%8D%8812.19.43.png)
 6. 去域名控制台配置解析如下,我的阿里云地址
 <https://dns.console.aliyun.com/?spm=5176.100251.111252.22.33064f15rhO5nu#/dns/setting/qiandawei.com>
-https://dns.console.aliyun.com/?spm=5176.100251.111252.22.33064f15rhO5nu#/dns/setting/qiandawei.com
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/%E6%88%AA%E5%B1%8F2020-10-31%20%E4%B8%8B%E5%8D%8812.15.14.png)
 
 # 问题
