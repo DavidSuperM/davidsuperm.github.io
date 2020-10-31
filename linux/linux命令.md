@@ -1,38 +1,48 @@
-## 1.查看所有端口
+- 查看所有端口
 ```
 netstat -ntlp
 ```
 
-## 2.查看特定端口
+- 查看特定端口
 ```
 lsof -i:5005
 ```
 
-## 3.杀掉端口对应的进程
+- 杀掉端口对应的进程 5005是进程号
 ```
 kill -9 5005
 ```
 
-## 4.终端连接远程服务器
+- 终端连接远程服务器
 ```
 ssh 用户名@服务器地址
 [输入密码]
 ```
 
-## 5.查看服务器进程
+- 查看服务器进程
 ```
 ps -ef    //-e 显示每个现在运行的进程 -f 生成一个完全的列表
 ps -ef | grep python    //筛选出有python关键字的     
 ```
 
-## tail -200f log.txt
-## 不滚动查看最后20行
+- 不滚动查看最后20行
 不滚动并且grep查看最后20行
 
-## 打印匹配行的前后10行
+- 查看文件内容
 ```
-grep -10 ‘123’ test.log
+cat test.log
+cat log.txt | grep 'Exception'
+grep ‘123’ test.log
+grep -10 ‘123’ test.log   //打印匹配行的前后各10行
 ```
+
+- 查看最后200行
+```
+tail -200f log.txt   //滚动查看最后200行 -f表示循环读取
+tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可以在文件里永久配置
+tail -n 200 test.log   //不滚动查看最后200行
+```
+
 ## 连接mysql
 ```
 mysql -h host -P 8008 --default-character-set=utf8 -u user -p pdw -D DBname;
