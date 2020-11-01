@@ -25,3 +25,9 @@ Q
 git/git命令.md,5/1/517852d2bc56142f129f8b8ec763fd13c9c70016
 D
 linux/linux命令.md,6/8/68625a232f7fe0226e487599edec91b4da0cd328
+I
+tools/idea完全卸载.md,0/9/09a278390c1b24ea70284c755a6d4469a958dff2
+A
+tools/md语法.md,e/b/ebdee5b2c556069ee590e61c122ee4d7ebb85480
+H
+tools/mac文件系统.md,2/4/248e9a78409a1217822525519af9b5308b9ca053

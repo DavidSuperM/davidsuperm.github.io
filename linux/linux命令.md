@@ -8,9 +8,27 @@ netstat -ntlp
 lsof -i:5005
 ```
 
+- 开启一个端口用于输入测试数据
+nc -l 9000
+
+- 查看文件
+```
+ls
+ll
+which flink   // 查找flink位置
+```
+
 - 杀掉端口对应的进程 5005是进程号
 ```
 kill -9 5005
+killall python   // 杀掉所有python的进程?
+```
+
+- 查看服务器运行状况
+```
+top
+top -b        // 显示所有进程
+top -b -n 1      // 显示所有进程
 ```
 
 - 终端连接远程服务器
@@ -25,9 +43,6 @@ ps -ef    //-e 显示每个现在运行的进程 -f 生成一个完全的列表
 ps -ef | grep python    //筛选出有python关键字的     
 ```
 
-- 不滚动查看最后20行
-不滚动并且grep查看最后20行
-
 - 查看文件内容
 ```
 cat test.log
@@ -41,6 +56,14 @@ grep -10 ‘123’ test.log   //打印匹配行的前后各10行
 tail -200f log.txt   //滚动查看最后200行 -f表示循环读取
 tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可以在文件里永久配置
 tail -n 200 test.log   //不滚动查看最后200行
+```
+
+- 命令行curl请求
+```
+// get
+curl 'http://9.155.22.33:10099/pirate/book?pageSize=10&currentPage=1'
+// post
+curl -d "pageSize=10&currentPage=1&bookName='临渊行'&pirateSiteUrl='www.tianxiabachang.cn'" http://9.155.22.33:10099/pirate/delay
 ```
 
 ## 连接mysql
@@ -78,7 +101,7 @@ source /etc/profile
 
 ## crontab定时任务
 ```
- crontab -e
+crontab -e
 //编辑文件，添加下面一行语句，作用：每分钟执行一次脚本
 * * * * cd /tmp/project/ && sh ./monitor.sh >./shell_log.txt 2>&1   
 ```
