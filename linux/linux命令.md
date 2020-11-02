@@ -68,15 +68,12 @@ curl -d "pageSize=10&currentPage=1&bookName='临渊行'&pirateSiteUrl='www.tianx
 
 ## 连接mysql
 ```
-mysql -h host -P 8008 --default-character-set=utf8 -u user -p pdw -D DBname;
+mysql -h host -P 8008 --default-character-set=utf8 -uuser -pqdw -Dtest_table;
 ```
 
 ## 导出mysql表数据
-
 ```
-
 select * from pirate_book_chapter_update into outfile /tmp/project/chapter.xls //需要有权限
-
 mysqldump -u[Mysql用户名] -h[mysqlIP] -P[mysql端口] -p[mysql密码] --default-character-set=utf8 --skip-opt --create-options -q -B --databases [库名] --tables [表名] --skip-tz-utc >>/tmp/project/table.sql
 //--skip-tz-utc 是因为不加的话，导出来的timestamp时间会少8个小时
 ```
