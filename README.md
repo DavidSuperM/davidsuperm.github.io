@@ -12,6 +12,8 @@
 
 - [spring data elasticsearch增删改查](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/spring%20data%20elasticsearch%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5.md)
 
+- [mac安装redis](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/redis%E5%85%A5%E9%97%A8.md)
+
 ### fronted
 - [Vue前端exception](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/frontend/Vue%E5%89%8D%E7%AB%AFexception.md)
 
@@ -36,6 +38,10 @@
 
 ### middleware
 - [mq](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/middleware/mq.md)
+
+- [kafka入门](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/middleware/kafka%E5%85%A5%E9%97%A8.md)
+
+- [flink入门](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/middleware/flink%E5%85%A5%E9%97%A8.md)
 
 ### python
 - [scrapy](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/python/scrapy.md)
