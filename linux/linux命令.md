@@ -58,12 +58,23 @@ tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可�
 tail -n 200 test.log   //不滚动查看最后200行
 ```
 
+- 删除
+```
+rm -rf test     // 删除test文件夹以及里面的内容  -f：强制删除文件或目录；-r或-R：递归处理，将指定目录下的所有文件与子目录一并处理；
+rm -r *        //删除当前目录下的所有东西
+```
+
 - 命令行curl请求
 ```
 // get
 curl 'http://9.155.22.33:10099/pirate/book?pageSize=10&currentPage=1'
 // post
 curl -d "pageSize=10&currentPage=1&bookName='临渊行'&pirateSiteUrl='www.tianxiabachang.cn'" http://9.155.22.33:10099/pirate/delay
+```
+
+- pip更改下载源
+```
+pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ## 连接mysql

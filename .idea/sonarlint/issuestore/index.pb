@@ -31,3 +31,15 @@ A
 tools/md语法.md,e/b/ebdee5b2c556069ee590e61c122ee4d7ebb85480
 H
 tools/mac文件系统.md,2/4/248e9a78409a1217822525519af9b5308b9ca053
+G
+DB/mysql设计规范.md,8/1/819c15022bd83608ef0fbc3b05c888b1720ca8d5
+F
+linux/cron表达式.md,6/3/636707cd9941de4116c097d494421d6bbe7473ec
+E
+DB/mysql sql语法.md,e/5/e59bbb156cb49a3ceae4529b35b044e22e1e51cd
+D
+linux/shell脚本.md,4/6/463dffb57aa356a108a56fd11ae711bdc7eb0c42
+@
+python/scrapy.md,0/a/0abab4cbcd5c0e19fc0fa3752c699a512143e53e
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
