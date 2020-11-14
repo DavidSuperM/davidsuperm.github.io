@@ -74,7 +74,7 @@ pip install selenium -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install twisted -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install requests -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install datetime -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install scrapy==1.8.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+// pip install scrapy==1.8.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scrapy-fake-useragent -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scrapy-user-agents -i https://pypi.tuna.tsinghua.edu.cn/simple
 安装phantomjs https://bitbucket.org/ariya/phantomjs/downloads/ 找官网下载 
