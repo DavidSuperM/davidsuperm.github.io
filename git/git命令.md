@@ -100,3 +100,9 @@ git checkout . && git clean -xdf
 ```
 git remote add origin git@github.com:SuperDavidM/test1.git
 ```
+
+- 删除和远程仓库的关联
+```
+git remote -v
+git remote rm origin
+```
