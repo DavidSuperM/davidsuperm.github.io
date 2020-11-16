@@ -103,6 +103,7 @@ git checkout . && git clean -xdf
 git init
 git remote add origin git@github.com:SuperDavidM/test1.git
 git remote -v
+git pull origin master:master
 git branch --set-upstream-to=origin/master master
 git branch -vv
 git pull 
