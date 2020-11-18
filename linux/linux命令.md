@@ -55,7 +55,7 @@ grep -10 ‘123’ test.log   //打印匹配行的前后各10行
 ```
 tail -200f log.txt   //滚动查看最后200行 -f表示循环读取
 tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可以在文件里永久配置
-tail -n 200 test.log   //不滚动查看最后200行
+tail -200 test.log   //不滚动查看最后200行.   = tail -n 200 test.log
 ```
 
 - 删除
