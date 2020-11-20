@@ -33,9 +33,10 @@ alter table tableName drop column columnName     // 删除列
 ```
 
 - 索引
+//todo 添加唯一性约束和唯一索引
 ```
 alter table tableName add index indexName('name')    // 增加普通索引
-alter table tableName add unique [indexName] (username(length))   // 增加唯一索引
+alter table tableName add unique  [indexName] (username(length))   // 增加唯一索引
 alter table tableName drop index indexName;     //删除索引
 ```
 
