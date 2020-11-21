@@ -98,5 +98,20 @@ git checkout . && git clean -xdf
 ```
 - 本地仓库和远程仓库相关联
 ```
+1. 远程新建个空仓库
+2. 本地建好项目后，根目录下执行 
+git init
 git remote add origin git@github.com:SuperDavidM/test1.git
+git remote -v
+git pull origin master:master
+git branch --set-upstream-to=origin/master master
+git branch -vv
+git pull 
+git push
+```
+
+- 删除和远程仓库的关联
+```
+git remote -v
+git remote rm origin
 ```

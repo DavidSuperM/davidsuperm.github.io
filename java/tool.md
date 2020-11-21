@@ -38,6 +38,7 @@ int diff = (m2 - m1)/1000
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
+    <version>2.9.10.6</version>
 </dependency>
 
 private ObjectMapper mapper = new ObjectMapper();
@@ -45,7 +46,14 @@ private ObjectMapper mapper = new ObjectMapper();
 // jsonstring转对象
 User user = mapper.readValue(json, User.class);
 //jsonstring转json对象
-JsonNode objJson = mapper.readTree(json);
+JsonNode jsonNode = mapper.readTree(json);
+JsonNode j2 = jsonNode.get("f2");
+String f2Str = jsonNode.get("f2").asText();
+double f2Dbl = jsonNode.get("f2").asDouble();
+int    f2Int = jsonNode.get("f2").asInt();
+long   f2Lng = jsonNode.get("f2").asLong();
+ObjectNode objectNode = (ObjectNode) jsonNode;
+objectNode.put(key,value);
 //对象转jsonstring
 String result = mapper.writeValueAsString(value);
 ```

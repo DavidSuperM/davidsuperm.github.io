@@ -10,7 +10,7 @@ pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
 scrapy startproject SpiderDemo
 ```
 
-4. 在spiders目录下新建文件
+4. 在spiders目录下新建文件demospider.py
 ```
 import scrapy
 import logging
@@ -59,33 +59,37 @@ if __name__ == '__main__':
     execute(['scrapy', 'crawl', 'spider_demo'])
 ```
 
-# 待做的
-写demo代码
 
-
-### linux安装scrapy准备工作 用的清华源
+### linux安装其他爬虫需要的其他包 用的清华源
 ```
-pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
+// 操作mysql的包
 pip install pymysql -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install fake-useragent -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install Faker -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install cos-python-sdk-v5 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install selenium -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install twisted -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install requests -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install datetime -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install scrapy==1.8.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scrapy-fake-useragent -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install scrapy-user-agents -i https://pypi.tuna.tsinghua.edu.cn/simple
-安装phantomjs https://bitbucket.org/ariya/phantomjs/downloads/ 找官网下载 
-放环境变量 sudo ln -sf /usr/local/app/.local/lib/python2.7/site-packages/phantomjs /usr/local/bin/phantomjs
-或者(executable_path="/usr/local/app/.local/lib/python2.7/site-packages/phantomjs")
-执行phantomjs -v
-yum install bitmap-fonts bitmap-fonts-cjk
 ```
 
+### scrapydemo项目地址
+<https://github.com/DavidSuperM/ScrapyDemo>
+
+#### 如果需要phantomjs来实现截图  
 mac安装phantomjs 
 ```
 brew update && brew install phantomjs
 phantomjs -v
 ```
+linux安装phantomJs
+```
+// 找官网下载 
+https://bitbucket.org/ariya/phantomjs/downloads/ 
+// 设置环境变量
+sudo ln -sf /usr/local/app/.local/lib/python2.7/site-packages/phantomjs /usr/local/bin/phantomjs
+// linux下phantomjs截图会有字体乱码情况，需要安装下面的字体
+yum install bitmap-fonts bitmap-fonts-cjk
+```
+
