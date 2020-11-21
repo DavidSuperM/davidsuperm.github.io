@@ -38,3 +38,8 @@ cd conf
 cat flink-conf.yaml
 state.savepoints.dir: hdfs://YWBDOwnerHDFS/YWBDFlink/savepoints
 ```
+
+# flink架构整理
+yarn flink模式
+一个clinet端，用于提交任务，提交后，会有一个jobmanage启动flink集群，分发任务，
+jobmanage启动若干个taskmanage来执行任务

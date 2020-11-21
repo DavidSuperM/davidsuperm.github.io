@@ -34,3 +34,14 @@ tinyint(4) | Integer | INTEGER
 int(11) | Integer | INTEGER
 bigint(20) | Long | BIGINT/INTEGER
 datetime |java.util.Date | TIMESTAMP
+
+# 小数类型用decimal
+【强制】小数类型为 decimal，禁止使用 float 和 double。
+说明：在存储的时候，float 和 double 都存在精度损失的问题，很可能在比较值的时候，得到不正确的
+结果。如果存储的数据范围超过 decimal 的范围，建议将数据拆成整数和小数并分开存储。
+
+用法：
+decimal(a,b)
+参数说明
+a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38，默认10
+b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。
