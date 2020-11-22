@@ -2,7 +2,7 @@
 参考官网
 <https://spring.io/guides/gs/spring-boot/>
 
-1. idea新建一个maven项目
+1. idea新建一个maven项目并添加.gitignore文件
 2. pom.xml加入以下依赖
 ```
 <?xml version="1.0" encoding="UTF-8"?>

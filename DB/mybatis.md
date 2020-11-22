@@ -1,3 +1,9 @@
+# xml形式和注解的sql开发对比
+注解sql：简洁，简单sql用注解
+xml：复杂sql的时候用xml
+xml配置需要在application.properties多加个mybatis.mapperLocations=classpath:mapper/*.xml 这个配置
+在Application类上多加个@MapperScan("com.example.dao")这个配置
+
 ## 1. foreach循环
 ## 1.1查询
 ```
