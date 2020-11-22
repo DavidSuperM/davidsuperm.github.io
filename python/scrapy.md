@@ -97,4 +97,5 @@ phantomjs使用需要注意的点：
 driver = webdriver.PhantomJS(desired_capabilities=cap)
 // driver.close() //并不会关闭进程
 drvier.quit()   //正确的退出用法
+// 频繁的使用也可以设为全局变量，一次初始化，永不关闭
 ```
