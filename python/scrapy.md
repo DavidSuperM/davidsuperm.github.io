@@ -92,4 +92,9 @@ sudo ln -sf /usr/local/app/.local/lib/python2.7/site-packages/phantomjs /usr/loc
 // linux下phantomjs截图会有字体乱码情况，需要安装下面的字体
 yum install bitmap-fonts bitmap-fonts-cjk
 ```
-
+phantomjs使用需要注意的点：
+```
+driver = webdriver.PhantomJS(desired_capabilities=cap)
+// driver.close() //并不会关闭进程
+drvier.quit()   //正确的退出用法
+```
