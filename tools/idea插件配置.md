@@ -547,6 +547,9 @@ public interface $!{tableName} {
 }
 ```
 
+5. generate code时配置package和path
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-11-25%20%E4%B8%8B%E5%8D%8811.29.57.png)
+
 
 
 
