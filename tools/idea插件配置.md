@@ -15,8 +15,9 @@
 自定义配置：
 1. easycode-MybatisCodeHelper->作者->david
 2. Type Mapper ->  添加： 
+
 |  columnType   | javaType |
-|  ----  | ----  |
+|----|----|
 | bigint(\(\d+\))? unsigned  | java.lang.Long |
 | tinyint  | java.lang.Integer |
 | tinyint(\(\d+\))?  | java.lang.Integer |
