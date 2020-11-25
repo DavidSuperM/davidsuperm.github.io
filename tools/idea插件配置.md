@@ -15,11 +15,18 @@
 自定义配置：
 1. easycode-MybatisCodeHelper->作者->david
 2. Type Mapper ->  添加： 
-bigint(\(\d+\))? unsigned    java.lang.Long
-tinyint                      java.lang.Integer
-tinyint(\(\d+\))?            java.lang.Integer
+|  columnType   | javaType |
+|  ----  | ----  |
+| bigint(\(\d+\))? unsigned  | java.lang.Long |
+| tinyint  | java.lang.Integer |
+| tinyint(\(\d+\))?  | java.lang.Integer |
+
 3. Global Config -> 添加：
-variable         #set($entityName = $tool.append($tableInfo.name, "DO"))
+variable         
+
+#set($entityName = $tool.append($tableInfo.name, "DO"))
+
+
 4. Template Setting -> 
 4.1 entity.java
 ```$xslt
