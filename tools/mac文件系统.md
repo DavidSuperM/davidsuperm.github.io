@@ -36,4 +36,20 @@ source ~/.bash_profile    // 立马生效
 这样关闭打开的iterm2，重新打开iterm2就生效了，也不用再额外手动执行source ~/.bash_profile
 
 
+## brew更换源
+####  更换为清华源
+```
+# 替换brew.git
+cd "$(brew --repo)"
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+
+# 替换homebrew-core.git
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+
+# 刷新源
+brew update
+```
+参考：<https://www.jianshu.com/p/bea984d27cd2>
+
 
