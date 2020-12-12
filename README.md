@@ -8,11 +8,15 @@
 
 - [mysql sql语法](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/mysql%20sql%E8%AF%AD%E6%B3%95.md)
 
+- [mysql安装-mac](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/mysql%E5%AE%89%E8%A3%85-mac.md)
+
 - [mysql设计规范](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/mysql%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.md)
 
-- [spring data elasticsearch增删改查](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/spring%20data%20elasticsearch%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5.md)
+- [redis使用]()
 
-- [mac安装redis](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/redis%E5%85%A5%E9%97%A8.md)
+- [redis安装-mac]()
+
+- [spring data elasticsearch增删改查](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/spring%20data%20elasticsearch%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5.md)
 
 ### fronted
 - [Vue前端exception](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/frontend/Vue%E5%89%8D%E7%AB%AFexception.md)
@@ -25,9 +29,22 @@
 - [git命令](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/git/git%E5%91%BD%E4%BB%A4.md)
 
 ### java
+
+- [.gitignore配置]()
+
 - [maven repository仓库远程请求依赖流程](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/java/maven%20repository%E4%BB%93%E5%BA%93%E8%BF%9C%E7%A8%8B%E8%AF%B7%E6%B1%82%E4%BE%9D%E8%B5%96%E6%B5%81%E7%A8%8B.md)
 
+- [serializable序列化的使用]()
+
+- [springboot入门]()
+
+- [springboot注解]()
+
 - [tool](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/java/tool.md)
+
+- [接口定义相关]()
+
+- [日志框架选型与使用]()
 
 ### linux
 - [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
@@ -50,6 +67,8 @@
 - [github页面绑定域名](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/github%E9%A1%B5%E9%9D%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D.md)
 
 - [idea完全卸载](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/idea%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD.md)
+
+- [idea插件配置]()
 
 - [mac idea快捷键](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/mac%20idea%E5%BF%AB%E6%8D%B7%E9%94%AE.md)
 
