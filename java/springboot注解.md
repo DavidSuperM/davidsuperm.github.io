@@ -46,3 +46,9 @@ public class UserInfoController {
 ```
 3. 使用Setter/Field注入
 
+## 时间字段与前端交互，设置特定格式
+```
+@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
+private LocalDateTime createTime;
+```
+

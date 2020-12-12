@@ -1,4 +1,4 @@
-## 1.得到指定date
+## 1.得到指定date  (现在不推荐用Date，改用LocalDateTime)
 ```
 //得到指定日期的0时0分0秒
 Date currentDate = new Date();
@@ -30,6 +30,47 @@ long m1 = date1.getTime();
 long m2 = date2.getTime(); 
 int diff = (m2 - m1)/1000
 ```
+
+## LocalDateTime
+1. 获取当前时间
+```
+LocalDateTime localDateTime = LocalDateTime.now()
+```
+2. 获取当前日期
+```
+LocalDate localDate = LocalDate.now();
+```
+3. 时间加减
+```
+localDateTime.minusDays(1);   // 前一天
+localDateTime.plusDays(1);    // 后一天
+```
+4. 获取时间戳
+```
+//获取秒数
+Long second = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
+//获取毫秒数
+Long milliSecond = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+```
+5. 时间字符串转换
+```
+// LocalDateTime转为String
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+String str = LocalDateTime.now().format(formatter);
+// String转LocalDateTime
+LocalDateTime localDateTime = LocalDateTime.parse("2018-07-28 14:11:15",  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+```
+
+6. 获取指定时间
+```
+LocalDateTime startTime = LocalDateTime.of(LocalDate.now(), LocalTime.MIN); //当天零点
+LocalDateTime startTime = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0).withNano(0); //当天零点
+LocalDateTime startTime = LocalDateTime.of(2020,12,12,0,0,0,0); //当天零点
+LocalDateTime endTime = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);  //当天结束时间 
+LocalDateTime endTime = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59).withNano(0);   //当天结束时间 其实withNano应该填很多9，但是因为mysql里timestamp精度只存到秒，所以毫秒设为0也可以
+LocalDateTime endTime = LocalDateTime.of(2020,12,12,23,59,59,0); //当天结束时间
+```
+
 
 ## json转换
 用jsckson(fastjson有漏洞)

@@ -11,6 +11,7 @@
 |command+option+L	|    格式化代码（不选中就是格式化整个文件）|
 |option+shift+c       |        查看recent changes|
 |ctrl+alt+t   |     添加try/catch的快捷键  |
+|command+enter   |     快速执行当前sql  |
 
 
 
@@ -25,6 +26,10 @@
 |command+shift+control+4   | 截图并复制到剪贴板|
 |command+space	|切换输入法|
 |command+f3 / fn+f11	|快速显示桌面  四指张开|
+|command + ←	| 快速移动光标到最左边 |
+|command + →	| 快速移动光标到最右边 |
+|command + shift + →	| 快速选中光标到最右边的内容 |
+|command + shift + ←	| 快速选中光标到最左边的内容 |
 
 # itemr2 zsh快捷键
 |------------------------------------|-----------------------------------|

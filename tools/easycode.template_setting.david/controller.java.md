@@ -44,7 +44,7 @@ public class $!{tableName} {
      */
     @GetMapping("/selectOne")
     public $!{entityName} getById(
-        @RequestParam("$!pk.shortType id") $!pk.shortType id
+        @RequestParam("id") $!pk.shortType id
 ) {
         return $!{tool.firstLowerCase($tableInfo.name)}Service.getById(id);
     }

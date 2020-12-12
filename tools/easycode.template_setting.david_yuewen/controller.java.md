@@ -46,7 +46,7 @@ public class $!{tableName} {
      */
     @GetMapping("/selectOne")
     public MessageResult<$!{entityName}> getById(
-        @RequestParam("$!pk.shortType id") $!pk.shortType id
+        @RequestParam("id") $!pk.shortType id
 ) {
         ServiceResult<$!{entityName}> serviceResult = $!{tool.firstLowerCase($tableInfo.name)}Service.getById(id);
         return MessageResult.create(serviceResult.getStatus(), serviceResult.getMsg(), serviceResult.getData());
