@@ -15,7 +15,7 @@ $!callback.setSavePath($tool.append($tableInfo.savePath, "/service/impl"))
 #if($tableInfo.savePackageName)package $!{tableInfo.savePackageName}.#{end}service.impl;
 
 import $!{tableInfo.savePackageName}.entity.$!{entityName};
-import $!{tableInfo.savePackageName}.dao.$!{tableInfo.name}Mapper;
+import $!{tableInfo.savePackageName}.dao.$!{tableInfo.name}Dao;
 import $!{tableInfo.savePackageName}.service.$!{tableInfo.name}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,11 +31,11 @@ import java.util.List;
 @Service("$!tool.firstLowerCase($!{tableInfo.name})Service")
 public class $!{tableName} implements $!{tableInfo.name}Service {
     
-    private final $!{tableInfo.name}Mapper $!tool.firstLowerCase($!{tableInfo.name})Mapper;
+    private final $!{tableInfo.name}Dao $!tool.firstLowerCase($!{tableInfo.name})Dao;
     
     @Autowired
-    public $!{tableName}($!{tableInfo.name}Mapper $!tool.firstLowerCase($tableInfo.name)Mapper){
-        this.$!tool.firstLowerCase($tableInfo.name)Mapper = $!tool.firstLowerCase($tableInfo.name)Mapper;
+    public $!{tableName}($!{tableInfo.name}Dao $!tool.firstLowerCase($tableInfo.name)Dao){
+        this.$!tool.firstLowerCase($tableInfo.name)Dao = $!tool.firstLowerCase($tableInfo.name)Dao;
     }
 
     /**
@@ -46,29 +46,30 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public $!{entityName} getById($!pk.shortType $!pk.name) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.getById($!pk.name);
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getById($!pk.name);
     }
     
     /**
      * 查询总数
      *
-     * @return 总数
+     * @return 实例对象
      */
     @Override
     public int getTotalNumber() {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.getTotalNumber();
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getTotalNumber();
     }
+
 
     /**
      * 查询多条数据
      *
-     * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param currentPage 当前页
+     * @param pageSize 一页大小
      * @return 对象列表
      */
     @Override
-    public List<$!{entityName}> getAllByLimit(int offset, int limit) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.getAllByLimit(offset, limit);
+    public List<$!{entityName}> getAllByPage(int currentPage, int pageSize) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByLimit((currentPage-1)*pageSize, pageSize);
     }
     
     /**
@@ -79,21 +80,23 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public List<$!{entityName}> getAllByCondition($!{entityName} $!tool.firstLowerCase($!{entityName})) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.getAllByCondition($!tool.firstLowerCase($!{entityName}));
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByCondition($!tool.firstLowerCase($!{entityName}));
     }
     
     /**
      * 条件+分页查询
      *
      * @param $!tool.firstLowerCase($!{entityName}) 条件
+     * @param currentPage 当前页
+     * @param pageSize 一页大小
      * @return 对象列表
      */
     @Override
-    public List<$!{entityName}> getAllByConditionLimit($!{entityName} $!tool.firstLowerCase($!{entityName}), int from, int limit) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.getAllByConditionLimit($!tool.firstLowerCase($!{entityName}), from, limit);
+    public List<$!{entityName}> getAllByPageCondition($!{entityName} $!tool.firstLowerCase($!{entityName}), int currentPage, int pageSize) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByConditionLimit($!tool.firstLowerCase($!{entityName}), (currentPage-1)*pageSize, pageSize);
     }
 
-    /**
+     /**
      * 新增数据
      *
      * @param $!tool.firstLowerCase($!{entityName}) 实例对象
@@ -101,20 +104,20 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public int insert($!{entityName} $!tool.firstLowerCase($!{entityName})) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.insert($!tool.firstLowerCase($!{entityName}));
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.insert($!tool.firstLowerCase($!{entityName}));
     }
     
     /**
-     * 新增数据
+     * 批量新增数据
      *
      * @param $!tool.firstLowerCase($!{entityName})List 实例对象
      * @return 影响行数
      */
     @Override
     public int insertList(List<$!{entityName}> $!tool.firstLowerCase($!{entityName})List) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.insertList($!tool.firstLowerCase($!{entityName})List);
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.insertList($!tool.firstLowerCase($!{entityName})List);
     }
-
+    
     /**
      * 修改数据
      *
@@ -123,7 +126,7 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public $!{entityName} update($!{entityName} $!tool.firstLowerCase($!{entityName})) {
-        $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.update($!tool.firstLowerCase($!{entityName}));
+        $!{tool.firstLowerCase($!{tableInfo.name})}Dao.update($!tool.firstLowerCase($!{entityName}));
         return this.getById($!{tool.firstLowerCase($!{entityName})}.get$!tool.firstUpperCase($pk.name)());
     }
 
@@ -135,7 +138,7 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      */
     @Override
     public boolean deleteById($!pk.shortType $!pk.name) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Mapper.deleteById($!pk.name) > 0;
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.deleteById($!pk.name) > 0;
     }
 }
 ```

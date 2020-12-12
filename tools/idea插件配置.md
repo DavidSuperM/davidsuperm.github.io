@@ -38,23 +38,6 @@ variable
 
 4. Template Setting -> 
 参考 easycode 文件夹下
-4.1 entity.java
-
-4.2 dao.java
-
-4.3 service.java
-
-4.4 serviceImpl.java
-
-4.5 controller.java
-
-4.6 mapper.xml
-
-4.7 debug.json   无改动
-
-4.8 annotationMapper.java
-
-4.9 annotationServiceImpl.java
 
 
 5. generate code时配置package和path

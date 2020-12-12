@@ -63,13 +63,13 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
     /**
      * 查询多条数据
      *
-     * @param from 查询起始位置
-     * @param limit 查询条数
+     * @param currentPage 当前页
+     * @param pageSize 一页大小
      * @return 对象列表
      */
     @Override
-    public List<$!{entityName}> getAllByLimit(int from, int limit) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByLimit(from, limit);
+    public List<$!{entityName}> getAllByPage(int currentPage, int pageSize) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByLimit((currentPage-1)*pageSize, pageSize);
     }
     
     /**
@@ -87,13 +87,13 @@ public class $!{tableName} implements $!{tableInfo.name}Service {
      * 条件+分页查询
      *
      * @param $!tool.firstLowerCase($!{entityName}) 条件
-     * @param from 查询起始位置
-     * @param limit 查询条数
+     * @param currentPage 当前页
+     * @param pageSize 一页大小
      * @return 对象列表
      */
     @Override
-    public List<$!{entityName}> getAllByConditionLimit($!{entityName} $!tool.firstLowerCase($!{entityName}), int from, int limit) {
-        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByConditionLimit($!tool.firstLowerCase($!{entityName}), from ,limit);
+    public List<$!{entityName}> getAllByPageCondition($!{entityName} $!tool.firstLowerCase($!{entityName}), int currentPage, int pageSize) {
+        return $!{tool.firstLowerCase($!{tableInfo.name})}Dao.getAllByConditionLimit($!tool.firstLowerCase($!{entityName}), (currentPage-1)*pageSize, pageSize);
     }
 
      /**
