@@ -12,6 +12,7 @@
 |option+shift+c       |        查看recent changes|
 |ctrl+alt+t   |     添加try/catch的快捷键  |
 |command+enter   |     快速执行当前sql  |
+|option+command+t   |     快速生成try catch  |
 
 
 

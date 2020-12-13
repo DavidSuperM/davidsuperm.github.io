@@ -98,3 +98,19 @@ objectNode.put(key,value);
 //对象转jsonstring
 String result = mapper.writeValueAsString(value);
 ```
+
+## java8 stream使用
+.stream可以将集合内的元素做转换
+.foreach不可用对原集合元素转换，但是可以操作取出的每个元素(如果取出的是对象，也可以改变对象的属性)
+```
+List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
+// 获取对应的平方数
+List<Integer> squaresList = numbers.stream().map( i -> i*i).collect(Collectors.toList());
+ 
+List<Integer> squaresList = numbers.stream().map( i -> {
+            i = i*i;
+            return i;
+        }).collect(Collectors.toList());
+
+numbers.forEach(i-> System.out.println(i));
+```

@@ -46,6 +46,7 @@
 
 - [日志框架选型与使用](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/java/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B%E4%B8%8E%E4%BD%BF%E7%94%A8.md)
 
+- [mysql唯一约束下的逻辑删除]()
 ### linux
 - [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
