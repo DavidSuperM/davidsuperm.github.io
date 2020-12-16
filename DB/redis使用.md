@@ -97,11 +97,11 @@ public class RedisConfig extends CachingConfigurerSupport {
         // 使用jsckson的序列化
         RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
         template.setConnectionFactory(redisConnectionFactory);
-        template.setKeySerializer(jackson2JsonRedisSerializer);
-        // 不要使用 template.setKeySerializer(new StringRedisSerializer()); 
-        // 因为如果这样配置了，用stringRedisTemplate.set("1","qqq"),再用redisTemplate.get("1")会抛异常
+        template.setKeySerializer(new StringRedisSerializer());
+        //  template.setKeySerializer(new StringRedisSerializer()); 这样配置了，用stringRedisTemplate.set("1","qqq"),再用redisTemplate.get("1")会抛异常
+        //  template.setKeySerializer(jackson2JsonRedisSerializer); 这样配置了，redis-cli客户端查询时所有key和value字符串显示为 "\"key\""  且查询方使用new         、、StringRedisSerializer()来序列化key的话是查不到这个key的
         template.setValueSerializer(jackson2JsonRedisSerializer);
-        template.setHashKeySerializer(jackson2JsonRedisSerializer);
+        template.setHashKeySerializer(new StringRedisSerializer());
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
         template.afterPropertiesSet();
         return template;
@@ -137,6 +137,16 @@ public class RedisConfig extends CachingConfigurerSupport {
 }
 
 ```
+
+也可以在对应的serviceImpl单独指定序列化方式
+@Autowired
+    public IpWhiteListServiceImpl(IpWhiteListMapper ipWhiteListMapper, RedisTemplate redisTemplate){
+        this.ipWhiteListMapper = ipWhiteListMapper;
+        this.redisTemplate = redisTemplate;
+        this.redisTemplate.setKeySerializer(new StringRedisSerializer());
+        this.redisTemplate.setValueSerializer(new StringRedisSerializer());
+    }
+
 
 3. 使用
 ```
