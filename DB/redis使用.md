@@ -6,6 +6,7 @@
 redis-cli 
 keys *
 del 1
+flushdb  // 删除当前库的所有key
 
 字符串操作
 set 1 qqq
