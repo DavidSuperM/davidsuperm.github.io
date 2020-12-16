@@ -138,7 +138,8 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 ```
 
-也可以在对应的serviceImpl单独指定序列化方式
+也可以在对应的serviceImpl构造函数单独指定序列化方式
+```
 @Autowired
     public IpWhiteListServiceImpl(IpWhiteListMapper ipWhiteListMapper, RedisTemplate redisTemplate){
         this.ipWhiteListMapper = ipWhiteListMapper;
@@ -146,7 +147,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         this.redisTemplate.setKeySerializer(new StringRedisSerializer());
         this.redisTemplate.setValueSerializer(new StringRedisSerializer());
     }
-
+```
 
 3. 使用
 ```
