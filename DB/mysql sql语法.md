@@ -45,7 +45,9 @@ alter table tableName add unique key [indexName] (username(length))   // 增加�
 alter table tableName drop index indexName;     //删除索引,删除唯一索引，删除唯一约束
 ```
 
-
+## mysql explain
+<https://www.jianshu.com/p/ea3fc71fdc45>
+<https://www.cnblogs.com/xuanzhi201111/p/4175635.html>
 
 
 
