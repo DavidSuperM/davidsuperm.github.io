@@ -20,9 +20,18 @@ which flink   // 查找flink位置
 
 - 杀掉端口对应的进程 5005是进程号
 ```
-kill -9 5005
-killall python   // 杀掉所有python的进程?
+ps -ef | grep banned
+
+502 96445 94824   0  6:19下午 ttys004    0:00.04 python -u banned_book_incremental_spider_start.py
+
+kill -9 96445
+killall python   // 杀掉所有python的进程
+pkill -f python
+pkill -f banned
 ```
+killall和pkill是相似的,不过如果给出的进程名不完整，killall会报错。pkill或者pgrep只要给出进程名的一部分就可以终止进程。
+pkill = pgrep + kill
+pgrep = ps + grep
 
 - 查看服务器运行状况
 ```
