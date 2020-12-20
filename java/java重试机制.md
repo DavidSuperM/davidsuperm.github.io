@@ -1,5 +1,11 @@
 # java重置机制
 
+### 背景
+在调用第三方接口或者使用mq时，会出现网络抖动，连接超时等网络异常，所以需要重试。为了使处理更加健壮并且不太容易出现故障，后续的尝试操作，有时候会帮助失败的操作最后执行成功。
+
+### 原理
+本质是在一个while循环里，业务execute成功则break,若失败，则sleep几秒，重试次数++,再次execute,当达到重试次数阈值时break
+
 ## spring-retry 
 
 1. pom添加依赖
@@ -55,3 +61,8 @@ application.properties添加以下内容
 ```
 logging.level.org.springframework.retry.support=debug
 ```
+
+
+参考
+<https://juejin.cn/post/6844904102468517895>
+<https://juejin.cn/post/6844903603862257677>

@@ -16,7 +16,7 @@ for file in `find ./log/ -type f -name "*"`
     done
 ```
 
-# 守护进程，如果spider_start_script python脚本挂了，自动启动，配合crontab使用
+# 守护进程，如果spider_start_script python脚本挂了，自动启动，配合crontab使用(crontab使用详见同级目录下linux命令文章里)
 新建monitor.sh
 ```
 #!/bin/sh
