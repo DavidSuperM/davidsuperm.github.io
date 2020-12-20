@@ -13,6 +13,7 @@
 |ctrl+alt+t   |     添加try/catch的快捷键  |
 |command+enter   |     快速执行当前sql  |
 |option+command+t   |     快速生成try catch  |
+|option+command+l   |     格式化当前页面的代码（不需要全选中，默认格式化光标所在文件） |
 
 
 
