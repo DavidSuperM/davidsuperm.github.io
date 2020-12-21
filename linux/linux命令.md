@@ -55,16 +55,13 @@ ps -ef | grep python    //筛选出有python关键字的
 - 查看文件内容
 ```
 cat test.log
-cat log.txt | grep 'Exception'
-grep ‘123’ test.log
-grep -10 ‘123’ test.log   //打印匹配行的前后各10行
-```
-
-- 查看最后200行
-```
+cat test.log | grep 'Exception'
+cat test.log | grep -10 'Exception' //打印匹配行的前后各10行
+head -100 test.log    // 查看前100行
+head -n 100 test.log
+tail -100 test.log    //查看最后100行
 tail -200f log.txt   //滚动查看最后200行 -f表示循环读取
 tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可以在文件里永久配置
-tail -200 test.log   //不滚动查看最后200行.   = tail -n 200 test.log
 ```
 
 - 删除
