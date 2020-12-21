@@ -56,12 +56,17 @@ ps -ef | grep python    //筛选出有python关键字的
 ```
 cat test.log
 cat test.log | grep 'Exception'
+grep 'Exception' test.log
 cat test.log | grep -10 'Exception' //打印匹配行的前后各10行
+
 head -100 test.log    // 查看前100行
 head -n 100 test.log
+
 tail -100 test.log    //查看最后100行
 tail -200f log.txt   //滚动查看最后200行 -f表示循环读取
 tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可以在文件里永久配置
+
+cat tmp.txt | grep 'qidian' | tail -2     // 查看匹配的最后2行
 ```
 
 - 删除
