@@ -99,13 +99,25 @@ public class RedisConfig extends CachingConfigurerSupport {
         template.setConnectionFactory(redisConnectionFactory);
         template.setKeySerializer(new StringRedisSerializer());
         //  template.setKeySerializer(new StringRedisSerializer()); 这样配置了，用stringRedisTemplate.set("1","qqq"),再用redisTemplate.get("1")会抛异常
-        //  template.setKeySerializer(jackson2JsonRedisSerializer); 这样配置了，redis-cli客户端查询时所有key和value字符串显示为 "\"key\""  且查询方使用new         、、StringRedisSerializer()来序列化key的话是查不到这个key的
+        //  template.setKeySerializer(jackson2JsonRedisSerializer); 这样配置了，redis-cli客户端查询时所有key和value字符串显示为 "\"key\""  且查询方使用new StringRedisSerializer()来序列化key的话是查不到这个key的
         template.setValueSerializer(jackson2JsonRedisSerializer);
         template.setHashKeySerializer(new StringRedisSerializer());
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
         template.afterPropertiesSet();
         return template;
     }
+
+    /** 
+    @Bean
+    public RedisTemplate<String, Serializable> redisCacheTemplate(LettuceConnectionFactory connectionFactory) {
+
+        RedisTemplate<String, Serializable> template = new RedisTemplate<>();
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        template.setConnectionFactory(connectionFactory);
+        return template;
+    }
+    */
 
     @Bean
     @ConditionalOnMissingBean(StringRedisTemplate.class)

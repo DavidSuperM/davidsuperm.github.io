@@ -128,6 +128,94 @@ crontab -e
 ```
 语句复制进去的可能不能保存成功，需要手打，因为复制进去的可能会有乱码不合适的字符看不见
 
+## top命令解析
+![top命令](图片链接地址)
+
+top命令扩展（在进入top后使用）
+P：以占据CPU百分比排序
+M：以占据内存百分比排序
+T：以累积占用CPU时间排序
+1: 查看每个cpu运行情况（逻辑cpu）
+
+#### 第1行
+|  23:49:09   | up 94 days,7:21  | 11users | load average 2.59,2.80,2.72 |
+|  ----  | ----  | ----  | ----  |
+| 当前系统时间  | 系统已运行时间 | 当前11个用户登录系统 | cpu 1分钟，5分钟，10分钟的负载情况 |
+
+> 负载：假如是单核cpu，load=0.5表示cpu还有一半的资源可用处理其他的进程请求，load=1表示CPU所有的资源都在处理请求，没有剩余的资源可以利用了，而load=2则表示CPU已经超负荷运作，另外还有一倍的线程正在等待处理。
+> 所以，对于单核机器来说，理想状态下，Load Average要小于1。同理，对于4核处理器来说，cpu满载时 Load Average是4。
+
+#### 第2行
+|  Tasks 438 total   | 5 running | 380 sleeping | 34 stopped | 19 zombie |
+|  ----  | ----  | ----  | ----  | ----  | 
+| 系统共有438多个进程  | 正在运行 | 休眠 | 停止 | 僵尸进程数 |
+
+>僵尸进程:一个子进程在其父进程没有调用wait()或waitpid()的情况下退出。这个子进程就是僵尸进程。如果其父进程还存在而一直不调用wait，则该僵尸进程将无法回收，等到其父进程退出后该进程将被init回收。
+
+#### 第3行
+|  %Cpu(s) 12.1 us   | 0.7 sy | 0.0 ni | 87.0 id | 0.0 wa | 0.0 hi | 0.2 si | 0.0 st |
+|  ----  | ----  | ----  | ----  | ----  |  
+| 用户空间占用CPU的百分比 | 内核空间占用CPU的百分比 | 改变过优先级的进程占用CPU的百分比 | 空闲CPU百分比 | IO等待占用CPU的百分比 | 硬中断（Hardware IRQ）占用CPU的百分比 | 软中断（Software Interrupts）占用CPU的百分比 | 这个虚拟机被hypervisor偷去的CPU时间（译注：如果当前处于一个hypervisor下的vm，实际上hypervisor也是要消耗一部分CPU处理时间的） |
+
+>Cpu(s)表示的是 所有用户进程占用整个cpu(逻辑cpu)的平均值，由于每个核心占用的百分比不同，所以按平均值来算比较有参考意义
+
+> cpu利用率和负载的意义区别
+CPU利用率反映的是CPU被使用的情况。而Load Average却从另一个角度来展现对于CPU使用状态的描述，Load Average越高说明对于CPU资源的竞争越激烈，CPU资源比较短缺。
+
+#### 第4行
+|  KiB Mem 32606428 total | 6649240 free  | 5945196 used | 20011992 buff/cache | 
+|  ----  | ----  | ----  | ----  | ----  | 
+| 内存总量  | 空闲内存 | 已使用内存 | 缓存的内存量 | 
+
+#### 第5行
+|  KiB Swap 0 total | 0 free  | 0 used | 26117616 availMem | 
+|  ----  | ----  | ----  | ----  | ----  | 
+| 交换区总量  | 交换区空闲量 | 交换区使用量 | 可用内存量 |
+
+#### 第6行
+|  PID | USER  | PR | NI | VIRT | RES | SHR | S | %CPU | %MEM | TIME+ | COMMAND |
+|  ----  | ----  | ----  | ----  | ----  | 
+| 进程ID  | 进程创建者 | 进程优先级 | nice值。越小优先级越高，最小-20，最大20（用户设置最大19） | 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES | 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA | 共享内存大小，单位kb |  进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程 | 进程占用cpu百分比 | 进程占用内存百分比 | 进程运行时间 | 进程名称 |
+ 
+>PR 越低优先级 越高，PRI(new)=PRI(old)+nice
+ PR中的rt为实时进程优先级即rt_priority，prio=MAX_RT_PRIO - 1- p->rt_priority
+ MAX_RT_PRIO = 99，prio大小决定最终优先级。这样意味着rt_priority值越大，优先级越高而内核提供的修改优先级的函数，是修改rt_priority的值，所以越大，优先级越高。
+ 例：改变优先级：进入top后按“r”–>输入进程PID–>输入nice值
+
+> %CPU显示的是进程占用一个核（逻辑核）的百分比，而不是整个cpu（16核）的百分比，有时候可能大于100，那是因为该进程启用了多线程占用了多个核心，所以有时候我们看该值得时候会超过100%，但不会超过总核数*100。
+ 
+## 查看cpu信息
+- 物理cpu的个数
+```
+cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+```
+
+- 每个cpu物理核的个数
+```
+cat /proc/cpuinfo |grep "cores"|uniq
+```
+
+- 逻辑CPU的个数
+```
+cat /proc/cpuinfo |grep "processor"|wc -l
+```
+
+- 查看cpu信息
+```
+cat /proc/cpuinfo
+```
+![cpu信息]()
+processor : 逻辑cpu的编号
+physical id ： 物理cpu的id
+cpu cores ： 物理cpu的每个cpu的核心数
+
+上面top命令解析中指的cpu都是逻辑cpu
+
+逻辑CPU数量=物理cpu数量 x cpu cores x 2(如果支持并开启ht,ht是inter的超线程技术，它可以在逻辑上分一倍数量的cpu出来)
+
+
+
+
 ## SecureCRT操作
 ```
 Ctrl + a ：移到命令行首
