@@ -129,7 +129,7 @@ crontab -e
 语句复制进去的可能不能保存成功，需要手打，因为复制进去的可能会有乱码不合适的字符看不见
 
 ## top命令解析
-![top命令](图片链接地址)
+![top命令](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20201231_top%E5%91%BD%E4%BB%A4.png)
 
 top命令扩展（在进入top后使用）
 P：以占据CPU百分比排序
@@ -204,7 +204,7 @@ cat /proc/cpuinfo |grep "processor"|wc -l
 ```
 cat /proc/cpuinfo
 ```
-![cpu信息]()
+![cpu信息](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20210101_cpu_info.png)
 processor : 逻辑cpu的编号
 physical id ： 物理cpu的id
 cpu cores ： 物理cpu的每个cpu的核心数
