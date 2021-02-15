@@ -41,8 +41,9 @@ alter table tableName modify column columnName varchar(2048) COLLATE utf8mb4_uni
 - 索引
 //todo 添加唯一性约束和唯一索引
 ```
-alter table tableName add index indexName(name)    // 增加普通索引
-alter table tableName add unique key [indexName] (username(length))   // 增加唯一约束
+alter table tableName add index indexName(列名)    // 增加普通索引
+alter table tableName add index indexName(列名1，列名2，列名3)    // 增加联合索引
+alter table tableName add unique key [indexName] (列名(length))   // 增加唯一约束
 alter table tableName drop index indexName;     //删除索引,删除唯一索引，删除唯一约束
 ```
 
@@ -50,6 +51,21 @@ alter table tableName drop index indexName;     //删除索引,删除唯一索�
 <https://www.jianshu.com/p/ea3fc71fdc45>
 <https://www.cnblogs.com/xuanzhi201111/p/4175635.html>
 
+## explain和limit
+```
+explain select * from user limit 0,10;
+// 会发现rows预计扫描有几百万行（假设user表有几百万数据）
+```
+当explain遇上limit时，rows的值和limit没有关系，加不加limit，rows值不变。
+explain分析的rows行数只和索引有关，来采样预估需要扫描的行数，和limit没有关系。
+
+
+## mysql查看表数据和索引占用空间大小
+```
+use information_schema;
+// table_schema填DB名，table_name填表名
+select table_name, table_rows,data_length,index_length from tables where table_schema = 'test_db' and table_name='pirate_book_chapter_update';
+```
 
 
 

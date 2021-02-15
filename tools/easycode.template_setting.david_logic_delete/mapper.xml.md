@@ -57,7 +57,7 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         from $!{tableInfo.obj.parent.name}.$!tableInfo.obj.name
         <where>
 #foreach($column in $tableInfo.fullColumn)
-            <if test="$!column.name != null">
+            <if test="$!column.name != null #if($column.type.equals("java.lang.String")) and $!column.name != '' #end ">
                 and $!column.obj.name = #{$!column.name}
             </if>
 #end
@@ -74,7 +74,7 @@ $!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
         from $!{tableInfo.obj.parent.name}.$!tableInfo.obj.name
         <where>
 #foreach($column in $tableInfo.fullColumn)
-            <if test="$!tool.firstLowerCase($!{entityName}).$!column.name != null">
+            <if test="$!tool.firstLowerCase($!{entityName}).$!column.name != null and $!tool.firstLowerCase($!{entityName}).$!column.name != '' ">
                 and $!column.obj.name = #{$!tool.firstLowerCase($!{entityName}).$!column.name}
             </if>
 #end

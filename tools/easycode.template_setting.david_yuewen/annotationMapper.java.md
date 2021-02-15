@@ -1,5 +1,5 @@
 ```
-$!variable
+$!variable 
 ##定义初始变量
 #set($tableName = $tool.append($tableInfo.name, "Mapper"))
 ##设置回调
@@ -79,7 +79,7 @@ public interface $!{tableName} {
     @Select("<script>" + 
         "select $!{columnList} from $!tableInfo.obj.name where 1=1 and status!=-1" + 
         #foreach($column in $tableInfo.fullColumn)
-        "<if test='$!column.name != null'> and $!column.obj.name = #{$!column.name} </if>" +
+        "<if test='$!column.name != null #if($column.type.equals("java.lang.String")) and $!column.name != \"\" #end '> and $!column.obj.name = #{$!column.name} </if>" +
         #end
         "</script>")
     List<$!{entityName}> getAllByCondition($!{entityName} $!tool.firstLowerCase($!{entityName}));
@@ -95,7 +95,7 @@ public interface $!{tableName} {
     @Select("<script>" + 
         "select $!{columnList} from $!tableInfo.obj.name where 1=1 and status!=-1" + 
         #foreach($column in $tableInfo.fullColumn)
-        "<if test='$!tool.firstLowerCase($!{entityName}).$!column.name != null'> and $!column.obj.name = #{$!tool.firstLowerCase($!{entityName}).$!column.name} </if>" +
+        "<if test='$!tool.firstLowerCase($!{entityName}).$!column.name != null and $!tool.firstLowerCase($!{entityName}).$!column.name != \"\"'> and $!column.obj.name = #{$!tool.firstLowerCase($!{entityName}).$!column.name} </if>" +
         #end
         " limit #{from},#{limit}"+
         "</script>")
@@ -136,7 +136,7 @@ public interface $!{tableName} {
     @Update("<script> "+
     "update $!{tableInfo.obj.name} set " +
     #foreach($column in $tableInfo.otherColumn)
-    "<if test='$!column.name != null'> $!column.obj.name = #{$!column.name},</if>"+
+    "<if test='$!column.name != null #if($column.type.equals("java.lang.String")) and $!column.name != \"\" #end '> $!column.obj.name = #{$!column.name},</if>"+
     #end
     "$!pk.obj.name = #{$!pk.name} where $!pk.obj.name = #{$!pk.name}" +
     "</script>")

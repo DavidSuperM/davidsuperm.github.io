@@ -17,7 +17,10 @@
 - [redis安装-mac](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/redis%E5%AE%89%E8%A3%85-mac.md)
 
 - [spring data elasticsearch增删改查](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/spring%20data%20elasticsearch%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5.md)
+
 - [mysql配置]()
+
+- [mysql分区分表分库方案]()
 
 ### fronted
 - [Vue前端exception](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/frontend/Vue%E5%89%8D%E7%AB%AFexception.md)
@@ -70,6 +73,8 @@
 - [全局捕获异常]()
 
 - [springboot配置多数据源]()
+
+- [java开发规范]()
 
 ### linux
 - [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)

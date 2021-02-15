@@ -18,10 +18,12 @@
 
 |  columnType   | javaType |
 |----|----|
-| bigint(\(\d+\))? unsigned  | java.lang.Long |
+| bigint(\\(\\d+\\))? unsigned  | java.lang.Long |
 | tinyint  | java.lang.Integer |
-| tinyint(\(\d+\))?  | java.lang.Integer |
+| tinyint(\\(\\d+\\))?  | java.lang.Integer |
 | date  | java.time.LocalDate |
+
+> 看源码的话注意上面的斜杠 \\ 是加了转义的
 
 Type Mapper ->  修改： 
 

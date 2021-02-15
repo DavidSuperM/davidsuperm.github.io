@@ -35,3 +35,10 @@ xml配置需要在application.properties多加个mybatis.mapperLocations=classpa
         </foreach >
     </insert >
 ```
+
+## mybatis增删改查的返回值含义
+insert:    返回值int代表影响的行数
+update:    返回int代表匹配的行数 （如果更新值和原值一样，mysql在binlog_format和binlog_row_image不同值配置下表现不同，会真的更新值或者不更新直接返回）
+delete:    返回值int代表影响的行数
+（如果想要update返回值表示是影响的行数，需要在连接数据库时加上参数 jdbc:mysql://${jdbc.host}/${jdbc.db}?useAffectedRows=true）
+（如果想要insert返回插入后的主键，需要xml包含<selectKey>语句）
