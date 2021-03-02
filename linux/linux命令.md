@@ -79,9 +79,17 @@ rm -r *        //删除当前目录下的所有东西
 - 命令行curl请求
 ```
 // get
-curl 'http://9.155.22.33:10099/pirate/book?pageSize=10&currentPage=1'
-// post
-curl -d "pageSize=10&currentPage=1&bookName='临渊行'&pirateSiteUrl='www.tianxiabachang.cn'" http://9.155.22.33:10099/pirate/delay
+curl http://9.155.22.33:10099/pirate/book?pageSize=10&currentPage=1
+// post requestParam
+curl http://127.0.0.1:8080/test -X POST -d "pageSize=10&currentPage=1&bookName='临渊行'&pirateSiteUrl='www.tianxiabachang.cn'" 
+// post requestBody
+curl http://127.0.0.1:8080/test -X POST -H "Content-type:application/json"  -d '{"id":1,"name":qdw}'
+// curl设置代理 -x可以换成--proxy ，http:// 是代理的协议，也可能是 https:// socks4://  socks5:// 等   (有待验证)
+curl -x http://43.243.166.221:8080 www.baidu.com
+curl --proxy 43.243.166.221:8080 www.baidu.com
+// curl代理设置用户名密码    (有待验证)
+curl -x http://name:pwd@127.1.1.2:8080 http://127.0.0.1:8080/test
+curl -x http://127.1.1.2:8080 -U name:pwd http://127.0.0.1:8080/test
 ```
 
 - pip更改下载源
@@ -244,7 +252,10 @@ cpu cores ： 物理cpu的每个cpu的核心数
 
 逻辑CPU数量=物理cpu数量 x cpu cores x 2(如果支持并开启ht,ht是inter的超线程技术，它可以在逻辑上分一倍数量的cpu出来)
 
-
+- 重命名文件 
+```
+mv file1 file2
+```
 
 
 ## SecureCRT操作
