@@ -67,6 +67,14 @@ use information_schema;
 select table_name, table_rows,data_length,index_length from tables where table_schema = 'test_db' and table_name='pirate_book_chapter_update';
 ```
 
+## mysql select默认不一定按主键id排序
+不加order by的话，select查出数据的顺序和用的索引有关。
+如果是select * from user_info; 用全表扫描，不用索引，数据是按主键id顺序查出。
+如果是select id from user_info limit 10; 查出数据没按主键id顺序，那我们用explain看下会发现这条语句是用了除主键外的其他索引。
+所以要保持有序，手动加上order by 
+
+## 
+select 大字段会导致慢，因为数据大，可能站多个数据快，io次数就多
 
 
 

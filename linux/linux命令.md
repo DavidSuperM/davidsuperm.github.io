@@ -257,6 +257,9 @@ cpu cores ： 物理cpu的每个cpu的核心数
 mv file1 file2
 ```
 
+- 创建文件夹
+mkdir floderName
+
 
 ## SecureCRT操作
 ```
@@ -283,6 +286,9 @@ sz  filename   //下载到默认地址
 ```
 默认地址设置：
 Options->Session Options->Terminal->X/Y/ZModem->Download
+
+> rz中的r意为received（接收），意为服务器接收文件，上传。
+   sz中的s意为send（发送），意为服务器要发送文件,下载。
 
 3.双击复制并打开新session:
 options -> global options -> Terminal -> Tabs 选择Double-click action的下拉框为Clone tab，这样就可以在已经打开的session标签中鼠标双击，打开一个完全一样的新session标签。 
