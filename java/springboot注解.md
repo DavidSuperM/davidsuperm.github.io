@@ -52,3 +52,12 @@ public class UserInfoController {
 private LocalDateTime createTime;
 ```
 
+# 问题
+问题：springboot后端变量大写，返回给前端会变成小写
+原因：spring在序列化和反序列化时做了处理
+解决：变量上加注解
+
+```
+@JsonProperty("PEOPLEName")
+private String peopleName;
+```

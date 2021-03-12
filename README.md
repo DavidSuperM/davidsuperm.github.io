@@ -29,6 +29,8 @@
 
 - [前端调试](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/frontend/%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95.md)
 
+- [前端知识点]()
+
 ### git
 - [git命令](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/git/git%E5%91%BD%E4%BB%A4.md)
 
@@ -76,6 +78,8 @@
 
 - [java开发规范]()
 
+- [http请求]()
+
 ### linux
 - [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
@@ -89,6 +93,8 @@
 - [kafka入门](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/middleware/kafka%E5%85%A5%E9%97%A8.md)
 
 - [flink入门](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/middleware/flink%E5%85%A5%E9%97%A8.md)
+
+- [sharding-proxy安装配置]()
 
 ### python
 - [scrapy](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/python/scrapy.md)
@@ -105,6 +111,8 @@
 - [mac文件系统](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/mac%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.md)
 
 - [md语法](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/md%E8%AF%AD%E6%B3%95.md)
+
+- [测试压测工具]() 
 
 ### 面试
 - [面试](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95.md)

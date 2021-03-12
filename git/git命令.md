@@ -115,3 +115,10 @@ git push
 git remote -v
 git remote rm origin
 ```
+
+- 查看分支关系
+```
+gitk --simplify-by-decoration --all
+// 或者idea里git窗口
+// gitk如果没有安装，用 brew install git-gui 安装
+```

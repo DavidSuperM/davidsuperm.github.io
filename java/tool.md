@@ -63,7 +63,7 @@ LocalDateTime localDateTime = LocalDateTime.parse("2018-07-28 14:11:15",  DateTi
 
 6. 获取指定时间
 ```
-LocalDateTime startTime = LocalDateTime.of(LocalDate.now(), LocalTime.MIN); //当天零点
+LocalDateTime startTime = LocalDateTime.of(LocalDate.now(), LocalTime.MIN); //当天零点,当天0点
 LocalDateTime startTime = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0).withNano(0); //当天零点
 LocalDateTime startTime = LocalDateTime.of(2020,12,12,0,0,0,0); //当天零点
 LocalDateTime endTime = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);  //当天结束时间 
@@ -83,10 +83,11 @@ LocalDateTime endTime = LocalDateTime.of(2020,12,12,23,59,59,0); //当天结束�
 </dependency>
 
 private ObjectMapper mapper = new ObjectMapper();
-
-// jsonstring转对象
+// json字符串转对象
 User user = mapper.readValue(json, User.class);
-//jsonstring转json对象
+// 对象转json字符串
+String result = mapper.writeValueAsString(value);
+// json字符串转json对象
 JsonNode jsonNode = mapper.readTree(json);
 JsonNode j2 = jsonNode.get("f2");
 String f2Str = jsonNode.get("f2").asText();
@@ -95,8 +96,18 @@ int    f2Int = jsonNode.get("f2").asInt();
 long   f2Lng = jsonNode.get("f2").asLong();
 ObjectNode objectNode = (ObjectNode) jsonNode;
 objectNode.put(key,value);
-//对象转jsonstring
-String result = mapper.writeValueAsString(value);
+// json对象转json字符串
+String res = jsonNode.toString();
+// jackson构建json对象
+ObjectNode objectNode = mapper.createObjectNode();
+objectNode.put("id","3");
+System.out.println(objectNode.toString());
+// jackson构建json数组
+ObjectNode objectNode = mapper.createObjectNode();
+ArrayNode arrayNode = objectNode.putArray("arr1");
+arrayNode.add("3");
+arrayNode.add("4");
+System.out.println(arrayNode.toString());
 ```
 
 ## java8 stream使用
@@ -113,4 +124,18 @@ List<Integer> squaresList = numbers.stream().map( i -> {
         }).collect(Collectors.toList());
 
 numbers.forEach(i-> System.out.println(i));
+```
+
+## UUID
+### 定义
+UUID(Universally Unique Identifier)全局唯一标识符,是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是唯一的。
+UUID是一个128位长的数字，一般用16进制表示。算法的核心思想是结合机器的网卡、当地时间、一个随即数来生成UUID。从理论上讲，如果一台机器每秒产生10000000个UUID，则可以保证（概率意义上）3240年不重复。
+### 使用
+```
+String uuid = UUID.randomUUID().toString();
+
+// 结果
+d0cd48ef-313a-405c-ac76-12cce5657dca
+d7e1e24b-9574-4ea0-a08f-4cfa6965035f
+c6b75eef-f6ca-4963-8c4f-26b72cb15eee
 ```

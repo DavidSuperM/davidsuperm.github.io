@@ -1,4 +1,18 @@
 # springboot入门
+
+# 新建springboot项目
+## 第一种
+File->new->project -> Spring Intializr & 1.8 & -> 配置 maven jar 8  name 等等 -> custom http://start.spring.io  -> web & spring web & 2.4.3 ->project name
+但是这种会报 https://start.spring.io 连接不上的错误
+
+## 第二种
+chrome登录https://start.spring.io
+![]()
+选好配置后generate，自动下载zip,解压后idea打开，删除掉 .mvn mvnw mvnw.cmd 三个文件即可
+
+## 第三种
+手动新建maven项目，添加依赖，如下：
+
 参考官网
 <https://spring.io/guides/gs/spring-boot/>
 

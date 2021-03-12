@@ -1,4 +1,4 @@
-## 修改hosts
+## 修改hosts(mac host)
 ```
 vim /etc/hosts
 ```

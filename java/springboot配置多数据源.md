@@ -8,7 +8,7 @@ spring.datasource.username=root
 spring.datasource.password=qianwei
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
-# 输出mysql sql日志
+# 输出mysql sql日志，打印sql
 logging.level.com.example.dao=debug
 
 ## Mybatis 配置  xml-sql的形式就要配置这个 否则会报BindingException: Invalid bound statement (not found) 错误

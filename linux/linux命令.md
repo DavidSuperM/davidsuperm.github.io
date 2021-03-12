@@ -15,7 +15,20 @@ nc -l 9000
 ```
 ls
 ll
-which flink   // 查找flink位置
+```
+
+- 查找文件
+```
+find /dir -name filename  在/dir目录及其子目录下面查找名字为filename的文件
+find . -name "*.c" 在当前目录及其子目录（用“.”表示）中查找任何扩展名为“c”的文件
+```
+参考 <https://blog.csdn.net/wzzfeitian/article/details/40985549>
+
+
+- 查找Path里的命令
+```
+which mysql
+// which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。
 ```
 
 - 杀掉端口对应的进程 5005是进程号
@@ -72,8 +85,12 @@ cat tmp.txt | grep 'qidian' | tail -2     // 查看匹配的最后2行
 
 - 删除
 ```
+rm file1
 rm -rf test     // 删除test文件夹以及里面的内容  -f：强制删除文件或目录；-r或-R：递归处理，将指定目录下的所有文件与子目录一并处理；
 rm -r *        //删除当前目录下的所有东西
+// 删除乱码文件
+ls -i      // 第一列数字就是文件的inode，然后替换下方的数字
+find -inum 531106 -delete    //只能删除文件和空文件夹
 ```
 
 - 命令行curl请求
@@ -90,7 +107,19 @@ curl --proxy 43.243.166.221:8080 www.baidu.com
 // curl代理设置用户名密码    (有待验证)
 curl -x http://name:pwd@127.1.1.2:8080 http://127.0.0.1:8080/test
 curl -x http://127.1.1.2:8080 -U name:pwd http://127.0.0.1:8080/test
+// 带Cookie
+curl  http://127.1.1.2:8080 -H "Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+     Accept-Encoding:gzip, deflate, sdch
+     Accept-Language:zh-CN,zh;q=0.8,en;q=0.6
+     Authorization:Digest username="admin", realm="UTT", nonce="4bea64239fe34c7d68ececbe053f9eb4", uri="/WANConfig.asp", algorithm=MD5, response="f2b1aed87b72e0e27f2a12647b0d150d", opaque="5ccc069c403ebaf9f0171e9517f40e41", qop=auth, nc=000002c5, cnonce="7f2abdd864b961a5"
+     Cache-Control:max-age=0
+     Connection:keep-alive
+     Cookie:COOKIE=c0a8016400000c00; language=zhcn; utt_bw_rdevType=
+     Host:192.168.1.1
+     Upgrade-Insecure-Requests:1
+     User-Agent:Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
 ```
+
 
 - pip更改下载源
 ```
@@ -102,11 +131,14 @@ pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
 mysql -h host -P 8008 --default-character-set=utf8 -uuser -pqdw -Dtest_table;
 ```
 
-## 导出mysql表数据
+## 导出mysql表数据 （倒数据）
 ```
-select * from pirate_book_chapter_update into outfile /tmp/project/chapter.xls //需要有权限
+// 导sql数据，需要权限
+select * from pirate_book_chapter_update into outfile /tmp/project/chapter.xls 
+// 导全表数据
 mysqldump -u[Mysql用户名] -h[mysqlIP] -P[mysql端口] -p[mysql密码] --default-character-set=utf8 --skip-opt --create-options -q -B --databases [库名] --tables [表名] --skip-tz-utc >>/tmp/project/table.sql
 //--skip-tz-utc 是因为不加的话，导出来的timestamp时间会少8个小时
+// 导sql数据
 mysql -h[mysqlIp] -u[用户名] -p[密码] -P[端口] --default-character-set=utf8 -e"use database1;select * from user  where status=1" > /data/user/data1.xlsx
 ```
 
@@ -127,6 +159,18 @@ source ~/.bash_profile    //让环境 变量立即生效，不然就是下次重
 vim /etc/profile    
 export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib
 source /etc/profile
+
+## 移动文件 
+mv file1 file2
+
+
+
+## 解压文件
+```
+unzip filename.zip
+tar -zxvf filename.tar.gz
+```
+
 
 ## crontab定时任务
 ```
@@ -254,11 +298,40 @@ cpu cores ： 物理cpu的每个cpu的核心数
 
 - 重命名文件 
 ```
-mv file1 file2
+mv ~/file1 ~/file2
 ```
 
 - 创建文件夹
+```
 mkdir floderName
+```
+
+- 创建文件
+```
+touch file1.txt
+```
+
+## 查看文件大小
+```
+ll
+ls  -lht 
+```
+
+## 脚本判断进程是否存在
+touch monitor.sh
+```
+#!/bin/sh
+source /etc/profile
+
+# 判断是否启动了sharding-proxy
+REDIS_PIDS=$(ps -ef | grep sharding-proxy | grep -v grep | awk '{print $2}')
+if [ "$REDIS_PIDS" = "" ]; then
+    echo "sharding-proxy not runing"
+    #运行进程
+else
+	echo "sharding-proxy is runing"
+fi
+```
 
 
 ## SecureCRT操作
