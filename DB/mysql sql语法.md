@@ -137,6 +137,10 @@ explain select count(*) from pirate_book_chapter_update;
 可以看到使用了idx_create_time索引，因为主键索引是8字节，timestamp是4字节，占用空间小，统计总数时mysql选择索引列的小的统计
 用索引快因为B+树叶节点有向右的指针，直接按右向指针数B+树叶节点的个数就可以了。不用索引的话得去物理块数，物理块数据大，分布散，磁盘IO次数多
 
+
+## mysql中拼接字符串使用concat
+CONCAT('%',#{name},'%')
+
 # 问题
 ## 子查询有max或min的函数，外层查询用in，没有走索引，而是全表扫描
 #### 表结构

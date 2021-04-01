@@ -80,8 +80,12 @@
 
 - [http请求]()
 
+- [异常合集]()
+
+- [读写文件]()
+
 ### linux
-- [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/cron%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
+- [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 
 - [linux命令](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/linux%E5%91%BD%E4%BB%A4.md)
 
@@ -113,6 +117,10 @@
 - [md语法](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/md%E8%AF%AD%E6%B3%95.md)
 
 - [测试压测工具]() 
+
+- [idea远程调试 ]()
+
+- [其他]()
 
 ### 面试
 - [面试](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95.md)

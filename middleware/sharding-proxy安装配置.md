@@ -97,6 +97,21 @@ JAVA_MEM_OPTS=" -server -Xmx2g -Xms2g -Xmn1g -Xss256k -XX:+DisableExplicitGC -XX
 ```
 
 
+# maven手动下载依赖 
+1. 下载jar包   假设位置在  /Users/david/Downloads/unite-framework-spring-test-0.0.12.jar
+2. 查看依赖的信息例如
+```
+<dependency>
+  <groupId>com.qq.dcache</groupId>
+  <artifactId>taf.dcache.proxy</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+3. 打开idea的terminal窗口
+```
+mvn install:install-file -DgroupId=com.qq.dcache -DartifactId=taf.dcache.proxy -Dversion=1.0 -Dpackaging=jar -Dfile=/Users/david/Downloads/unite-framework-spring-test-0.0.12.jar
+```
+4. maven reimport，关闭idea重新打开
 
 
 

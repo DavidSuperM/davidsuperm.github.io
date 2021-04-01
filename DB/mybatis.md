@@ -43,6 +43,6 @@ delete:    返回值int代表影响的行数
 （如果想要update返回值表示是影响的行数，需要在连接数据库时加上参数 jdbc:mysql://${jdbc.host}/${jdbc.db}?useAffectedRows=true）
 （如果想要insert返回插入后的主键，需要xml包含<selectKey>语句）
 
-QA：
+## QA
 Q: mybatis中使用@Select等注解sql时，有 like '%#{name}%' 报错 Parameter index out of range (1 > number of parameters, which is 0).
-A: mybatis注解sql中使用 like '%#{name}%' 时应用 LIKE CONCAT('%',#{name},'%’)
+A: mybatis注解sql中使用 like '%#{name}%' 时应用 LIKE CONCAT('%',#{name},'%')

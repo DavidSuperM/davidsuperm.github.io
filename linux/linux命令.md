@@ -131,7 +131,7 @@ pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
 mysql -h host -P 8008 --default-character-set=utf8 -uuser -pqdw -Dtest_table;
 ```
 
-## 导出mysql表数据 （倒数据）
+## 导出mysql表数据 （导数据）
 ```
 // 导sql数据，需要权限
 select * from pirate_book_chapter_update into outfile /tmp/project/chapter.xls 
@@ -147,6 +147,7 @@ mysql -h[mysqlIp] -u[用户名] -p[密码] -P[端口] --default-character-set=ut
 nohup python -u run.py > run.out 2>&1 &
 [1] 25584
 ```
+参考:<https://www.jianshu.com/p/fec2163a5c2e>
 
 ## linux设置环境变量（未验证）
 1.对当前用户生效
@@ -178,6 +179,7 @@ crontab -e
 //编辑文件，添加下面一行语句，作用：每分钟执行一次脚本
 * * * * cd /tmp/project/ && sh ./monitor.sh >./shell_log.txt 2>&1   
 ```
+crontab语法参考<https://www.runoob.com/linux/linux-comm-crontab.html>
 语句复制进去的可能不能保存成功，需要手打，因为复制进去的可能会有乱码不合适的字符看不见
 
 ## top命令解析
@@ -333,6 +335,20 @@ else
 fi
 ```
 
+## 查看内核版本
+```
+cat /proc/version
+```
+
+## 查看系统版本
+```
+cat /etc/issue
+```
+
+## mac查找目录下包含特定字符串的文件
+```
+grep -n "user_service" -r ./
+```
 
 ## SecureCRT操作
 ```

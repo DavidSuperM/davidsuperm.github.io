@@ -45,3 +45,7 @@ decimal(a,b)
 参数说明
 a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38，默认10
 b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。
+
+# tinyint
+tinyInt(1) 只用来代表Boolean含义的字段，且0代表False，1代表True。（springboot会自动把数据库里tinyint(1)的类型转成代码里boolean类型）
+如果要存储多个数值，则定义为tinyInt(N), N>1。例如 tinyInt(2)

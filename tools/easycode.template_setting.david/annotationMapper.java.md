@@ -49,6 +49,7 @@ public interface $!{tableName} {
      * @param $!pk.name 主键
      * @return 实例对象
      */
+    @ResultMap(value="resultMap")
     @Select("select $!{columnList} from $!tableInfo.obj.name where $!pk.obj.name = #{$!pk.name} ")
     $!{entityName} getById(@Param("$!pk.name") $!pk.shortType $!pk.name);
     
@@ -67,6 +68,7 @@ public interface $!{tableName} {
      * @param limit 查询条数
      * @return 对象列表
      */
+    @ResultMap(value="resultMap")
     @Select("select $!{columnList} from $!tableInfo.obj.name limit #{from},#{limit}  ")
     List<$!{entityName}> getAllByLimit(@Param("from") int from, @Param("limit") int limit);
     
@@ -76,6 +78,7 @@ public interface $!{tableName} {
      * @param $!tool.firstLowerCase($!{entityName}) 实例对象
      * @return 对象列表
      */
+    @ResultMap(value="resultMap")
     @Select("<script>" + 
         "select $!{columnList} from $!tableInfo.obj.name where 1=1" + 
         #foreach($column in $tableInfo.fullColumn)
@@ -92,6 +95,7 @@ public interface $!{tableName} {
      * @param limit 查询条数
      * @return 对象列表
      */
+    @ResultMap(value="resultMap")
     @Select("<script>" + 
         "select $!{columnList} from $!tableInfo.obj.name where 1=1" + 
         #foreach($column in $tableInfo.fullColumn)

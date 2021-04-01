@@ -72,6 +72,7 @@ public class HttpClient4 {
         }
         return result;
     }
+
     public static String doPostWithForm(String url, Map<String, Object> paramMap) {
         CloseableHttpClient httpClient = null;
         CloseableHttpResponse httpResponse = null;
@@ -114,23 +115,23 @@ public class HttpClient4 {
             HttpEntity entity = httpResponse.getEntity();
             result = EntityUtils.toString(entity);
         } catch (ClientProtocolException e) {
-            log.error("ClientProtocolException=", e)
+            log.error("ClientProtocolException=", e);
         } catch (IOException e) {
-            log.error("IOException=", e)
+            log.error("IOException=", e);
         } finally {
             // 关闭资源
             if (null != httpResponse) {
                 try {
                     httpResponse.close();
                 } catch (IOException e) {
-                    log.error("IOException=", e)
+                    log.error("IOException=", e);
                 }
             }
             if (null != httpClient) {
                 try {
                     httpClient.close();
                 } catch (IOException e) {
-                    log.error("IOException=", e)
+                    log.error("IOException=", e);
                 }
             }
         }
@@ -162,21 +163,21 @@ public class HttpClient4 {
             HttpEntity entity = httpResponse.getEntity();
             result = EntityUtils.toString(entity);
         }catch (Exception e){
-            logger.error("Exception=",e);
+            log.error("Exception=",e);
         } finally {
             // 关闭资源
             if (null != httpResponse) {
                 try {
                     httpResponse.close();
                 } catch (IOException e) {
-                    logger.error("IOException=",e);
+                    log.error("IOException=",e);
                 }
             }
             if (null != httpClient) {
                 try {
                     httpClient.close();
                 } catch (IOException e) {
-                    logger.error("IOException=",e);
+                    log.error("IOException=",e);
                 }
             }
         }

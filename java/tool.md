@@ -32,6 +32,9 @@ int diff = (m2 - m1)/1000
 ```
 
 ## LocalDateTime
+问：为什么用LocalDateTime不用Date
+答：因为Date要用SimpleDateFormat格式化时间，但SimpleDateFormat是线程不安全的。详见<https://zhuanlan.zhihu.com/p/87555377>
+
 1. 获取当前时间
 ```
 LocalDateTime localDateTime = LocalDateTime.now()
@@ -125,6 +128,7 @@ List<Integer> squaresList = numbers.stream().map( i -> {
 
 numbers.forEach(i-> System.out.println(i));
 ```
+参考：<https://blog.csdn.net/u014042066/article/details/76372116>
 
 ## UUID
 ### 定义
@@ -138,4 +142,65 @@ String uuid = UUID.randomUUID().toString();
 d0cd48ef-313a-405c-ac76-12cce5657dca
 d7e1e24b-9574-4ea0-a08f-4cfa6965035f
 c6b75eef-f6ca-4963-8c4f-26b72cb15eee
+```
+
+
+## @RequestBody和@RequestParam区别
+get请求的参数或者post请求Content-Type为application/x-www-form-urlencoded时，后端用@RequestParam 接收
+```
+public String insert(@RequestParam("name") String name, @RequestParam("age") Integer age) {
+    return ""
+}
+```
+post请求Content-Type为application/json时，后端用 @RequestBody 接收
+前端传的是字符串，后端springboot会自动转换成对象,后端返回对象也会将对象序列化成字符串
+```
+public String insert(@RequestBody("user") User user) {
+    return ""
+}
+```
+参考:<https://cloud.tencent.com/developer/article/1414464>
+
+## 浅拷贝与深拷贝（深度拷贝，深复制，深度复制，深度克隆，深克隆）
+浅拷贝：拷贝对象的基本类型属性，对象类型属性拷贝的是引用
+方法: 实现Cloneable接口，复写clonen函数，函数里调用super.clone, main里直接对对象调用 object.clone即可
+```
+public class Student implements Cloneable { 
+    // 对象引用 
+   private Subject subj; 
+   private String name; 
+    ......
+ public Object clone() { 
+      //浅拷贝 
+      try { 
+         // 直接调用父类的clone()方法
+         return super.clone(); 
+      } catch (CloneNotSupportedException e) { 
+         return null; 
+      } 
+   } 
+}
+```
+深拷贝：对象属性也生成新的对象拷贝
+方法：用jackson，需要先引入jar包，类要用无参构造函数
+```
+Address address = new Address("杭州", "中国");
+User user = new User("大山", address);
+// 使用Jackson序列化进行深拷贝
+ObjectMapper objectMapper = new ObjectMapper();
+User copyUser = objectMapper.readValue(objectMapper.writeValueAsString(user), User.class);
+```
+
+## 获取随机数，随机字符串
+```
+// 使用指定的字符生成5位长度的随机字符串  
+r = RandomStringUtils.random(5, new char[] { 'a', 'b', 'c', 'd', 'e',  'f', '1', '2', '3' });  
+// 生成指定长度的字母和数字的随机组合字符串  
+r = RandomStringUtils.randomAlphanumeric(5);  
+// 生成随机数字字符串  
+r = RandomStringUtils.randomNumeric(5);   
+// 生成随机[a-z]字符串，包含大小写  
+r = RandomStringUtils.randomAlphabetic(5);  
+// 生成从ASCII 32到126组成的随机字符串  
+r = RandomStringUtils.randomAscii(4);  
 ```
