@@ -113,6 +113,54 @@ arrayNode.add("4");
 System.out.println(arrayNode.toString());
 ```
 
+JsonUtil工具类
+```
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+
+/**
+ * @author david
+ */
+@Slf4j
+public class JsonUtil {
+
+    private static final ObjectMapper mapper = new ObjectMapper();
+
+    public static <T> T string2Object(String json, Class<T> valueType) {
+        Object obj = null;
+        try {
+            obj = mapper.readValue(json, valueType);
+        } catch (IOException e) {
+            log.error("JsonUtil.string2Object ex={},json:{} ", e, json);
+        }
+        return (T) obj;
+    }
+
+    public static <T> T string2ObjectWithGeneric(String json, TypeReference<T> typeReference) {
+        Object obj = null;
+        try {
+            obj = mapper.readValue(json, typeReference);
+        } catch (IOException e) {
+            log.error("JsonUtil.string2ObjectWithGeneric ex={},json:{} ", e, json);
+        }
+        return (T) obj;
+    }
+
+    public static String object2String(Object value) {
+        String result = null;
+        try {
+            result = mapper.writeValueAsString(value);
+        } catch (JsonProcessingException e) {
+            log.error("JsonUtil.object2String ex=", e);
+        }
+        return result;
+    }
+}
+```
+
 ## java8 stream使用
 .stream可以将集合内的元素做转换
 .foreach不可用对原集合元素转换，但是可以操作取出的每个元素(如果取出的是对象，也可以改变对象的属性)
