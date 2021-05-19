@@ -123,8 +123,6 @@
 - [其他](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/tools/%E5%85%B6%E4%BB%96.md)
 
 ### 面试
-- [面试](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95.md)
-
 - [面试题](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98.md) 
 
 
