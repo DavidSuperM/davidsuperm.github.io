@@ -252,3 +252,24 @@ r = RandomStringUtils.randomAlphabetic(5);
 // 生成从ASCII 32到126组成的随机字符串  
 r = RandomStringUtils.randomAscii(4);  
 ```
+
+## 集合转数组
+```
+List<String> list = new ArrayList<>(2);
+list.add("guan");
+list.add("bao");
+String[] array = list.toArray(new String[0]);
+```
+说明：使用 toArray 带参方法，数组空间大小的 length： 1） 等于 0，动态创建与 size 相同的数组，性能最好。
+2） 大于 0 但小于 size，重新创建大小等于 size 的数组，增加 GC 负担。
+3） 等于 size，在高并发情况下，数组创建完成之后，size 正在变大的情况下，负面影响与 2 相同。
+4） 大于 size，空间浪费，且在 size 处插入 null 值，存在 NPE 隐患。
+
+## 数组转list
+```
+String[] str = new String[] { "chen", "yang", "hao" };
+List list = Arrays.asList(str);
+```
+说明：
+使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，
+它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。

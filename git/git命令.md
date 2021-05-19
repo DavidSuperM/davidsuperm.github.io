@@ -100,9 +100,9 @@ git log –graph
 ```
 git log //查看提交记录
 git reflog
-git reset –hard HEAD^    //回退上一个版本
-git reset –hard HEAD^^    //回退上上一个版本
-git reset –hard 3628164   //回退到指定版本 后面的版本号可从上一条命令的log中得到
+git reset --hard HEAD^   //回退上一个版本
+git reset –-hard HEAD^^   //回退上上一个版本
+git reset –-hard 3628164   //回退到指定版本 后面的版本号可从上一条命令的log中得到
 git revert HEAD   //  撤销前一次 commit
 git revert HEAD^  // 撤销前前一次 commit
 git revert abcsdsa   // 撤销指定commit id的版本
