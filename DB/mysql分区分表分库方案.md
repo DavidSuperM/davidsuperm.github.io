@@ -112,6 +112,7 @@ partitions 4；
 1. 自动增长列 （设置偏移量和步长，扩容的时候不好解决）
 2. UUID （简单唯一，太长无序）
 3. Snowflake(雪花) 算法 （64bit  41bit时间+10bit机器id+12bit流水号）
+参考<https://github.com/Snailclimb/JavaGuide/blob/master/docs/system-design/micro-service/%E5%88%86%E5%B8%83%E5%BC%8Fid%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93.md>
 
 ### 垂直分表
 按照字段进行拆分，即可以将一个大字段列单独拆分成一个表
@@ -150,8 +151,7 @@ mysql单库有性能瓶颈，承受的操作峰值应该在2000左右，超过�
 
 ### mycat和shading-sphere的对比图
 直接看博文：<https://my.oschina.net/u/4318872/blog/4281049>
-
-![图片链接]()
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20210526_1_mysql.png)
 
 ### 分库分表算法
 1. 固定hash算法
@@ -159,11 +159,23 @@ mysql单库有性能瓶颈，承受的操作峰值应该在2000左右，超过�
 3. 虚拟节点 
 4. 自定义路由
 
+## 分库分表及平滑扩容详解
+<https://juejin.cn/post/6844903648670007310>
+<https://www.cnblogs.com/barrywxx/p/11532122.html>
+<https://crossoverjie.top/2019/07/24/framework-design/sharding-db-03/>
+<https://blog.csdn.net/kefengwang/article/details/81213050>
+<https://blog.csdn.net/kefengwang/article/details/81213050>
+<https://maxwell.gitbook.io/way-to-architect/shu-ju-ku/mysql/mysqlzhong-de-sharding/fen-ku-fen-biao-hou-de-ping-hua-kuo-rong>
+
 
 Q:
 ### 什么时候用单库多库，多库多表
 当数据量大，但是并发不大，单词查询时间长，可以用单库多表，因为并发没到单库的极限。
 当数据量大并且并发大，用多库多表
+
+### 为什么互联网公司不用表分区
+主要是分库分表业务可控
+参考<https://www.w3cschool.cn/architectroad/architectroad-mysql-partition-table.html>
 
 
 
