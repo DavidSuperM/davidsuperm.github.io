@@ -51,6 +51,11 @@ if (x.equals(y)) {
 // 但事实上 equals 的结果为 false
 }
 ```
+
+原因：
+计算机采用IEEE754计数法，小数点后的数转化为二进制，有些是不能精确表示的（比如十进制的1.01转换成二进制，0.01在二进制中不能准确表示，会是一个无限循环），所以十进制0.01在计算机中实际存储的二进制值再转换为十进制是0.0999999...
+所以就会导致浮点数==比较不能用
+
 解决方法：
 ```
 (1) 指定一个误差范围，两个浮点数的差值在此范围之内，则认为是相等的。
@@ -66,7 +71,7 @@ BigDecimal b = new BigDecimal("0.9");
 BigDecimal c = new BigDecimal("0.8");
 BigDecimal x = a.subtract(b);
 BigDecimal y = b.subtract(c);
-// 较应使用 compareTo()方法，而不是 equals()方法，equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo()则会忽略精度。
+// 比较应使用 compareTo()方法，而不是 equals()方法，equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo()则会忽略精度。
 if (x.compareTo(y) == 0) {
 System.out.println("true");
 }
