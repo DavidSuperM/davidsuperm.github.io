@@ -3,13 +3,14 @@
 源码经过编译后变成class字节码文件。jvm再加载class文件。
 
 ### 内存简图（Hotspot）
-![](20210607_1)
-![](20210607_2)
-![](20210607_3)
-![](20210607_4)
-![](20210607_5)
-![](20210607_6)
-![](20210607_7)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_3_jvm_load.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_4_jvm_link.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_5_jvm_init.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_6_jvm_data.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_8_jvm_thread.png)
 
 二进制文件->加载器->运行时数据区->执行引擎
 
@@ -45,6 +46,8 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 对于栈来说不存在垃圾回收问题，但是存在OOM问题（可能会报StackOverflowError,或者栈动态扩展申请不到足够的内存时会报OutOfMemoryError）
 
 栈内部结构以栈针为单位，一个栈针对应一个方法，栈针内部又有局部变量等信息，详见图9
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_9_stack.png)
+
 
 本地方法栈和虚拟机栈其实原理一样，只不过调的方法不一样。本地方法栈调的是本地类库的c的方法等等，虚拟机栈调的是代码里java的方法
 
@@ -60,13 +63,14 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 3. 如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。
 
 子类加载器和父类加载器不是继承关系，而是类似上下级关系。
-![](20210611_3_shaungqin)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20210611_3_shuang_qin.png)
 
 优点：1. 避免类的重复加载
 2. 保护程序安全，防止核心API被随意篡改
 
 什么是本地方法 
 见图10
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png)
 
 # 堆
 -X 是jvm的运行参数，ms是memory  start  mx是memory max
@@ -84,6 +88,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 
 堆空间分为年轻代和老年代，年轻代又分为Eden，Survivor0，Survivor1 空间 
 调整新生代老年代占比，见图11，默认1：2 
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_11_jvm_new_ratio.png)
 默认情况下 eden:s0:s1 = 8:1:1
 几乎所有的java对象都是在eden区被new出来的，绝大部分java对象在新生代销毁，
 -Xmn 设置新生代空间大小（如果和之前比例设置的矛盾，以这个为准）
@@ -151,6 +156,7 @@ Full GC触发机制：
 JVM为每一个已加载的类型（类或接口）都维护一个
 ### 栈，堆，方法区的交互关系
 见图12
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_12_jvm_relationship.png)
 ### 方法区参数设置
 略
 ### 为什么需要常量池
@@ -372,6 +378,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 适合单CPU，内存不大的情况
 
 见图14
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_14_jvm_serial.png)
 
 ### Serial Old
 针对老年代执行收集。串行回收，stw机制，内存回收算法使用标记-压缩算法 
@@ -380,6 +387,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 是Serial回收器的多线程版本。除了并行回收外其他和Serial几乎没区别。
 采用复制算法，STW
 见图15
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_15_jvm_parnew.png)
 
 ### Parallel Scavenge 回收器：吞吐量优先
 复制算法、并行回收，STW，
@@ -387,6 +395,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 这种高吞吐量的适合在后台运算不需要太多交互的任务。例如批量处理、订单处理、工资支付、科学计算等
 JDK8默认GC
 见图16
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png)
 
 ### Parallel Old
 标记-压缩，并行回收，STW
@@ -396,6 +405,7 @@ JDK8默认GC
 并发（回收时不用暂停用户线程）
 标记-清除算法，STW （为什么不使用标记-压缩算法，因为有用户线程同步在执行 ）
 见图17
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_17_jvm_cms.png)
 CMS垃圾回收这个过程分4个主要阶段，即初始标记、并发标记、彩虹精心标记、并发清除。
 初始标记：公祖哦线程会因为STW出现短暂暂停，这个阶段主要任务仅仅是标记出GC Roots能直接关联到的对象，因为直接关联对象比较小，所以这个阶段速度非常快。
 并发标记：从GC Roots直接关联对象开会遍历整个对象图的过程，这个过程耗时较长但是不需要停顿用户线程，可以与垃圾收集线程一起并发运行。
@@ -416,6 +426,7 @@ CMS垃圾回收这个过程分4个主要阶段，即初始标记、并发标记�
 G1 GC有计划的避免在整个Java堆中进行全区域垃圾收集。G1跟踪各个Region里面的垃圾堆积的价值大小（回收所获得的空间大小以及回收所需要时间的经验值），在后台维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的Region。
 适用于多核CPU及大容量内存的机器。 
 见图18
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_18_jvm_G1.png)
 H是hunongous区域，用于存储大对象，如果超过1.5个region，就放入H。如果1个H装不下大对象，G1会寻找连续的H来存储
 
 ##### 特点
@@ -439,13 +450,21 @@ H是hunongous区域，用于存储大对象，如果超过1.5个region，就放�
 
 #### G1垃圾回收过程
 见图19  
-图20,21，22，23，24，25              
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_19_jvm_G1_GC.png)
+图20,21，22，23，24，25        
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_20_jvm_g1_gc2.png)      
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_21_jvm_g1_gc3.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_22_jvm_g1_gc.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_23_jvm_g1_gc.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_24_jvm_g1_gc.png)
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_25_jvm_g1_gc.png)
 
 #### RS(Remembered Set )
 有可能eden的对象在old的region中引用了，所以每个region有一个rs，记录这个region中的对象被哪个region引用了，gc时只要根据rs去清理对应的region即可。避免GC时全局扫描。
 
 # 7款GC总结
 见图26
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_26_jvm_summary.png)
 
 
 
@@ -468,6 +487,7 @@ H是hunongous区域，用于存储大对象，如果超过1.5个region，就放�
 
 ## 垃圾回收器的组合关系
 见图13
+![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_13_jvm_gc_relation.png)
 红色的线在jdk8以前是实线，jdk8中取消了红色的线。不建议这么搭配，但是也能用，9中是完全移除红色线关系，不能用这个搭配。
 绿色的是jdk14弃用了这个关系
 CMS GC 在jdk14中删除了
