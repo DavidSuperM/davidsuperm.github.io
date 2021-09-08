@@ -3,9 +3,11 @@
 源码经过编译后变成class字节码文件。jvm再加载class文件。
 
 ### 内存简图（Hotspot）
-![11-w150](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png)
+
+<img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png" width=""100">
 
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png)
+
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png)
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_3_jvm_load.png)
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_4_jvm_link.png)
