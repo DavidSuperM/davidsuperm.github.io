@@ -49,7 +49,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 对于栈来说不存在垃圾回收问题，但是存在OOM问题（可能会报StackOverflowError,或者栈动态扩展申请不到足够的内存时会报OutOfMemoryError）
 
 栈内部结构以栈针为单位，一个栈针对应一个方法，栈针内部又有局部变量等信息，详见图9
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_9_jvm_stack.png" height="200px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_9_jvm_stack.png" height="400px"></p>
 
 
 本地方法栈和虚拟机栈其实原理一样，只不过调的方法不一样。本地方法栈调的是本地类库的c的方法等等，虚拟机栈调的是代码里java的方法
@@ -66,14 +66,15 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 3. 如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。
 
 子类加载器和父类加载器不是继承关系，而是类似上下级关系。
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210611_3_shuang_qin.png" height="200px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20210611_3_shuang_qin.png" height="400px"></p>
 
 优点：1. 避免类的重复加载
 2. 保护程序安全，防止核心API被随意篡改
 
 什么是本地方法 
 见图10
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png" height="400px"></p>
+
 
 # 堆
 -X 是jvm的运行参数，ms是memory  start  mx是memory max
@@ -91,7 +92,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 
 堆空间分为年轻代和老年代，年轻代又分为Eden，Survivor0，Survivor1 空间 
 调整新生代老年代占比，见图11，默认1：2 
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_11_jvm_new_ratio.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_11_jvm_new_ratio.png" height="400px"></p>
 默认情况下 eden:s0:s1 = 8:1:1
 几乎所有的java对象都是在eden区被new出来的，绝大部分java对象在新生代销毁，
 -Xmn 设置新生代空间大小（如果和之前比例设置的矛盾，以这个为准）
@@ -159,7 +160,7 @@ Full GC触发机制：
 JVM为每一个已加载的类型（类或接口）都维护一个
 ### 栈，堆，方法区的交互关系
 见图12
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_12_jvm_relationship.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_12_jvm_relationship.png" height="400px"></p>
 ### 方法区参数设置
 略
 ### 为什么需要常量池
@@ -381,7 +382,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 适合单CPU，内存不大的情况
 
 见图14
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_14_jvm_serial.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_14_jvm_serial.png" height="400px"></p>
 
 ### Serial Old
 针对老年代执行收集。串行回收，stw机制，内存回收算法使用标记-压缩算法 
@@ -390,7 +391,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 是Serial回收器的多线程版本。除了并行回收外其他和Serial几乎没区别。
 采用复制算法，STW
 见图15
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_15_jvm_parnew.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_15_jvm_parnew.png" height="400px"></p>
 
 ### Parallel Scavenge 回收器：吞吐量优先
 复制算法、并行回收，STW，
@@ -398,7 +399,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 这种高吞吐量的适合在后台运算不需要太多交互的任务。例如批量处理、订单处理、工资支付、科学计算等
 JDK8默认GC
 见图16
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png" height="70%"></p>
 
 ### Parallel Old
 标记-压缩，并行回收，STW
