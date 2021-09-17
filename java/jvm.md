@@ -73,7 +73,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 
 什么是本地方法 
 见图10
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png" width="400px"></p>
 
 
 # 堆
@@ -399,7 +399,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 这种高吞吐量的适合在后台运算不需要太多交互的任务。例如批量处理、订单处理、工资支付、科学计算等
 JDK8默认GC
 见图16
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png" height="30%"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png" width="30%"></p>
 
 ### Parallel Old
 标记-压缩，并行回收，STW
