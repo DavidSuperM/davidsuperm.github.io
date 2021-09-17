@@ -456,12 +456,6 @@ H是hunongous区域，用于存储大对象，如果超过1.5个region，就放�
 见图19  
 <p align="center"><img src=https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_19_jvm_G1_GC.png"" width="600px"></p>
 图20,21，22，23，24，25        
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_20_jvm_g1_gc2.png)      
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_21_jvm_g1_gc3.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_22_jvm_g1_gc.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_23_jvm_g1_gc.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_24_jvm_g1_gc.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_25_jvm_g1_gc.png)
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_20_jvm_g1_gc2.png" width="700px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_21_jvm_g1_gc3.png" width="700px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_22_jvm_g1_gc.png" width="700px"></p>
