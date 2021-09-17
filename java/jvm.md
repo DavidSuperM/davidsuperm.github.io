@@ -11,8 +11,8 @@
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_4_jvm_link.png" height="400px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_5_jvm_init.png" height="350px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_6_jvm_data.png" height="300px"></p>
-<p><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png" height="300px"></p>
-<p><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_8_jvm_thread.png" height="200px"></p>
+<p align="center" ><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png" height="300px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_8_jvm_thread.png" height="200px"></p>
 
 
 二进制文件->加载器->运行时数据区->执行引擎
@@ -49,7 +49,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 对于栈来说不存在垃圾回收问题，但是存在OOM问题（可能会报StackOverflowError,或者栈动态扩展申请不到足够的内存时会报OutOfMemoryError）
 
 栈内部结构以栈针为单位，一个栈针对应一个方法，栈针内部又有局部变量等信息，详见图9
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_9_stack.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_9_jvm_stack.png" height="200px"></p>
 
 
 本地方法栈和虚拟机栈其实原理一样，只不过调的方法不一样。本地方法栈调的是本地类库的c的方法等等，虚拟机栈调的是代码里java的方法
@@ -66,7 +66,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 3. 如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。
 
 子类加载器和父类加载器不是继承关系，而是类似上下级关系。
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20210611_3_shuang_qin.png)
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210611_3_shuang_qin.png" height="200px"></p>
 
 优点：1. 避免类的重复加载
 2. 保护程序安全，防止核心API被随意篡改
