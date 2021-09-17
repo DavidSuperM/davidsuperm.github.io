@@ -8,6 +8,12 @@
 [标题](链接地址)
 <链接地址>
 ![图片描述](图片链接地址)
+
+github上调节图片显示大小
+<p align="center"> 
+<img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png" width="200px" height="200px">
+</p>
+
 *斜体*
 **粗体**
 > 引用段落

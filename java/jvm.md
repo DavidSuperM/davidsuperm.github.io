@@ -4,20 +4,16 @@
 
 ### 内存简图（Hotspot）
 
-<p align="center"> 
-<img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png" width="200px" height="200px">
-</p>
 
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_3_jvm_load.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_4_jvm_link.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_5_jvm_init.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_6_jvm_data.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_8_jvm_thread.png" height="400px"></p>
 
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png)
-
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_3_jvm_load.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_4_jvm_link.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_5_jvm_init.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_6_jvm_data.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png)
-![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_8_jvm_thread.png)
 
 二进制文件->加载器->运行时数据区->执行引擎
 
