@@ -4,6 +4,11 @@
 
 ### 内存简图（Hotspot）
 
+<p align="center"> 
+<img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png">
+</p>
+
+
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png)
 
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png)
