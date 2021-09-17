@@ -73,7 +73,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 
 什么是本地方法 
 见图10
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png" width="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png" width="600px"></p>
 
 
 # 堆
@@ -92,7 +92,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 
 堆空间分为年轻代和老年代，年轻代又分为Eden，Survivor0，Survivor1 空间 
 调整新生代老年代占比，见图11，默认1：2 
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_11_jvm_new_ratio.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_11_jvm_new_ratio.png" width="600px"></p>
 默认情况下 eden:s0:s1 = 8:1:1
 几乎所有的java对象都是在eden区被new出来的，绝大部分java对象在新生代销毁，
 -Xmn 设置新生代空间大小（如果和之前比例设置的矛盾，以这个为准）
@@ -160,7 +160,7 @@ Full GC触发机制：
 JVM为每一个已加载的类型（类或接口）都维护一个
 ### 栈，堆，方法区的交互关系
 见图12
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_12_jvm_relationship.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_12_jvm_relationship.png" width="600px"></p>
 ### 方法区参数设置
 略
 ### 为什么需要常量池
@@ -399,7 +399,7 @@ System.gc() （内部实际调的就是Runtime.getRuntime().gc() ）或者Runtim
 这种高吞吐量的适合在后台运算不需要太多交互的任务。例如批量处理、订单处理、工资支付、科学计算等
 JDK8默认GC
 见图16
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png" width="30%"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_16_jvm_Parallel.png" width="600px"></p>
 
 ### Parallel Old
 标记-压缩，并行回收，STW
