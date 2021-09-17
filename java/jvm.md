@@ -6,12 +6,12 @@
 
 
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_1_jvm.png" height="400px"></p>
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png" height="300px"></p>
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_3_jvm_load.png" height="200px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_2_jvm.png" height="400px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_3_jvm_load.png" height="300px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_4_jvm_link.png" height="400px"></p>
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_5_jvm_init.png" height="300px"></p>
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_6_jvm_data.png" height="200px"></p>
-<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png" height="200px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_5_jvm_init.png" height="350px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_6_jvm_data.png" height="300px"></p>
+<p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_7_jvm_detail.png" height="300px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_8_jvm_thread.png" height="200px"></p>
 
 
