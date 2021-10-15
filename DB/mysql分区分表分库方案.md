@@ -147,7 +147,7 @@ mysql单库有性能瓶颈，承受的操作峰值应该在2000左右，超过�
 
 #### 方案
 1. sharding-sphere的sharding-jdbc （当当开源，现在属于apache项目）
-
+2
 
 ### mycat和shading-sphere的对比图
 直接看博文：<https://my.oschina.net/u/4318872/blog/4281049>
