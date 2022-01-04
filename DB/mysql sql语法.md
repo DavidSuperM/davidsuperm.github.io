@@ -7,7 +7,7 @@ CREATE TABLE `test_info` (
   `enabled` tinyint(1) NOT NULL DEFAULT 1 COMMENT '启用状态 0禁用 1启用',
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '状态 -1删除 0正常',
   `page_number` int(11) NOT NULL DEFAULT 0  COMMENT '搜索页数',
-  `chapter_content` mediumtext comment '章节内容';   
+  `chapter_content` mediumtext comment '章节内容',
   `version` int(11) NOT NULL DEFAULT 0  COMMENT '版本号',
   `create_time` timestamp NOT NULL default '1980-01-01 00:00:00' COMMENT '创建时间',
   `update_time` timestamp NOT NULL default '1980-01-01 00:00:00' ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',

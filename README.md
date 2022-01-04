@@ -2,7 +2,10 @@
 <https://github.com/DavidSuperM/davidsuperm.github.io>
 
 ### DB
+- [es安装]()
+
 - [elasticsearch head查询api](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/elasticsearch%20head%E6%9F%A5%E8%AF%A2api.md)
+
 
 - [mybatis](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/DB/mybatis.md)
 
@@ -85,6 +88,10 @@
 - [读写文件](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/java/%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6.md)
 
 - [jvm](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/java/jvm.md)
+  
+- [java其他小知识合集]()
+
+- [java集合排序]()
 
 ### linux
 - [cron表达式](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/linux/%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)

@@ -273,3 +273,75 @@ List list = Arrays.asList(str);
 说明：
 使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，
 它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
+
+## 读取excel 
+pom文件
+```
+ <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+```
+java类
+```
+package com.example.utils;
+
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+@Slf4j
+public class ExcelUtil {
+
+    /**
+     * 读取excel，返回list
+     * @param path resource下的相对路径
+     * @return
+     */
+    @SneakyThrows
+    public static List<List<String>> readExcel(String path){
+        List<List<String>> res = new ArrayList<>();
+        InputStream in = Object.class.getResourceAsStream(path);
+        if(in==null){
+            in = ExcelUtil.class.getClassLoader().getResource(path).openStream();
+        }
+        if(in==null){
+            path = path.replace("\\\\", "/");
+            File file = new File(path);
+            in = new FileInputStream(file);
+        }
+        Workbook book = WorkbookFactory.create(in);
+        Sheet sheet = book.getSheetAt(0);
+        int columnNum = sheet.getRow(0).getPhysicalNumberOfCells();
+        for(int i=1; i<sheet.getLastRowNum()+1; i++) {
+            List<String> lineList = new ArrayList();
+            Row row = sheet.getRow(i);
+            for(int j=0;j<columnNum;j++){
+                lineList.add(row.getCell(j)==null?"":row.getCell(j).toString());
+            }
+            res.add(lineList);
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        readExcel("/ext/org.xlsx");
+    }
+}
+
+```
