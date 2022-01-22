@@ -53,7 +53,7 @@ localDateTime.plusDays(1);    // 后一天
 //获取秒数
 Long second = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
 //获取毫秒数
-Long milliSecond = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+Long milliSecond = LocalDateTime.now().toInstant(Zone)Ojinffset.of("+8")).toEpochMilli();
 ```
 5. 时间字符串转换
 ```
@@ -111,6 +111,18 @@ ArrayNode arrayNode = objectNode.putArray("arr1");
 arrayNode.add("3");
 arrayNode.add("4");
 System.out.println(arrayNode.toString());
+// map转json字符串
+Map<String, String> map = new HashMap<>();
+map.put("1","a");
+map.put("2","b");
+String json = mapper.writeValueAsString(value);
+
+// json字符串转list
+// json = {"data": [{"id": "1","name": "q"},{"id": "2","name": "w"}]}
+JsonNode jsonNode = mapper.readTree(json).get("data");
+for(JsonNode node:jsonNode){
+    System.out.println(node.get("id"));
+}
 ```
 
 JsonUtil工具类

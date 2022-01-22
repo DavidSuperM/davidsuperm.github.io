@@ -188,3 +188,9 @@ git push --delete origin oldName   //   删除远程分支
 git push origin newName            //    推送新名字的本地分支到远程
 git branch --set-upstream-to origin/newName      //  建立连接
 ```
+
+- 查看分支是从哪个分支切出来的
+```
+gitk --simplify-by-decoration —all
+git reflog --date=local | grep feature/2021-12-22_template
+```
