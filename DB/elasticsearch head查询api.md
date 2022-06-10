@@ -1,4 +1,4 @@
-# 1.查询
+# 1.查询1.12
 http://altb1-comm-elasticsearch-1.vm.elenet.me:9200/ (es地址，后面的表述省略这一部分)
 ## 1.1查询全部
 1. /your_index/_search    POST                      //查询该索引下的全部数据
