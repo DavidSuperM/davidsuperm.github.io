@@ -6,7 +6,7 @@ CollectionUtils.isEmpty(list)
 > 比list.isEmpty()多个对list==null的判断
 
 ## 字符串判空
-使用 org.apache.commons.lang3.StringUtils; 报下的
+使用 org.apache.commons.lang3.StringUtils; 包下的
 ```
 StringUtils.isEmpty();
 ```
@@ -69,13 +69,40 @@ System.out.println("true");
 BigDecimal a = new BigDecimal("1.0");
 BigDecimal b = new BigDecimal("0.9");
 BigDecimal c = new BigDecimal("0.8");
+// 减法
 BigDecimal x = a.subtract(b);
 BigDecimal y = b.subtract(c);
 // 比较应使用 compareTo()方法，而不是 equals()方法，equals()方法会比较值和精度（1.0 与 1.00 返回结果为 false），而 compareTo()则会忽略精度。
 if (x.compareTo(y) == 0) {
 System.out.println("true");
 }
+
+// 加法
+BigDecimal result1 = a.add(b);
+// 乘法
+BigDecimal result3 = a.multiply(b);
+// 除法(保留4位小数)
+BigDecimal result3 = a.divide(b,4, BigDecimal.ROUND_HALF_UP)
 ```
+
+#### 构建BigDecimal的方式 
+1. public BigDecimal(double val)   // 不建议使用
+2. public BigDecimal(int val)　　
+3. public BigDecimal(String val)　// 官方推荐方式
+
+不推荐doubleBigDecimal，转因为用double转会有精度问题。
+eg. 
+BigDecimal bigDecimal = new BigDecimal(2);
+BigDecimal bDouble = new BigDecimal(2.3);
+BigDecimal bString = new BigDecimal("2.3");
+System.out.println("bigDecimal=" + bigDecimal);
+System.out.println("bDouble=" + bDouble);
+System.out.println("bString=" + bString);
+
+打印结果：
+bigDecimal=2
+bDouble=2.99999999999999998223643160599
+bString=2.3
 
 ## java开发手册
 【强制】所有的 POJO 类属性必须使用包装数据类型。

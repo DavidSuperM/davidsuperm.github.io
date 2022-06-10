@@ -120,19 +120,48 @@ http://altb1-comm-elasticsearch-1.vm.elenet.me:9200/ (es地址，后面的表述
 }
 ```
 
-# 1.10查询index下所有type的结构
+## 1.10查询index下所有type的结构
 /index_name/_mapping   GET
 ```
 {}
 ```
 
-# 1.11查看index的分词结果
+## 1.11查看index的分词结果
 /index_name/_analyze   POST
 ```
 {
 "field":"stationName",
 "text":"贵溪支队"
 }
+```
+
+## 1.12 查询数量
+/your_index/_count    POST 
+```
+//match是先将关键词分段，然后分别匹配，查询，按得分排序
+{
+    "query": {
+        "match" : {
+        "id" : "1566613236964"
+        }
+    }
+}
+```
+
+## 1.13 不用es head插件，直接http请求的方式查询
+http://esip:端口/索引/_search?q=id:1566613236964
+
+## 1.14 不用es head插件，http方式删除数据
+```
+curl -X POST "http://ip:port/索引/_delete_by_query" -H 'Content-Type: application/json' -d'
+{
+  "query":{
+    "match":{
+      "id":"101"
+    }
+  }
+}
+'
 ```
 
 

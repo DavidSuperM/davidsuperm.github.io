@@ -6,6 +6,7 @@ netstat -ntlp
 - 查看特定端口
 ```
 lsof -i:5005
+sudo lsof -i tcp:3306
 ```
 
 - 开启一个端口用于输入测试数据
@@ -179,7 +180,7 @@ crontab -e
 //编辑文件，添加下面一行语句，作用：每分钟执行一次脚本
 * * * * cd /tmp/project/ && sh ./monitor.sh >./shell_log.txt 2>&1   
 ```
-crontab语法参考<https://www.runoob.com/linux/linux-comm-crontab.html>
+crontab语法参考<0>
 语句复制进去的可能不能保存成功，需要手打，因为复制进去的可能会有乱码不合适的字符看不见
 
 ## top命令解析

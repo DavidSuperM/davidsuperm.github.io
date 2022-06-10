@@ -182,9 +182,44 @@ select pirate_site_url,chapter_name from pirate_book_chapter_update where id in
 (select id from (select max(id) as id from pirate_book_chapter_update where book_name='临渊行' group by pirate_site_url ) a);
 ```
 
+## mysql去重取时间大的记录
+问题：取相同class情况下时间最大的记录
 
+建表
+```
+CREATE TABLE `student` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '姓名',
+  `age` int(11) NOT NULL DEFAULT 0  COMMENT '年龄',
+  `class` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '班级',
+  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '状态 -1删除 0正常',
+  `version` int(11) NOT NULL DEFAULT 0  COMMENT '版本号',
+  `create_time` timestamp NOT NULL default CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='学生表';
 
+insert into student(name, age, class) values ('张三', 18, '3-2');
+insert into student(name, age, class) values ('李四', 19, '3-2');
+insert into student(name, age, class) values ('王五', 18, '3-3');
+```
 
+方法 1
+```
+select a.* from student a
+    left join student b
+        on a.class = b.class and a.create_time<b.create_time
+where b.create_time is null;
+```
+方法 2
+```
+select a.* from student a
+inner join (select class,max(create_time) as create_time from student group by class) b
+    on a.class=b.class and a.create_time=b.create_time;
+```
 
-
+> 如果一个班级最大时间有两条记录   (any_value会选择被分到同一组的数据里第一条数据的指定列值作为返回数据)
+select any_value(a.id) as id,any_value(a.name) as name, a.class, any_value(a.create_time) as create_time from student a
+inner join (select class,max(create_time) as create_time from student group by class) b
+on a.class=b.class and a.create_time=b.create_time group by class;
 

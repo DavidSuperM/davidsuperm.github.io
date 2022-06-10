@@ -110,6 +110,20 @@ git revert abcsdsa   // 撤销指定commit id的版本
 > reset和revert的区别，reset是将指针后移，删除了最新的提交版本，revert是指针前移，做了一次新的commit，只不过提交内容刚好和上一次commmit的相反。
 > 参考<https://blog.csdn.net/yxlshk/article/details/79944535>
 ><https://www.cnblogs.com/0616--ataozhijia/p/3709917.html>
+
+- 撤销回退
+```
+git reflog
+git reset –-hard 3628164
+```
+
+-- 回退之后无法推送
+```
+git push -f origin develop
+// 别人提交或拉取代码可能会因为我们回退了版本而出现错误或者无法拉取，解决命令如下：
+git fetch --all 
+```
+
 - 记录每一次的命令
 ```
 git reflog

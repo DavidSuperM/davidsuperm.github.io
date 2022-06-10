@@ -357,3 +357,61 @@ public class ExcelUtil {
 }
 
 ```
+
+## base64加密解密
+#### base64加密
+```
+public String base64Encode(String s){
+    return Base64.getEncoder().encodeToString(s.getBytes(StandardCharsets.UTF_8));
+}
+
+```
+#### base解密
+```
+public String base64Decode(String s){
+    return new String(Base64.getDecoder().decode(s), "utf-8");
+}
+```
+
+## unicode加密解密
+#### unicode加密
+```
+public String unicodeDecode(String s){
+    return StringEscapeUtils.escapeJava(s);
+}
+
+```
+#### unicode解密
+```
+public String unicodeDecode(String s){
+    return StringEscapeUtils.unescapeJava(s);
+}
+```
+
+## 构建带参数的url（构建url）
+```
+String url="http://www.baidu.com"
+UriComponents uriComponents = UriComponentsBuilder.newInstance()
+    .uri(URI.create(url))
+    .queryParam("regId", regIdPerson)
+    .queryParam("page", pageNum)
+    .queryParam("size", pageSize)
+    .build();
+String resUrl = uriComponents.toUriString();
+```
+
+## 并行流
+目标：根据重量，计算每个苹果的价格
+#### 正常写法
+```
+List<Apple> appleList = new ArrayList<>(); // 假装数据是从库里查出来的
+
+for (Apple apple : appleList) {
+    apple.setPrice(5.0 * apple.getWeight() / 1000);
+}
+```
+
+#### 并行流写法
+```
+appleList.parallelStream().forEach(apple -> apple.setPrice(5.0 * apple.getWeight() / 1000));
+```

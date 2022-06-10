@@ -5,3 +5,6 @@
 <https://cloud.tencent.com/developer/article/1038304>
 
 LogServiceAspect
+
+# @Async原理
+// todo
