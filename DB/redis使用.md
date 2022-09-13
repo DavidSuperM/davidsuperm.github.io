@@ -4,9 +4,18 @@
 ```
 进入客户端
 redis-cli 
+
+ping命令可检测redis服务是否启动
+redis 127.0.0.1:6379> PING
+PONG
+
+redis-cli相关命令: <http://shouce.jb51.net/redis-all-about/DataStructure/zset/zrangebyscore.html>
+
+
 keys *
 del 1
 flushdb  // 删除当前库的所有key
+// todo 删除的其他操作
 
 字符串操作
 set 1 qqq
@@ -21,6 +30,10 @@ smembers key
 
 zset有序集合操作
 zrange key 0 1    //查询索引0-1的数据，前闭后闭
+
+如果是通过
+redisTemplate.opsForValue().set("1.2", "2.2");
+代码来插入的，则redis-cli命令行要  get "\"1.2\"" 才能取到值
 ```
 
 ## springboot使用redis

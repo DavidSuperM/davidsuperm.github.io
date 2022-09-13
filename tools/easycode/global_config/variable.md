@@ -1,0 +1,1 @@
+#set($entityName = $tool.append($tableInfo.name, "DO"))

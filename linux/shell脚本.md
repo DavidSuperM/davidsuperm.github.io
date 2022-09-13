@@ -3,7 +3,7 @@
 2.
 ```
 #!/bin/sh
-for file in `find ./log/ -type f -name "*"`
+for file in `find ./logwe/ -type f -name "*"`
     do
         local expired_time=$[30*24*60*60]        #此处定义文件的过期时间6天
         local currentDate=`date +%s`            #获取系统时间，所以时间格式为秒

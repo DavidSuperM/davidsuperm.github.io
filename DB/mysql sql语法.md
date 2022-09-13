@@ -223,3 +223,9 @@ select any_value(a.id) as id,any_value(a.name) as name, a.class, any_value(a.cre
 inner join (select class,max(create_time) as create_time from student group by class) b
 on a.class=b.class and a.create_time=b.create_time group by class;
 
+## order by 和 limit 混用导致数据重复问题
+即 limit 0,10的数据在limit10,10又出现了，前提是order by 字段的值一样。mysql没有索引时，order by 用的堆排序
+解决办法：order by字段加索引，或者 order by time,id 多加个排序字段
+
+
+

@@ -131,6 +131,7 @@ git reflog
 - 另存工作区的改动
 ```
 git stash show   //查看另存区的内容
+git stash show -p stash@{3}   //查看另存区的内容
 git stash list
 git stash           //目前已改动的地方放入另存区
 git stash pop    //取回另存区的改动,stash里的内容会被删除
@@ -207,4 +208,24 @@ git branch --set-upstream-to origin/newName      //  建立连接
 ```
 gitk --simplify-by-decoration —all
 git reflog --date=local | grep feature/2021-12-22_template
+```
+
+- 配置仓库用户名邮箱
+全局配置
+```
+git config --global user.name "qdw"
+git config --global user.email "609@qq.com"
+git config --list
+```
+单项目配置
+```
+git config user.name "qdw"
+git config user.email "609@qq.com"
+// 查看当前配置, 在当前项目下面查看的配置是全局配置+当前项目的配置, 使用的时候会优先使用当前项目的配置
+git config --list
+```
+
+- 打标签
+```
+git tag 20220902_1
 ```

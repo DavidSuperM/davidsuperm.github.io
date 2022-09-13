@@ -88,8 +88,8 @@ LocalDateTime endTime = LocalDateTime.of(2020,12,12,23,59,59,0); //当天结束�
 private ObjectMapper mapper = new ObjectMapper();
 // json字符串转对象
 User user = mapper.readValue(json, User.class);
-// 对象转json字符串
-String result = mapper.writeValueAsString(value);
+// json字符串转对象数组
+List<User> users = mapper.readValue(listStr,new TypeReference<List<User>>(){});
 // json字符串转json对象
 JsonNode jsonNode = mapper.readTree(json);
 JsonNode j2 = jsonNode.get("f2");
@@ -99,6 +99,15 @@ int    f2Int = jsonNode.get("f2").asInt();
 long   f2Lng = jsonNode.get("f2").asLong();
 ObjectNode objectNode = (ObjectNode) jsonNode;
 objectNode.put(key,value);
+// json字符串转list
+// json = {"data": [{"id": "1","name": "q"},{"id": "2","name": "w"}]}
+JsonNode jsonNode = mapper.readTree(json).get("data");
+for(JsonNode node:jsonNode){
+    System.out.println(node.get("id"));
+}
+
+// 对象转json字符串
+String result = mapper.writeValueAsString(value);
 // json对象转json字符串
 String res = jsonNode.toString();
 // jackson构建json对象
@@ -117,12 +126,7 @@ map.put("1","a");
 map.put("2","b");
 String json = mapper.writeValueAsString(value);
 
-// json字符串转list
-// json = {"data": [{"id": "1","name": "q"},{"id": "2","name": "w"}]}
-JsonNode jsonNode = mapper.readTree(json).get("data");
-for(JsonNode node:jsonNode){
-    System.out.println(node.get("id"));
-}
+
 ```
 
 JsonUtil工具类

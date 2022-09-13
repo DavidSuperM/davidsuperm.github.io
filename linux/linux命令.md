@@ -72,6 +72,8 @@ cat test.log
 cat test.log | grep 'Exception'
 grep 'Exception' test.log
 cat test.log | grep -10 'Exception' //打印匹配行的前后各10行
+cat test.log | grep -A 10 'Exception' //打印匹配行的后10行
+cat test.log | grep -B 10 'Exception' //打印匹配行的前10行
 cat test.log | grep -c 'Exception' //统计匹配的行数
 
 head -100 test.log    // 查看前100行
