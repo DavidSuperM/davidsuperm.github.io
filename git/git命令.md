@@ -219,8 +219,8 @@ git config --list
 ```
 单项目配置
 ```
-git config user.name "qdw"
-git config user.email "609@qq.com"
+git config user.name "qiandawei"
+git config user.email "qiandawei@kedacom.com"
 // 查看当前配置, 在当前项目下面查看的配置是全局配置+当前项目的配置, 使用的时候会优先使用当前项目的配置
 git config --list
 ```
@@ -228,4 +228,20 @@ git config --list
 - 打标签
 ```
 git tag 20220902_1
+```
+
+- 修改commit提交内容
+如果只是修改最后一次提交
+```
+git commit —-amend
+```
+
+修改历史提交记录的内容
+```
+// 1. 查看历史6次的提交
+git rebase -i HEAD~6
+// 2. 将pick改为edit
+// 3. wq保存
+git commit —amend
+git rebase —continue
 ```

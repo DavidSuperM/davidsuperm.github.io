@@ -36,6 +36,8 @@ drop table tableName    //删除表
 alter table tableName add column delay int(11) NOT NULL default -1 comment 'test';  //增加列
 alter table tableName drop column columnName     // 删除列
 alter table tableName modify column columnName varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL default '' COMMENT '注释';
+alter table tableName change name name2 varchar(50) not null default '' comment 'name2';
+
 ```
 
 - 索引

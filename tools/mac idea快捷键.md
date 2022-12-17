@@ -57,3 +57,11 @@
 |command+shift+t  |生成当前类的测试类|
 |command+n       | 弹出生成窗口（生成get set test等等方法）|
 |control+shift+r    | run运行程序|
+
+
+# Mac sublime
+|组合键|含义|
+|------------------------------------|-----------------------------------|
+| option+command+j   | 快速整理json格式 |
+| 菜单栏selection->format->   | 快速整理xml格式 |
+

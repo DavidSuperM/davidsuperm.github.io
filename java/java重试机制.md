@@ -62,6 +62,8 @@ application.properties添加以下内容
 logging.level.org.springframework.retry.support=debug
 ```
 
+> 注意调用 @Retryable注解的方法，必须是另外一个spring的bean，因为是通过代理的方式来实现重试的
+
 
 参考
 <https://juejin.cn/post/6844904102468517895>
