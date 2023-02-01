@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * $!{tableInfo.comment}($!{tableInfo.name})表服务实现类
- *
+ *spring
  * @author $!author
  * @since $!time.currTime()
  */

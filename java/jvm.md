@@ -192,19 +192,21 @@ String Pool 中存的是 引用值，而不是具体的实例对象，具体的�
 在上面我也说了，class常量池 中存的是字面量和符号引用，也就是说他们存的并不是对象的实例，而是对象的符号引用值。而经过解析（resolve）之后，也就是把符号引用替换为直接引用，解析的过程会去查询 字符串常量池 ，也就是我们上面所说的StringTable，以保证 运行时常量池所 引用的字符串与 字符串常量池 中所引用的是一致的。
 
 ### 题
+参考<https://blog.csdn.net/xuxuxu1222/article/details/107313935>
+<https://blog.csdn.net/weixin_42779370/article/details/118067826>
 ```
-public class StringExer{
+public class StringExer {
     String str = new String("good");
     char[] ch = {'t', 'e'};
-    public void change(Stirng str, char ch[]){
-        str = "test"
+    public void change(String str, char ch[]){
+        str = "test";
         ch[0]='b';
     }
     public static void main(String[] args){
         StringExer ex = new StringExer();
-        ex.change(ex.str,ex.ch)
-        System.out.println(ex.str)  // good 正常的引用传递会改变指向的方向，String比较特殊，不可变性，
-        System.out.println(ex.ch)   // be
+        ex.change(ex.str,ex.ch);
+        System.out.println(ex.str);  // good 正常的引用传递会改变指向的方向，String比较特殊，不可变性，
+        System.out.println(ex.ch);   // be
     }
 }
 
@@ -249,6 +251,9 @@ System.out.println( s0==s2 );       // true
 ```
 
 ### new String()到底创建了几个对象
+1个或2个。先判断常量池有没有该字符串，没有创建。再去堆上创建字符串。最后返回堆上字符串的引用。
+参考<https://cloud.tencent.com/developer/article/1686226>
+<https://juejin.cn/post/6844904129752465416>
 
 # 垃圾回收
 ### 为什么需要GC
