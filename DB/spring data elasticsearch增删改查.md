@@ -220,7 +220,7 @@ Caused by: QueryPhaseExecutionException[Result window is too large, from + size 
   at org.elasticsearch.search.internal.DefaultSearchContext.preProcess(DefaultSearchContext.java:212)
 
 ```
-*下面是 （正确做法为什么要用这个方法，其中的原理待记录下）*
+*下面是 （正确做法为什么要用这个方法，其中的原理待记录下）* // todo
 ```
         public List<TrackingDi> readEsByScroll(String gridId){
             BoolQueryBuilder builder = boolQuery();
