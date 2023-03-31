@@ -148,7 +148,7 @@
 ### 面试
 - [面试题](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98.md) 
 
-
-
+### life
+- [mac重装系统]()
 
 

@@ -245,3 +245,7 @@ git rebase -i HEAD~6
 git commit —amend
 git rebase —continue
 ```
+
+- git分支命名规范
+feature/20230324_event_to_question
+  

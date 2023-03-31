@@ -1,3 +1,8 @@
+- 创建数据库
+```
+create database db1 charset utf8;
+```
+  
 - 建表
 mediumtext 类型不能设置not null default
 ```
