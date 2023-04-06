@@ -44,3 +44,13 @@ _
 -
 .
 !
+
+
+### md文件生成目录
+```
+// 安装doctoc插件，i是install缩写
+npm i doctoc -g 
+// cd到md文件目录下
+doctoc demo.md
+```
+参考<https://www.jianshu.com/p/b0a18eb32d09>

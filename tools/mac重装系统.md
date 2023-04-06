@@ -28,5 +28,5 @@
 11. 禁止工作区更换位置<https://www.zhihu.com/question/49530172> 系统设置->桌面与程序坞->调度中心
 12. iterm设为默认终端（）
 13. 鼠标滚轮和外接键盘ctrl设置(会影响触控板)（<https://www.edianyun.com/wenda_czxt_macos/162.html><https://blog.csdn.net/Nick_Zhang_CSDN/article/details/99494240https://blog.csdn.net/Nick_Zhang_CSDN/article/details/99494240>）
-14. 安装npm
+14. 安装npm(brew install npm)
 
