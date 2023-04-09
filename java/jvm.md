@@ -30,7 +30,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 加载器内部过程：
 加载->验证->准备->解析->初始化
 
-# new一个对象发生了什么
+### new一个对象发生了什么
 （下面的是简版）
 1. 加载。加载类信息到方法区
 2. 验证。验证格式，语义，(文件规范，final有没有子类）
@@ -76,7 +76,7 @@ java栈（虚拟机栈）   存在error，不存在GC，存在OOM
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_10_jvm_native.png" width="600px"></p>
 
 
-# 堆
+### 堆
 -X 是jvm的运行参数，ms是memory  start  mx是memory max
 -Xms10m  初始堆空间10兆（新生代+老年代）
 -Xmx10m  最大堆空间10兆 
@@ -152,7 +152,7 @@ Full GC触发机制：
 
 
 
-# 方法区
+### 方法区
 方法区主要存放的是类型信息（类，接口，枚举等信息）。运行时常量池（常量），静态变量，即时编译器编译后的代码缓存
 方法区在JVM启动的时候被创建。
 方法区的大小可以选择固定和可扩展。
@@ -255,7 +255,7 @@ System.out.println( s0==s2 );       // true
 参考<https://cloud.tencent.com/developer/article/1686226>
 <https://juejin.cn/post/6844904129752465416>
 
-# 垃圾回收
+## 垃圾回收
 ### 为什么需要GC
 1. 不垃圾回收的，内存会被消耗完。
 2. 垃圾回收还会进行碎片整理，腾出空的内存给新的大对象
@@ -285,7 +285,7 @@ System.out.println( s0==s2 );       // true
 
 可达性分析算法是以根对象集合（GC Roots）为起始点，按照从上至下的方式搜索被根对象集合所连接的目标对象是否可达。如果对象没有引用链相连则是不可达，可以被标记为垃圾对象。
 
-##### GC Roots包括以下几类元素
+### GC Roots包括以下几类元素
 虚拟机栈中引用的对象
 本地方法栈中 JNI（即一般说的 Native 方法）引用的对象
 方法区中类静态属性引用的对象
@@ -438,7 +438,7 @@ G1 GC有计划的避免在整个Java堆中进行全区域垃圾收集。G1跟踪
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_18_jvm_G1.png" width="600px"></p>
 H是hunongous区域，用于存储大对象，如果超过1.5个region，就放入H。如果1个H装不下大对象，G1会寻找连续的H来存储
 
-##### 特点
+#### 特点
 并行性：G1回收期间，可以有多个GC线程同时工作，此时用户线程STW
 并发性：部分工作可以和应用程序同时进行
 分代收集：G1属于分代性垃圾回收器，区分年轻代，老年代。年轻代依然有Eden区和Survivro区，不要求整个Eden区，年轻代或者老年代是连续的，也不再坚持固定大小和数量。
@@ -446,18 +446,18 @@ H是hunongous区域，用于存储大对象，如果超过1.5个region，就放�
 
 可预测的停顿时间模型：即能让使用者明确指定在一个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒。
 
-#### 空间整合
+### 空间整合
 内存回收以region作为基本单位，Region之间是复制算法，整体上实际可看做是标记-压缩算法。可以避免内存碎片。
 
-#### 缺点
+### 缺点
 内存占用和程序运行时的额外执行负载比CMS高
 经验上来说，小内存应用上CMS表现大概率优于G1，大内存上G1更好，平衡点在6-8GB之间
 
-#### 使用场景
+### 使用场景
 - 面对服务端应用，针对大内存、多处理器的机器
 - 最主要的应用是需要低GC延迟，并具有大堆的应用程序提供解决方案（在堆大小约6GB或更大时，可预测的暂停时间可用低于0.5秒） 
 
-#### G1垃圾回收过程
+### G1垃圾回收过程
 见图19  
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_19_jvm_G1_GC.png" width="600px"></p>
 图20,21，22，23，24，25        
@@ -468,19 +468,19 @@ H是hunongous区域，用于存储大对象，如果超过1.5个region，就放�
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_24_jvm_g1_gc.png" width="700px"></p>
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_25_jvm_g1_gc.png" width="700px"></p>
 
-#### RS(Remembered Set )
+### RS(Remembered Set )
 有可能eden的对象在old的region中引用了，所以每个region有一个rs，记录这个region中的对象被哪个region引用了，gc时只要根据rs去清理对应的region即可。避免GC时全局扫描。
 
-# 7款GC总结
+### 7款GC总结
 见图26
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_26_jvm_summary.png" width="700px"></p>
 
-# 
+### 
 串行回收器：Serial，Serial Old
 并行回收器：ParNew，Parallel Scavenge，Parallel Old
 并发回收器：CMS，G1  （并发指的是GC线程可以和用户线程同时执行，不阻塞用户线程。）
 
-## 评估GC的性能指标
+### 评估GC的性能指标
 - 吞吐量（重要）：运行用户代码的时间占总运行时间的比例（总运行时间=程序运行时间+内存回收时间）
 - 垃圾收集开销：吞吐量的补数，垃圾收集所用时间与总运行时间的比例
 - 暂停时间（重要）：执行垃圾收集时，程序的工作线程被暂停的时间
@@ -492,23 +492,23 @@ H是hunongous区域，用于存储大对象，如果超过1.5个region，就放�
 所以注重速度就要高吞吐，注重用户感受就低暂停时间
 现在标准：在最大吞吐量优先的情况下，降低停顿时间
 
-## 垃圾回收器的组合关系
+### 垃圾回收器的组合关系
 见图13
 <p align="center"><img src="https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/jvm/20210607_13_jvm_gc_relation.png" width="600px"></p>
 红色的线在jdk8以前是实线，jdk8中取消了红色的线。不建议这么搭配，但是也能用，9中是完全移除红色线关系，不能用这个搭配。
 绿色的是jdk14弃用了这个关系
 CMS GC 在jdk14中删除了
 
-## 默认GC
+### 默认GC
 jdk8中默认GC是Parallel。新生代使用 Parallel Scavenge 自动触发老年代使用 Parallel Old
 jdk8中默认GC是G1。
 
 
-# 程序计数器（PC寄存器）面试题
+## 程序计数器（PC寄存器）面试题
 ### 使用PC寄存器存储字节码指令地址有什么用
 因为CPU需要不停的切换各个线程，这时候切换回来以后，就得知道接着从哪开始继续执行
 
-# 栈面试题
+## 栈面试题
 ### 举例栈溢出的情况（StackOverflowError）
 假如方法嵌套调用很多，每次嵌套都会将方法压栈，栈空间不足就会报溢出的错。通过-Xss设置栈的大小。
 ### 调整栈大小，能保证不出现溢出吗
@@ -516,7 +516,7 @@ jdk8中默认GC是G1。
 ### 分配的栈内存越大越好吗
 不是，影响其他地方的内存分配
 
-# 堆面试题
+## 堆面试题
 ### 堆是分配对象存储的唯一选择吗
 不是。有一种特殊情况。如果经过逃逸分析后发现，一个对象并没有逃逸出方法的话，那么就可能被优化成栈上分配。
 
@@ -524,9 +524,9 @@ jdk8中默认GC是G1。
 - 当一个对象在方法中被定义后，对象只在方法内部使用，则认为没有发生逃逸。
 - 当一个对象在方法中被定义后，它被外部方法所引用，则认为发生逃逸。例如作为调用参数传递到其他地方中，或者是将方法内的对象return出去。
 
-# 对象头包含什么信息
+### 对象头包含什么信息
 
-# JVM内存模型
+### JVM内存模型
 1. 线程共享的：方法区，堆
 2. 线程私有的，java栈，本地方法栈，程序计数器
 

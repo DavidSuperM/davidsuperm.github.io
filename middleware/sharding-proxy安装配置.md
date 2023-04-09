@@ -1,8 +1,11 @@
-# 分库分表几种方案比较
+# sharding-proxy安装配置
+
+
+### 分库分表几种方案比较
 待完成
 
 
-# sharding-proxy安装配置
+### sharding-proxy安装配置
 1. 下载地址<https://shardingsphere.apache.org/document/current/cn/downloads/>
 选择ShardingSphere-Proxy 二进制包: [ TAR ] 下载 .tar.gz格式
 解压 tar -zxvf filename.tar.gz
@@ -97,7 +100,7 @@ JAVA_MEM_OPTS=" -server -Xmx2g -Xms2g -Xmn1g -Xss256k -XX:+DisableExplicitGC -XX
 ```
 
 
-# maven手动下载依赖 
+### maven手动下载依赖 
 1. 下载jar包   假设位置在  /Users/david/Downloads/unite-framework-spring-test-0.0.12.jar
 2. 查看依赖的信息例如
 ```

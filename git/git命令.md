@@ -1,4 +1,5 @@
-## 1.合作开发分支流程
+# git命令
+### 1.合作开发分支流程
 1. master是稳定的主分支。
 2. 有新功能需求时
 ```
@@ -31,7 +32,7 @@ release/2020-05-12_feature_name_1: git push
 master : git merge release/2020-05-12_feature_name_1
 ```
 
-## 2.git命令
+### 2.git命令
 - 克隆项目
 ```
 用idea的VCS->git->clone

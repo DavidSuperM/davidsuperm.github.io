@@ -1,4 +1,6 @@
-# 配置步骤
+# github页面绑定域名
+
+### 配置步骤
 1. 点击仓库 -> settings 
 3. 仓库设为public
 3. rename仓库名字为 你的名字.github.io
@@ -11,7 +13,7 @@
 <https://dns.console.aliyun.com/?spm=5176.100251.111252.22.33064f15rhO5nu#/dns/setting/qiandawei.com>
 ![](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/%E6%88%AA%E5%B1%8F2020-10-31%20%E4%B8%8B%E5%8D%8812.15.14.png)
 
-# 问题
+### 问题
 1. 仓库rename地址是否必须为DavidSuperM.github.io，怎么才能起自己想要的名字
 
  

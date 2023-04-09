@@ -1,9 +1,10 @@
-## 修改hosts(mac host)
+# mac文件系统
+### 修改hosts(mac host)
 ```
 vim /etc/hosts
 ```
 
-## mac下的环境变量配置文件
+### mac下的环境变量配置文件
 ```
 a. /etc/profile 
 b. /etc/paths 
@@ -17,14 +18,14 @@ f. ~/.bashrc
 >3. ~/.bashrc没有上述规则，它是bash shell打开的时候载入的。
 >4. 这里建议在c中添加环境变量
 
-## mac原生terminal添加环境变量
+### mac原生terminal添加环境变量
 ```
 vim ~/.bash_profile 
 export PATH=/usr/local/apache-maven-3.6.3/bin:$PATH
 source ~/.bash_profile    // 立马生效
 ```
 
-## mac安装了iterm2，zsh，添加环境变量
+### mac安装了iterm2，zsh，添加环境变量
 因为zsh不会加载~/.bash_profile，而是加载~/.zshrc，所以原方法没用
 需要
 ```
@@ -37,7 +38,7 @@ source ~/.bash_profile    // 立马生效
 
 
 ## brew更换源
-####  更换为清华源
+###  更换为清华源
 ```
 # 替换brew.git
 cd "$(brew --repo)"

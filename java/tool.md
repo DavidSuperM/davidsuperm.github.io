@@ -1,4 +1,7 @@
-## 1.得到指定date  (现在不推荐用Date，改用LocalDateTime)
+
+# tool
+
+### 1.得到指定date  (现在不推荐用Date，改用LocalDateTime)
 ```
 //得到指定日期的0时0分0秒
 Date currentDate = new Date();
@@ -31,7 +34,7 @@ long m2 = date2.getTime();
 int diff = (m2 - m1)/1000
 ```
 
-## LocalDateTime
+### LocalDateTime
 问：为什么用LocalDateTime不用Date
 答：因为Date要用SimpleDateFormat格式化时间，但SimpleDateFormat是线程不安全的。详见<https://zhuanlan.zhihu.com/p/87555377>
 
@@ -75,7 +78,7 @@ LocalDateTime endTime = LocalDateTime.of(2020,12,12,23,59,59,0); //当天结束�
 ```
 
 
-## json转换
+### json转换
 用jsckson(fastjson有漏洞)
 ```
 // 引入依赖
@@ -177,7 +180,7 @@ public class JsonUtil {
 }
 ```
 
-## java8 stream使用
+### java8 stream使用
 .stream可以将集合内的元素做转换
 .foreach不可用对原集合元素转换，但是可以操作取出的每个元素(如果取出的是对象，也可以改变对象的属性)
 ```
@@ -209,7 +212,7 @@ c6b75eef-f6ca-4963-8c4f-26b72cb15eee
 ```
 
 
-## @RequestBody和@RequestParam区别
+### @RequestBody和@RequestParam区别
 get请求的参数或者post请求Content-Type为application/x-www-form-urlencoded时，后端用@RequestParam 接收
 ```
 public String insert(@RequestParam("name") String name, @RequestParam("age") Integer age) {
@@ -225,7 +228,7 @@ public String insert(@RequestBody("user") User user) {
 ```
 参考:<https://cloud.tencent.com/developer/article/1414464>
 
-## 浅拷贝与深拷贝（深度拷贝，深复制，深度复制，深度克隆，深克隆）
+### 浅拷贝与深拷贝（深度拷贝，深复制，深度复制，深度克隆，深克隆）
 浅拷贝：拷贝对象的基本类型属性，对象类型属性拷贝的是引用
 方法: 实现Cloneable接口，复写clonen函数，函数里调用super.clone, main里直接对对象调用 object.clone即可
 ```
@@ -255,7 +258,7 @@ ObjectMapper objectMapper = new ObjectMapper();
 User copyUser = objectMapper.readValue(objectMapper.writeValueAsString(user), User.class);
 ```
 
-## 获取随机数，随机字符串
+### 获取随机数，随机字符串
 ```
 // 使用指定的字符生成5位长度的随机字符串  
 r = RandomStringUtils.random(5, new char[] { 'a', 'b', 'c', 'd', 'e',  'f', '1', '2', '3' });  
@@ -269,7 +272,7 @@ r = RandomStringUtils.randomAlphabetic(5);
 r = RandomStringUtils.randomAscii(4);  
 ```
 
-## 集合转数组
+### 集合转数组
 ```
 List<String> list = new ArrayList<>(2);
 list.add("guan");
@@ -281,7 +284,7 @@ String[] array = list.toArray(new String[0]);
 3） 等于 size，在高并发情况下，数组创建完成之后，size 正在变大的情况下，负面影响与 2 相同。
 4） 大于 size，空间浪费，且在 size 处插入 null 值，存在 NPE 隐患。
 
-## 数组转list
+### 数组转list
 ```
 String[] str = new String[] { "chen", "yang", "hao" };
 List list = Arrays.asList(str);
@@ -290,7 +293,7 @@ List list = Arrays.asList(str);
 使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，
 它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
 
-## 读取excel 
+### 读取excel 
 pom文件
 ```
  <dependency>
@@ -363,14 +366,14 @@ public class ExcelUtil {
 ```
 
 ## base64加密解密
-#### base64加密
+### base64加密
 ```
 public String base64Encode(String s){
     return Base64.getEncoder().encodeToString(s.getBytes(StandardCharsets.UTF_8));
 }
 
 ```
-#### base解密
+### base解密
 ```
 public String base64Decode(String s){
     return new String(Base64.getDecoder().decode(s), "utf-8");
@@ -378,14 +381,14 @@ public String base64Decode(String s){
 ```
 
 ## unicode加密解密
-#### unicode加密
+### unicode加密
 ```
 public String unicodeDecode(String s){
     return StringEscapeUtils.escapeJava(s);
 }
 
 ```
-#### unicode解密
+### unicode解密
 ```
 public String unicodeDecode(String s){
     return StringEscapeUtils.unescapeJava(s);
@@ -406,7 +409,7 @@ String resUrl = uriComponents.toUriString();
 
 ## 并行流
 目标：根据重量，计算每个苹果的价格
-#### 正常写法
+### 正常写法
 ```
 List<Apple> appleList = new ArrayList<>(); // 假装数据是从库里查出来的
 
@@ -415,7 +418,7 @@ for (Apple apple : appleList) {
 }
 ```
 
-#### 并行流写法
+### 并行流写法
 ```
 appleList.parallelStream().forEach(apple -> apple.setPrice(5.0 * apple.getWeight() / 1000));
 ```

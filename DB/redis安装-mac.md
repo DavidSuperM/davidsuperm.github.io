@@ -1,4 +1,4 @@
-# mac安装redis
+# redis安装-mac
 ```
 brew install redis
 ```

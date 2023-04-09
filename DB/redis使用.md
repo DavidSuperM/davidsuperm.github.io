@@ -1,6 +1,7 @@
-## redis数据类型：
+# redis使用
+### redis数据类型：
 
-## redis-cli客户端操作
+### redis-cli客户端操作
 ```
 进入客户端
 redis-cli 
@@ -36,7 +37,7 @@ redisTemplate.opsForValue().set("1.2", "2.2");
 代码来插入的，则redis-cli命令行要  get "\"1.2\"" 才能取到值
 ```
 
-## springboot使用redis
+### springboot使用redis
 1. 加入依赖
 ```
 <dependency>
@@ -227,7 +228,7 @@ public class RedisServiceImpl implements RedisService {
 
 ```
 
-4. 为什么有 RedisTemplate StringRedisTemplate 两个类操作
+4 为什么有 RedisTemplate StringRedisTemplate 两个类操作
 
 RedisTemplate 对五种数据结构分别定义了操作，如下所示：
 操作字符串：redisTemplate.opsForValue()

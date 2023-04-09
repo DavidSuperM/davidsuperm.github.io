@@ -1,3 +1,4 @@
+# mysql唯一约束下的逻辑删除
 ### 数据库表结构
 ```
 CREATE TABLE `user_info` (

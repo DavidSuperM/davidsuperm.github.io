@@ -1,4 +1,5 @@
-# 定时清理日志文件（日志文件以天为单位，每天自动创建一个）
+# shell脚本
+### 定时清理日志文件（日志文件以天为单位，每天自动创建一个）
 1. 新建个 clean_log.sh 文件
 2.
 ```
@@ -16,7 +17,7 @@ for file in `find ./logwe/ -type f -name "*"`
     done
 ```
 
-# 守护进程，如果spider_start_script python脚本挂了，自动启动，配合crontab使用(crontab使用详见同级目录下linux命令文章里)
+### 守护进程，如果spider_start_script python脚本挂了，自动启动，配合crontab使用(crontab使用详见同级目录下linux命令文章里)
 新建monitor.sh
 ```
 #!/bin/sh

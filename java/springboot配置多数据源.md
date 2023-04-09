@@ -1,4 +1,6 @@
-# springboot配置单数据源
+# springboot配置多数据源
+
+### springboot配置单数据源
 
 application.properties文件配置
 ```
@@ -16,7 +18,7 @@ logging.level.com.example.dao=debug
 mybatis.mapperLocations=classpath:mapper/*.xml
 ```
 
-# springboot配置多数据源
+### springboot配置多数据源
 
 1. application.properties文件配置
 注意.url变成了.jdbc-url

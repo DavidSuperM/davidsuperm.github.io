@@ -1,6 +1,6 @@
 # spring原理
 
-## springBean
+### springBean
 生成bean流程
 1. 找到class类
 2. 实例化对象

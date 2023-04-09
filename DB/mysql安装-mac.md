@@ -1,3 +1,5 @@
+# mysql安装-mac
+
 1. brew install mysql  //默认安装8.版本
 或者 brew install mysql@5.7  //指定安装5.7版本
 2. ln -sfv /usr/local/opt/mysql@5.7/*.plist ~/Library/LaunchAgents  //设置开机启动 没试过

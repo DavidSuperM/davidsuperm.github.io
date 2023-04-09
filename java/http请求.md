@@ -190,7 +190,7 @@ public class HttpClient4 {
 
 ### spring RestTemplate
 
-##### 配置文件
+#### 配置文件
 ```
 package com.example.config;
 
@@ -228,7 +228,7 @@ public class RestTemplateConfig {
 
 ```
 
-###### RestTemplate封装
+#### RestTemplate封装
 ```
 package com.example.utils;
 

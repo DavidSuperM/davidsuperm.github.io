@@ -1,42 +1,43 @@
-## 集合判空
+# java开发规范
+### 集合判空
 使用spring包下的 org.springframework.util.CollectionUtils; （我觉得用apache包下的也可以）
 ```
 CollectionUtils.isEmpty(list)
 ```
 > 比list.isEmpty()多个对list==null的判断
 
-## 字符串判空
+### 字符串判空
 使用 org.apache.commons.lang3.StringUtils; 包下的
 ```
 StringUtils.isEmpty();
 ```
 
-## 字符串转整型浮点型
+### 字符串转整型浮点型
 ```
 String str = "12";
 long a = NumberUtils.toLong(str);
 ```
 > 比Long.parseLong(str)多个对str==null的判断
 
-## 基本数据类型转String
+### 基本数据类型转String
 ```
 int a = 5;
 String s = Integer.toString(a);
 ```
 
-## 所有方法使用了泛型的必须要显示声明出来，没有设置泛型值也要加<Void>
+### 所有方法使用了泛型的必须要显示声明出来，没有设置泛型值也要加<Void>
 
-## hashmap初始化容量
+### hashmap初始化容量
 initialCapacity = (需要存储的元素个数 / 负载因子) + 1
 initialCapacity = (需要存储的元素个数 / 0.75) + 1
 这种算法实际上是一种使用内存换取性能的做法，在真正的应用场景中要考虑到内存的影响。
 
-## ArrayList初始化容量
+### ArrayList初始化容量
 默认是10，满了则扩容成1.5倍，如果知道要存的数据量大小，最好指定值
 
-## mybatis insertList要判断空或者size是否等于0，否则运行会报错
+### mybatis insertList要判断空或者size是否等于0，否则运行会报错
 
-## 浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用 equals来判断。
+### 浮点数之间的等值判断，基本数据类型不能用==来比较，包装数据类型不能用 equals来判断。
 ```
 float a = 1.0F - 0.9F;
 float b = 0.9F - 0.8F;
@@ -85,7 +86,7 @@ BigDecimal result3 = a.multiply(b);
 BigDecimal result3 = a.divide(b,4, BigDecimal.ROUND_HALF_UP)
 ```
 
-#### 构建BigDecimal的方式 
+### 构建BigDecimal的方式 
 1. public BigDecimal(double val)   // 不建议使用
 2. public BigDecimal(int val)　　
 3. public BigDecimal(String val)　// 官方推荐方式
@@ -104,17 +105,17 @@ bigDecimal=2
 bDouble=2.99999999999999998223643160599
 bString=2.3
 
-## java开发手册
+### java开发手册
 【强制】所有的 POJO 类属性必须使用包装数据类型。
 【强制】RPC 方法的返回值和参数必须使用包装数据类型。
 【推荐】所有的局部变量使用基本数据类型。
 【强制】只要覆写 equals，就必须覆写 hashCode。
 
-## 【强制】在使用 Collection 接口任何实现类的 addAll()方法时，都要对输入的集合参数进行NPE 判断。
+### 【强制】在使用 Collection 接口任何实现类的 addAll()方法时，都要对输入的集合参数进行NPE 判断。
 说明：在 ArrayList#addAll 方法的第一行代码即 Object[] a = c.toArray(); 其中 c 为输入集合参数，如果
 为 null，则直接抛出异常。
 
-## Map遍历
+### Map遍历
 ```
 Map<String, String> map = new HashMap<>(16);
 map.put("1","a");
@@ -129,7 +130,7 @@ map.forEach((key,value)->{
 });
 ```
 
-## 【强制】对于需要使用超大整数的场景，服务端一律使用 String 字符串类型返回，禁止使用Long 类型。
+### 【强制】对于需要使用超大整数的场景，服务端一律使用 String 字符串类型返回，禁止使用Long 类型。
 说明：Java 服务端如果直接返回 Long 整型数据给前端，JS 会自动转换为 Number 类型（注：此类型为双
 精度浮点数，表示原理与取值范围等同于 Java 中的 Double）。Long 类型能表示的最大值是 2 的 63 次方
 -1，在取值范围之内，超过 2 的 53 次方 (9007199254740992)的数值转化为 JS 的 Number 时，有些数
@@ -139,19 +140,19 @@ map.forEach((key,value)->{
 反例：通常在订单号或交易号大于等于 16 位，大概率会出现前后端单据不一致的情况，比如，"orderId": 
 362909601374617692，前端拿到的值却是: 362909601374617660。
 
-## 【强制】在翻页场景中，用户输入参数的小于 1，则前端返回第一页参数给后端；后端发现用户输入的参数大于总页数，直接返回最后一页。
+### 【强制】在翻页场景中，用户输入参数的小于 1，则前端返回第一页参数给后端；后端发现用户输入的参数大于总页数，直接返回最后一页。
 
-# Mysql规范
-## 【强制】小数类型为 decimal，禁止使用 float 和 double。
+## Mysql规范
+### 【强制】小数类型为 decimal，禁止使用 float 和 double。
 说明：在存储的时候，float 和 double 都存在精度损失的问题，很可能在比较值的时候，得到不正确的
 结果。如果存储的数据范围超过 decimal 的范围，建议将数据拆成整数和小数并分开存储。
 
-## 【推荐】单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表。
+### 【推荐】单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表。
 说明：如果预计三年后的数据量根本达不到这个级别，请不要在创建表时就分库分表。
 
-## 【强制】在 varchar 字段上建立索引时，必须指定索引长度，没必要对全字段建立索引，根据实际文本区分度决定索引长度。
+### 【强制】在 varchar 字段上建立索引时，必须指定索引长度，没必要对全字段建立索引，根据实际文本区分度决定索引长度。
 
-##7. 【推荐】利用延迟关联或者子查询优化超多分页场景。
+### 【推荐】利用延迟关联或者子查询优化超多分页场景。
 说明：MySQL 并不是跳过 offset 行，而是取 offset+N 行，然后返回放弃前 offset 行，返回 N 行，那当
 offset 特别大的时候，效率就非常的低下，要么控制返回的总页数，要么对超过特定阈值的页数进行 SQL
 改写。

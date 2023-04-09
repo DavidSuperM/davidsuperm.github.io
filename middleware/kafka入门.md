@@ -1,4 +1,6 @@
-# mac安装kafka
+# kafka入门
+
+### mac安装kafka
 ```
 brew install kafka
 ```

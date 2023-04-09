@@ -1,3 +1,4 @@
+# linux命令
 - 查看所有端口
 ```
 netstat -ntlp
@@ -129,12 +130,12 @@ curl  http://127.1.1.2:8080 -H "Accept:text/html,application/xhtml+xml,applicati
 pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-## 连接mysql
+- 连接mysql
 ```
 mysql -h host -P 8008 --default-character-set=utf8 -uuser -pqdw -Dtest_table;
 ```
 
-## 导出mysql表数据 （导数据）
+- 导出mysql表数据 （导数据）
 ```
 // 导sql数据，需要权限
 select * from pirate_book_chapter_update into outfile /tmp/project/chapter.xls 
@@ -145,14 +146,14 @@ mysqldump -u[Mysql用户名] -h[mysqlIP] -P[mysql端口] -p[mysql密码] --defau
 mysql -h[mysqlIp] -u[用户名] -p[密码] -P[端口] --default-character-set=utf8 -e"use database1;select * from user  where status=1" > /data/user/data1.xlsx
 ```
 
-## 后台执行python脚本
+- 后台执行python脚本
 ```
 nohup python -u run.py > run.out 2>&1 &
 [1] 25584
 ```
 参考:<https://www.jianshu.com/p/fec2163a5c2e>
 
-## linux设置环境变量（未验证）
+### linux设置环境变量（未验证）
 1.对当前用户生效
 vim ~/.bash.profile
 HOSTNAME = '/usr/bin/hostname 2>/dev/null'   // 得到 9-151-18-99
@@ -164,19 +165,19 @@ vim /etc/profile
 export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib
 source /etc/profile
 
-## 移动文件 
+- 移动文件 
 mv file1 file2
 
 
 
-## 解压文件
+- 解压文件
 ```
 unzip filename.zip
 tar -zxvf filename.tar.gz
 ```
 
 
-## crontab定时任务
+- crontab定时任务
 ```
 crontab -e
 //编辑文件，添加下面一行语句，作用：每分钟执行一次脚本
@@ -185,7 +186,7 @@ crontab -e
 crontab语法参考<0>
 语句复制进去的可能不能保存成功，需要手打，因为复制进去的可能会有乱码不合适的字符看不见
 
-## top命令解析
+### top命令解析
 ![top命令](https://github.com/DavidSuperM/davidsuperm.github.io/blob/master/images/20201231_top%E5%91%BD%E4%BB%A4.png)
 
 top命令扩展（在进入top后使用）
@@ -272,7 +273,7 @@ CPU利用率反映的是CPU被使用的情况。而Load Average却从另一个�
 
 > %CPU显示的是进程占用一个核（逻辑核）的百分比，而不是整个cpu（16核）的百分比，有时候可能大于100，那是因为该进程启用了多线程占用了多个核心，所以有时候我们看该值得时候会超过100%，但不会超过总核数*100。
  
-## 查看cpu信息
+### 查看cpu信息
 - 物理cpu的个数
 ```
 cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
@@ -316,13 +317,13 @@ mkdir floderName
 touch file1.txt
 ```
 
-## 查看文件大小
+- 查看文件大小
 ```
 ll
 ls  -lht 
 ```
 
-## 脚本判断进程是否存在
+- 脚本判断进程是否存在
 touch monitor.sh
 ```
 #!/bin/sh
@@ -338,22 +339,22 @@ else
 fi
 ```
 
-## 查看内核版本
+- 查看内核版本
 ```
 cat /proc/version
 ```
 
-## 查看系统版本
+- 查看系统版本
 ```
 cat /etc/issue
 ```
 
-## mac查找目录下包含特定字符串的文件
+- mac查找目录下包含特定字符串的文件
 ```
 grep -n "user_service" -r ./
 ```
 
-## SecureCRT操作
+- SecureCRT操作
 ```
 Ctrl + a ：移到命令行首
 Ctrl + e ：移到命令行尾

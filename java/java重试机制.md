@@ -6,7 +6,7 @@
 ### 原理
 本质是在一个while循环里，业务execute成功则break,若失败，则sleep几秒，重试次数++,再次execute,当达到重试次数阈值时break
 
-## spring-retry 
+### spring-retry 
 
 1. pom添加依赖
 ```
@@ -56,7 +56,7 @@ public int recover(RemoteAccessException e) {
   maxAttempts：最大重试次数，默认3次
   backoff：重试等待策略，默认使用@Backoff，@Backoff的value默认为1000L，我们设置为2000L；multiplier（指定延迟倍数）默认为0，表示固定暂停1秒后进行重试，如果把multiplier设置为1.5，则第一次重试为2秒，第二次为3秒，第三次为4.5秒。
   
-#### 配置打印重试日志 
+### 配置打印重试日志 
 application.properties添加以下内容
 ```
 logging.level.org.springframework.retry.support=debug

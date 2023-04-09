@@ -45,7 +45,7 @@ http://localhost:8080/springboot-demo/hello/index
    
 > package打包和build镜像也可以放在一起做。需要 1. 在pom.xml添加插件<artifactId>docker-maven-plugin</artifactId>（详见https://blog.csdn.net/weixin_41012767/article/details/122509035）2. package和build用 mvn package -Dmaven.test.skip=true docker:build 代替。（应该是这样，没试过）
 
-# k8s安装
+## k8s安装
 参考<https://developer.aliyun.com/article/929808>
 参考<https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/web-ui-dashboard/>
 1.在docker桌面版->设置->kubernetes->勾选Enable Kubernetes即可（需要挂vpn，自动下载）

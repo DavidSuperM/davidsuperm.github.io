@@ -52,7 +52,7 @@ V3__V1.0.0_RELEASE_KAPS_DYNAMIC_CONFIG.sql
 待更新
 
 ### 运行
-##### 1.maven运行
+#### 1.maven运行
 pom配置
 ```
 <plugin>
@@ -75,7 +75,7 @@ pom配置
 ```
 然后在idea右侧maven中找到plugin->flyway,点击migrate
 
-##### 2.继承在springboot中，每次启动项目自动运行
+#### 2.继承在springboot中，每次启动项目自动运行
 增加配置类即可
 ```
 import org.flywaydb.core.Flyway;
@@ -113,7 +113,7 @@ public class KapsFlywayConfig {
 }
 ```
 
-##### 3.代码main运行
+#### 3.代码main运行
 没有测试过
 ```
 public class FlywayTest {

@@ -77,7 +77,7 @@ pip install scrapy-user-agents -i https://pypi.tuna.tsinghua.edu.cn/simple
 ### scrapydemo项目地址
 <https://github.com/DavidSuperM/ScrapyDemo>
 
-#### 如果需要phantomjs来实现截图  
+### 如果需要phantomjs来实现截图  
 mac安装phantomjs 
 ```
 brew update && brew install phantomjs

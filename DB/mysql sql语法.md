@@ -1,9 +1,13 @@
-- 创建数据库
+# mysql sql语法
+
+
+## sql语句
+### 创建数据库
 ```
 create database db1 charset utf8;
 ```
   
-- 建表
+### 建表
 mediumtext 类型不能设置not null default
 ```
 CREATE TABLE `test_info` (
@@ -24,7 +28,7 @@ CREATE TABLE `test_info` (
 // mysql里唯一约束和唯一索引实际是一样的，唯一约束的就是靠唯一索引实现的。
 // 建表时创建唯一约束和唯一索引  unique / unique key / unique index 都行，mysql会自动都转换成unique key
 ```
-- 数据操作
+### 数据操作
 ```
 select * from test_table;    // 查询
 insert into test_table(name, type)
@@ -35,7 +39,7 @@ update test_table set name = 'li_si' where id = 1;
 delete from test_table where id = 1; 
 ```
 
-- 表操作
+### 表操作
 ```
 drop table tableName    //删除表
 alter table tableName add column delay int(11) NOT NULL default -1 comment 'test';  //增加列
@@ -45,7 +49,7 @@ alter table tableName change name name2 varchar(50) not null default '' comment 
 
 ```
 
-- 索引
+### 索引
 //todo 添加唯一性约束和唯一索引
 ```
 alter table tableName add index indexName(列名)    // 增加普通索引
@@ -54,11 +58,13 @@ alter table tableName add unique key [indexName] (列名(length))   // 增加唯
 alter table tableName drop index indexName;     //删除索引,删除唯一索引，删除唯一约束
 ```
 
-## mysql explain
+## 其他
+
+### mysql explain
 <https://www.jianshu.com/p/ea3fc71fdc45>
 <https://www.cnblogs.com/xuanzhi201111/p/4175635.html>
 
-## explain和limit
+### explain和limit
 ```
 explain select * from user limit 0,10;
 // 会发现rows预计扫描有几百万行（假设user表有几百万数据）
@@ -67,24 +73,24 @@ explain select * from user limit 0,10;
 explain分析的rows行数只和索引有关，来采样预估需要扫描的行数，和limit没有关系。
 
 
-## mysql查看表数据和索引占用空间大小
+### mysql查看表数据和索引占用空间大小
 ```
 use information_schema;
 // table_schema填DB名，table_name填表名
 select table_name, table_rows,data_length,index_length from tables where table_schema = 'test_db' and table_name='pirate_book_chapter_update';
 ```
 
-## mysql select默认不一定按主键id排序
+### mysql select默认不一定按主键id排序
 不加order by的话，select查出数据的顺序和用的索引有关。
 如果是select * from user_info; 用全表扫描，不用索引，数据是按主键id顺序查出。
 如果是select id from user_info limit 10; 查出数据没按主键id顺序，那我们用explain看下会发现这条语句是用了除主键外的其他索引。
 如果没有用任何索引，就是按照物理顺序给出结果。物理顺序不一定是按id排序，因为先插入id 3 4 5，再删除id为4的数据，再插入id 6，则可能id 6的数据插在原来4的位置，则物理顺序就是3 6 5
 所以要保持有序，手动加上order by 
 
-## 
+### select
 select 大字段会导致慢，因为数据大，可能站多个数据快，io次数就多
 
-## 查看sql执行过程和时间（sql执行时间）
+### 查看sql执行过程和时间（sql执行时间）
 1 show profiles; 
 2 show variables;查看profiling 是否是on状态； 
 3 如果是off，则 set profiling = 1； 
@@ -92,7 +98,7 @@ select 大字段会导致慢，因为数据大，可能站多个数据快，io�
 5 show profiles；就可以查到sql语句的执行时间；
 6.show profile for query Query_ID  // 查看具体执行过程，id是上一个命令可以查到
 
-## 慢日志开启
+### 慢日志开启
 默认情况下slow_query_log的值为OFF，表示慢查询日志是禁用的。
 ```
 // 开启慢日志
@@ -109,14 +115,14 @@ long_query_time=10
 slow_query_log_file=/path/mysql_slow.log
 ```
 
-## 联合索引
+### 联合索引
 创建联合索引(a,b,c)
 select * from mytable where a=3 and b>7 and c=3
 这条sql只能用到a，b的索引，用不到c
 原理请看联合索引在B+树的结构
 <https://blog.csdn.net/weixin_30531261/article/details/79329722>
 
-## select count(*) 会用到索引
+### select count(*) 会用到索引
 表结构
 ```
  CREATE TABLE `pirate_book_chapter_update` (
@@ -145,12 +151,12 @@ explain select count(*) from pirate_book_chapter_update;
 用索引快因为B+树叶节点有向右的指针，直接按右向指针数B+树叶节点的个数就可以了。不用索引的话得去物理块数，物理块数据大，分布散，磁盘IO次数多
 
 
-## mysql中拼接字符串使用concat
+### mysql中拼接字符串使用concat
 CONCAT('%',#{name},'%')
 
-# 问题
-## 子查询有max或min的函数，外层查询用in，没有走索引，而是全表扫描
-#### 表结构
+## 问题
+### 子查询有max或min的函数，外层查询用in，没有走索引，而是全表扫描
+### 表结构
 ```
  CREATE TABLE `pirate_book_chapter_update` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
@@ -165,10 +171,10 @@ CONCAT('%',#{name},'%')
   KEY `idx_create_time` (`create_time`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='盗版网站更新书章节表'
 ```
-#### 业务需求
+### 业务需求
 查出'临渊行'这本书在每个盗版站的最新章节名
 
-#### sql解析
+### sql解析
 - 
 ```
 select pirate_site_url,chapter_name from pirate_book_chapter_update  where id in 
@@ -189,7 +195,7 @@ select pirate_site_url,chapter_name from pirate_book_chapter_update where id in
 (select id from (select max(id) as id from pirate_book_chapter_update where book_name='临渊行' group by pirate_site_url ) a);
 ```
 
-## mysql去重取时间大的记录
+### mysql去重取时间大的记录
 问题：取相同class情况下时间最大的记录
 
 建表
@@ -230,7 +236,7 @@ select any_value(a.id) as id,any_value(a.name) as name, a.class, any_value(a.cre
 inner join (select class,max(create_time) as create_time from student group by class) b
 on a.class=b.class and a.create_time=b.create_time group by class;
 
-## order by 和 limit 混用导致数据重复问题
+### order by 和 limit 混用导致数据重复问题
 即 limit 0,10的数据在limit10,10又出现了，前提是order by 字段的值一样。mysql没有索引时，order by 用的堆排序
 解决办法：order by字段加索引，或者 order by time,id 多加个排序字段
 

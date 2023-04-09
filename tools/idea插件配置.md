@@ -1,3 +1,5 @@
+# idea插件配置
+
 ### 安装的插件列表
 1. SonarLint     // 检查语法，优化代码
 2. python       
@@ -9,7 +11,7 @@
 8. .ignore
 9. maven helper  // 查看maven依赖树，解决冲突
 
-##### EasyCode配置 
+### EasyCode配置 
 使用教程：<https://zhuanlan.zhihu.com/p/106849549?utm_source=qq&utm_medium=social&utm_oi=753897324492632064&utm_content=first>
 用完后 maven reload generate 才会显示出生成的文件
 自定义配置：
@@ -49,7 +51,7 @@ variable
 git add . 或 选中文件  option+command+a
 
 
-#### 另外几种自动生成增删改查的方法
+### 另外几种自动生成增删改查的方法
 使用脚本生成注解sql：<https://blog.csdn.net/wang845252276/article/details/103292071>
 
 mybatis-generator：<https://zhuanlan.zhihu.com/p/37636458?utm_source=qq&utm_medium=social&utm_oi=753897324492632064&utm_content=first>

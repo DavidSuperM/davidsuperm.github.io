@@ -1,3 +1,5 @@
+# mq.md
+
 用的rabbitmq
 ErmqMetricUtil.java:
 ```

@@ -1,4 +1,5 @@
-## 变量注入
+# springboot注解
+### 变量注入
 我一般用3
 网上貌似推荐用1
 参考
@@ -46,7 +47,7 @@ public class UserInfoController {
 ```
 3. 使用Setter/Field注入
 
-## 时间字段与前端交互，设置特定时间格式（时间格式转换）
+### 时间字段与前端交互，设置特定时间格式（时间格式转换）
 入参用@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") 转换接收
 出参用@JsonFormat转换传出
 ```
@@ -55,7 +56,7 @@ public class UserInfoController {
 private LocalDateTime createTime;
 ```
 
-## @Value使用
+### @Value使用
 ```
 public class UserServiceImpl implements UserService {
     @Value("${user.name}")
@@ -67,9 +68,8 @@ application.properties
 user.name=aifusen
 ```
 
-## 
 
-# 问题
+### 问题
 问题：springboot后端变量大写，返回给前端会变成小写
 原因：spring在序列化和反序列化时做了处理
 解决：变量上加注解

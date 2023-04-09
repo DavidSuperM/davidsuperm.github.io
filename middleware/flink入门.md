@@ -105,7 +105,7 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
 ```
 
 
-# mac安装flink
+## mac安装flink
 ### 安装命令
 ```
 1. 需要先安装java
@@ -136,7 +136,7 @@ flink datastream api 入门示例从参考
 <https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/project-configuration.html>
 
 
-# checkpoint savepoint配置位置
+### checkpoint savepoint配置位置
 ```
 which flink
 cd ~/flink
@@ -145,13 +145,13 @@ cat flink-conf.yaml
 state.savepoints.dir: hdfs://YWBDOwnerHDFS/YWBDFlink/savepoints
 ```
 
-# flink架构整理
+### flink架构整理
 yarn flink模式
 一个clinet端，用于提交任务，提交后，会有一个jobmanage启动flink集群，分发任务，
 jobmanage启动若干个taskmanage来执行任务
 
 
-## 自定义 testjob
+### 自定义 testjob
 TestJob.java
 ```
 package com.david.job;
@@ -227,7 +227,7 @@ public class TestJob {
 
 ```
 
-# 本地运行
+### 本地运行
 本地先起一个端口：
 nc -l 9000
 然后启动TestJob
