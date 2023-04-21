@@ -12,7 +12,7 @@
    export PATH="/usr/local/Cellar/mysql@5.7/5.7.32/bin:$PATH"
    export PATH=${PATH}:/usr/local/Cellar/mysql@5.7/5.7.24/bin
    source ~/.zshrc 
-   // 修改环境变量
+   // 修改环境变量(好像不设置也没事)
 
 4. mysql.server start    //启动服务
 

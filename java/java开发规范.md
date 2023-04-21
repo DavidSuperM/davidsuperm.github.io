@@ -86,6 +86,17 @@ BigDecimal result3 = a.multiply(b);
 BigDecimal result3 = a.divide(b,4, BigDecimal.ROUND_HALF_UP)
 ```
 
+// todo
+// 这个结果是66.6700
+BigDecimal sourcePercentageDecimal = new BigDecimal("2")
+.divide(new BigDecimal(3+""), 4, BigDecimal.ROUND_HALF_UP)
+.multiply(new BigDecimal("100"));
+// 所以要再setScale保留2位小数
+sourcePercentageDecimal = sourcePercentageDecimal.setScale(2, BigDecimal.ROUND_HALF_UP);
+// 去除多余的0，比如结果是25.00, 取出后变成25，66.67则不变，必须要toPlainString先变成字符串，不然50.00变成科学计数法 5E...之类的。
+String c = sourcePercentageDecimal.stripTrailingZeros().toPlainString();
+
+
 ### 构建BigDecimal的方式 
 1. public BigDecimal(double val)   // 不建议使用
 2. public BigDecimal(int val)　　

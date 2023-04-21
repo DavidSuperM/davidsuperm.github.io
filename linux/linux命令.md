@@ -61,6 +61,33 @@ ssh 用户名@服务器地址
 [输入密码]
 ```
 
+- item2免密登录服务器
+1. brew install expect
+2. /usr/local/bin/ 目录下创建 iterm2login.sh
+内容：
+```
+#!/usr/bin/expect
+
+set timeout 30
+spawn ssh [lindex $argv 0]@[lindex $argv 1]
+expect {
+"(yes/no)?"
+{send "yes\n";exp_continue}
+"password:"
+{send "[lindex $argv 2]\n"}
+}
+interact
+```
+3. 打开iterm2->profiles->open profiles->edit profiles->
+   新建名，假如是阿里云，command选择login shell，输入 iterm2login.sh 用户名 ip 密码。
+   
+4. 打开iterm2->profiles->阿里云   就可以自动登录服务器
+如果提示没权限 则 sudo chmod a+x iterm2login.sh
+
+参考<https://developer.aliyun.com/article/1131203>
+
+
+
 - 查看服务器进程
 ```
 ps -ef    //-e 显示每个现在运行的进程 -f 生成一个完全的列表
@@ -346,7 +373,7 @@ cat /proc/version
 
 - 查看系统版本
 ```
-cat /etc/issue
+cat /etc/redhat-release
 ```
 
 - mac查找目录下包含特定字符串的文件
@@ -367,15 +394,24 @@ Ctrl + w ：从光标处删除至字首
 
 1.  上传本地文件到服务器
 ```
+// windows
 cd /tmp
 rz  //然后会弹出弹窗选择本地的文件
 //文件传输也可以用sftp：右击此会话的标签栏，选择“连接SFTP会话”
 //put [本地文件的地址] [服务器上文件存储的位置]
 //get [服务器上文件存储的位置] [本地要存储的位置]
+
+// mac
+sftp root@106.15.106.216
+put 本地文件路径 远程主机路径
+
 ```
 2. 下载服务器文件到本地
 ```
+// windos
 sz  filename   //下载到默认地址
+// mac
+get 远程主机路径 本地文件路径 
 ```
 默认地址设置：
 Options->Session Options->Terminal->X/Y/ZModem->Download
@@ -392,3 +428,29 @@ options -> global options -> General -> Default Session,点击Edit default setti
 5. 按钮栏保存常用命令
 点击查看（view）-> 按钮栏（Button Bar）
 此时SecureCRT窗户底下会出现一条横杠。右击它，会出现“新建按钮”的选项。
+   
+
+
+- 卸载mysql
+```
+// 关闭mysql服务
+systemctl stop mysqld
+// 杀掉mysql进程，有的话再用kill -9 pid 杀掉
+ps -ef | grep mysql
+// 查看已安装的mysql
+rpm -qa | grep -i mysql
+
+// 显示 mysql-community-common-5.7.35-1.el7.x86_64
+// mysql-community-server-5.7.35-1.el7.x86_64
+// mysql-community-client-5.7.35-1.el7.x86_64
+
+// 逐个卸载
+rpm -e mysql-community-common-5.7.35-1.el7.x86_64
+rpm -e mysql-community-server-5.7.35-1.el7.x86_64
+rpm -e mysql-community-client-5.7.35-1.el7.x86_64
+
+// 查找其他mysql文件 逐个删除
+find / -name mysql
+rm -rf /root/mysql
+
+```
