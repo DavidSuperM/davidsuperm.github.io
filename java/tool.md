@@ -77,6 +77,12 @@ LocalDateTime endTime = LocalDateTime.now().withHour(23).withMinute(59).withSeco
 LocalDateTime endTime = LocalDateTime.of(2020,12,12,23,59,59,0); //当天结束时间
 ```
 
+7. 时间相差多少
+```
+import java.time.Duration;
+Duration.between(startLocalDateTime, endLocalDateTime).getSeconds();
+```
+
 
 ### json转换
 用jsckson(fastjson有漏洞)
@@ -108,6 +114,7 @@ JsonNode jsonNode = mapper.readTree(json).get("data");
 for(JsonNode node:jsonNode){
     System.out.println(node.get("id"));
 }
+// todo  json转map
 
 // 对象转json字符串
 String result = mapper.writeValueAsString(value);
@@ -128,8 +135,9 @@ Map<String, String> map = new HashMap<>();
 map.put("1","a");
 map.put("2","b");
 String json = mapper.writeValueAsString(value);
-
-
+// list转json
+List list = new ArrayList();
+String json = mapper.writeValueAsString(list);
 ```
 
 JsonUtil工具类

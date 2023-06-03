@@ -18,6 +18,7 @@
 2. clipy <https://clipy-app.com/>
 3. idea(2021.1.3专业版)（设置jdk）(安装插件 *.ignore、alibaba java coding guidliness、bashsupport pro、easycode-mybaitscodehelper、
    mybatisX、 ide eval reset、maven helper、python、sonarlint、vue.js) 
+   datagrip
 4. iterm （参考：<https://sysin.org/blog/macos-zsh/> <https://www.jianshu.com/p/a91b8d75a6d7>）
 5. sublime text (安装 json插件、Log Highlight 日志查看插件)
 6. postman
@@ -30,4 +31,4 @@
 13. 鼠标滚轮和外接键盘ctrl设置(会影响触控板)（<https://www.edianyun.com/wenda_czxt_macos/162.html><https://blog.csdn.net/Nick_Zhang_CSDN/article/details/99494240https://blog.csdn.net/Nick_Zhang_CSDN/article/details/99494240>）
 14. 安装npm(brew install npm)
 15. 安装python、(brew search python,brew install python@3.11,设置环境变量 )
-
+16. brew intall maven,配置环境变量

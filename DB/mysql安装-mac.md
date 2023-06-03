@@ -7,6 +7,11 @@
 4. brew services stop mysql@5.7     //停止
 5. brew services restart mysql@5.7 //重启
 
+查看服务状态
+```
+brew services list
+```
+
 
 3. vi ~/.zshrc
    export PATH="/usr/local/Cellar/mysql@5.7/5.7.32/bin:$PATH"

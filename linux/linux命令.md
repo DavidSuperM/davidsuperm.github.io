@@ -26,6 +26,10 @@ find . -name "*.c" 在当前目录及其子目录（用“.”表示）中查找
 ```
 参考 <https://blog.csdn.net/wzzfeitian/article/details/40985549>
 
+- 清空文件内容
+```
+> access.log
+```
 
 - 查找Path里的命令
 ```
@@ -53,6 +57,13 @@ pgrep = ps + grep
 top
 top -b        // 显示所有进程
 top -b -n 1      // 显示所有进程
+// top后按P，按cpu排序
+// top后按M，按内存排序
+```
+
+- 查看进程启动位置
+```
+pwdx pid
 ```
 
 - 终端连接远程服务器
@@ -453,4 +464,10 @@ rpm -e mysql-community-client-5.7.35-1.el7.x86_64
 find / -name mysql
 rm -rf /root/mysql
 
+```
+
+- 开启防火墙端口
+```
+firewall-cmd --zone=public --add-port=9200/tcp --permanent
+firewall-cmd --reload
 ```

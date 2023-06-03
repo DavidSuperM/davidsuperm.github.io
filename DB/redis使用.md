@@ -5,6 +5,7 @@
 ```
 进入客户端
 redis-cli 
+redis-cli -h 127.0.0.1 -p 3006
 
 ping命令可检测redis服务是否启动
 redis 127.0.0.1:6379> PING
@@ -15,6 +16,8 @@ redis-cli相关命令: <http://shouce.jb51.net/redis-all-about/DataStructure/zse
 
 keys *
 del 1
+del key
+del key*
 flushdb  // 删除当前库的所有key
 // todo 删除的其他操作
 

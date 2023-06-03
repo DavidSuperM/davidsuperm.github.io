@@ -135,6 +135,7 @@ git stash show   //查看另存区的内容
 git stash show -p stash@{3}   //查看另存区的内容
 git stash list
 git stash           //目前已改动的地方放入另存区
+git stash save 'message'   // 加注释
 git stash pop    //取回另存区的改动,stash里的内容会被删除
 git stash drop    // 删除stash的内容,不指定stash_id，则默认删除最新的存储进度。
 git stash clear     //删除所有存储的进度。
@@ -250,3 +251,23 @@ git rebase —continue
 - git分支命名规范
 feature/20230324_event_to_question
   
+- question1
+  git pull 提示：
+  
+  提示：您有偏离的分支，需要指定如何调和它们。您可以在执行下一次
+  提示：pull 操作之前执行下面一条命令来抑制本消息：
+  提示：
+  提示：  git config pull.rebase false  # 合并
+  提示：  git config pull.rebase true   # 变基
+  提示：  git config pull.ff only       # 仅快进
+  提示：
+  提示：您可以将 "git config" 替换为 "git config --global" 以便为所有仓库设置
+  提示：缺省的配置项。您也可以在每次执行 pull 命令时添加 --rebase、--no-rebase，
+  提示：或者 --ff-only 参数覆盖缺省设置。
+  
+原因：远程和本地修改了同一个文件，可能有冲突。
+可以 git pull --no-rebase 即合并远程分支，有冲突就解决冲突
+可以 git config --global pull.rebase false 为所有仓库设置，都是默认合并远程分支
+
+- github配置ssh，用ssh clone项目
+参考<https://blog.csdn.net/weixin_42310154/article/details/118340458>

@@ -241,4 +241,13 @@ on a.class=b.class and a.create_time=b.create_time group by class;
 解决办法：order by字段加索引，或者 order by time,id 多加个排序字段
 
 
+### 创建账号，所有ip都能访问
+进入mysql
+账户：reader
+密码：123456
+```
+grant all privileges on *.* to 'reader' @'%' identified by '123456';
+```
+
+
 

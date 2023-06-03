@@ -5,6 +5,13 @@ java.util.Arrays.sort(...)
 java.util.Collections.sort(...)
 ```
 
+// todo
+排序
+List<ControlComplianceReportGeneralCountDTO> sortList
+= list.stream().sorted(
+Comparator.comparing(ControlComplianceReportGeneralCountDTO::getCount)
+.reversed()).collect(Collectors.toList());
+
 ### 举例
 ```
  public static void main(String[] args) throws Exception{
