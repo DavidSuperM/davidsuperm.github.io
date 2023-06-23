@@ -27,6 +27,7 @@
 |ctrl+command+q     |     锁定屏幕|
 |command+shift+3   |    截全屏幕图  |  
 |command+shift+4   | 截图|
+|command+shift+5   | 可选择录屏 |
 |command+shift+control+4   | 截图并复制到剪贴板|
 |command+space	|切换输入法|
 |command+f3 / fn+f11	|快速显示桌面  四指张开|
@@ -35,8 +36,9 @@
 |command + shift + →	| 快速选中光标到最右边的内容 |
 |command + shift + ←	| 快速选中光标到最左边的内容 |
 |command + shift + .	| 显示隐藏文件 |
+|control + 空格 + .	| 显示聚焦搜索（快捷键改过，可以找文件里的内容） |
 
-### itemr2 zsh快捷键
+### iterm2 zsh快捷键
 |------------------------------------|-----------------------------------|
 |command + ←      |     移动到整行的最左边|
 |command+ →  |    移动到整行的最右边  |  

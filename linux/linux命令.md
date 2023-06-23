@@ -214,6 +214,21 @@ unzip filename.zip
 tar -zxvf filename.tar.gz
 ```
 
+- 压缩文件 
+```
+// -r 是循环压缩文件夹内的文件
+zip -r test.zip test
+```
+
+- 分解文件
+```
+// 分成每个1G的文件，test.zip.aa,test.zip.ab ...
+cat test.zip | split -b 1G - test.zip.
+sz test.zip.a*
+// 合并
+copy /Users/david/Desktop test.zip.aa + test.zip.ab + test.zip.ac test.zip
+```
+
 
 - crontab定时任务
 ```
@@ -471,3 +486,32 @@ rm -rf /root/mysql
 firewall-cmd --zone=public --add-port=9200/tcp --permanent
 firewall-cmd --reload
 ```
+
+
+
+### ssh连接堡垒机
+ssh root@192.168.0.0
+如果报
+Unable to negotiate with 192.168.0.0 port 22 no matching host key type found. Their offer: ssh-rsa,ssh-dss
+这个问题，则需要连接时指定算法
+ssh -o HostKeyAlgorithms=+ssh-dss root@192.168.27.21
+然后输入密码：123
+选择服务器  10.168.1.49
+选择登录的用户名：root
+成功通过ssh登录堡垒机，登录服务器。
+
+每次ssh连接指定算法麻烦，可以增加配置项
+vim ~/.ssh/config
+
+Host bastion
+HostName 192.168.0.0
+User root
+Port 22
+HostKeyAlgorithms +ssh-rsa
+PubkeyAcceptedKeyTypes +ssh-rsa
+
+后面ssh连接只需要:ssh bastion
+
+指定算法原因：
+8.8p1 版的 openssh 的 ssh 客户端默认禁用了 ssh-rsa 算法, 但是对方服务器只支持 ssh-rsa, 当你不能自己升级远程服务器的 openssh 版本或修改配置让它使用更安全的算法时, 在本地 ssh 针对这些旧的ssh server重新启用 ssh-rsa 也是一种权宜之法.
+

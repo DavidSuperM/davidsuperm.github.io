@@ -226,3 +226,6 @@ docker run -p 3306:3306 --name mysql \
 ## linux环境变量
 /etc/profile
 修改后要执行 source /etc/profile 才生效
+
+
+

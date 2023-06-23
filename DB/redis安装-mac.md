@@ -2,6 +2,10 @@
 ```
 brew install redis
 ```
+
+默认端口6379
+
+
 1.启动redis服务
 brew services start redis
 

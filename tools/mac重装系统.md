@@ -32,3 +32,5 @@
 14. 安装npm(brew install npm)
 15. 安装python、(brew search python,brew install python@3.11,设置环境变量 )
 16. brew intall maven,配置环境变量
+17. 安装redis
+18. 安装ntfs硬盘读写工具 mounty
