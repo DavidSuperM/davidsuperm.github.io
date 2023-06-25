@@ -31,6 +31,6 @@
 13. 鼠标滚轮和外接键盘ctrl设置(会影响触控板)（<https://www.edianyun.com/wenda_czxt_macos/162.html><https://blog.csdn.net/Nick_Zhang_CSDN/article/details/99494240https://blog.csdn.net/Nick_Zhang_CSDN/article/details/99494240>）
 14. 安装npm(brew install npm)
 15. 安装python、(brew search python,brew install python@3.11,设置环境变量 )
-16. brew intall maven,配置环境变量
+16. brew install maven,配置环境变量
 17. 安装redis
 18. 安装ntfs硬盘读写工具 mounty
