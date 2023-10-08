@@ -5,12 +5,13 @@ java.util.Arrays.sort(...)
 java.util.Collections.sort(...)
 ```
 
-// todo
+
 排序
-List<ControlComplianceReportGeneralCountDTO> sortList
-= list.stream().sorted(
-Comparator.comparing(ControlComplianceReportGeneralCountDTO::getCount)
-.reversed()).collect(Collectors.toList());
+```
+list.sort(Comparator.comparing(Student::getAge));
+list.sort(Comparator.comparing(Student::getAge).thenComparing(Comparator.comparing(Student::getScore)));
+list.sort(Comparator.comparing(Student::getAge).reversed());
+```
 
 ### 举例
 ```
@@ -39,6 +40,7 @@ Comparator.comparing(ControlComplianceReportGeneralCountDTO::getCount)
             }
         });
 //        list.sort(Comparator.comparingInt(Student::getScore));
+// 升序
         Collections.sort(list, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {

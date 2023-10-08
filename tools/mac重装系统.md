@@ -37,3 +37,4 @@
 16. brew install maven,配置环境变量
 17. 安装redis
 18. 安装ntfs硬盘读写工具 mounty
+19. 安装maczip，keka压缩工具，mac自带的压缩会有多余的缓存文件。 maczip搜官网下载。keka用brew instal keka安装

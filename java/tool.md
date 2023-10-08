@@ -61,8 +61,7 @@ Long milliSecond = LocalDateTime.now().toInstant(Zone)Ojinffset.of("+8")).toEpoc
 5. 时间字符串转换
 ```
 // LocalDateTime转为String
-DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-String str = LocalDateTime.now().format(formatter);
+String str = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 // String转LocalDateTime
 LocalDateTime localDateTime = LocalDateTime.parse("2018-07-28 14:11:15",  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 ```

@@ -220,14 +220,19 @@ tar -zxvf filename.tar.gz
 zip -r test.zip test
 ```
 
-- 分解文件
+- 分解文件、拆分
 ```
 // 分成每个1G的文件，test.zip.aa,test.zip.ab ...
-cat test.zip | split -b 1G - test.zip.
+cat ecology.zip | split -b 200M - ecology.zip.
 sz test.zip.a*
 // 合并
 copy /Users/david/Desktop test.zip.aa + test.zip.ab + test.zip.ac test.zip
+或者
+cat ecology* > ecology.zip
 ```
+
+- mac链接服务器使用sz,rz无效
+
 
 
 - crontab定时任务
@@ -374,6 +379,7 @@ touch file1.txt
 ```
 ll
 ls  -lht 
+ls- lh
 ```
 
 - 脚本判断进程是否存在
