@@ -138,6 +138,7 @@ git stash           //目前已改动的地方放入另存区
 git stash save 'message'   // 加注释
 git stash pop    //取回另存区的改动,stash里的内容会被删除
 git stash drop    // 删除stash的内容,不指定stash_id，则默认删除最新的存储进度。
+git stash drop stash@{0}
 git stash clear     //删除所有存储的进度。
 参考<https://blog.csdn.net/daguanjia11/article/details/73810577>
 

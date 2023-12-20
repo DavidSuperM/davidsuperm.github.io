@@ -84,6 +84,11 @@ BigDecimal result1 = a.add(b);
 BigDecimal result3 = a.multiply(b);
 // 除法(保留4位小数)
 BigDecimal result3 = a.divide(b,4, BigDecimal.ROUND_HALF_UP)
+
+// BigDecimal去除末尾多余的0，比如 12.0 转字符串是12， 
+BigDecimal a = new BigDecimal("1.0");
+// 下面不能用 toString ，用toString的话 120000 会变成科学计数法, 1.2E+5
+a.stripTrailingZeros().toPlainString();   
 ```
 
 // todo

@@ -9,6 +9,8 @@ java.util.Collections.sort(...)
 排序
 ```
 list.sort(Comparator.comparing(Student::getAge));
+// 升序
+list.sort((o1, o2) -> Integer.compare(o1.getRecordTotalHours().compareTo(o2.getRecordTotalHours()), 0));
 list.sort(Comparator.comparing(Student::getAge).thenComparing(Comparator.comparing(Student::getScore)));
 list.sort(Comparator.comparing(Student::getAge).reversed());
 ```
@@ -49,6 +51,20 @@ list.sort(Comparator.comparing(Student::getAge).reversed());
                 else return -1;
             }
         });
+        
+        
+        // 降序 简化 
+         workHourDistributeTeamDataList.sort((o1, o2) -> {
+            if (o1.getMissOutTotalNumber() > o2.getMissOutTotalNumber()) {
+                return -1;
+            } else if (o1.getMissOutTotalNumber() == o2.getMissOutTotalNumber()) {
+                return Integer.compare(0, o1.getRecordTotalHours().compareTo(o2.getRecordTotalHours()));
+            } else {
+                return 1;
+            }
+        });
+        
+        
         System.out.println(Arrays.toString(students));
         System.out.println(list);
     }
