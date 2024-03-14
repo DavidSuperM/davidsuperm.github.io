@@ -82,6 +82,13 @@ import java.time.Duration;
 Duration.between(startLocalDateTime, endLocalDateTime).getSeconds();
 ```
 
+8. 获取周一周日
+```
+LocalDate today = LocalDate.now();
+LocalDate monday = today.with(TemporalAdjusters.previousOrSame( DayOfWeek.MONDAY));
+LocalDate sunday = today.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY ));
+```
+
 
 ### json转换
 用jsckson(fastjson有漏洞)
