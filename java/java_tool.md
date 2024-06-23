@@ -60,10 +60,13 @@ Long milliSecond = LocalDateTime.now().toInstant(Zone)Ojinffset.of("+8")).toEpoc
 ```
 5. 时间字符串转换
 ```
+import cn.hutool.core.date.DateUtil;
 // LocalDateTime转为String
 String str = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+String timeStr = DateUtil.format(LocalDateTime.now(), "yyyy-MM-dd HH:mm:ss");
 // String转LocalDateTime
 LocalDateTime localDateTime = LocalDateTime.parse("2018-07-28 14:11:15",  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+LocalDateTime time = DateUtil.parseLocalDateTime("2018-07-28 14:11:15", "yyyy-MM-dd HH:mm:ss");
 ```
 
 6. 获取指定时间
@@ -89,6 +92,45 @@ LocalDate monday = today.with(TemporalAdjusters.previousOrSame( DayOfWeek.MONDAY
 LocalDate sunday = today.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY ));
 ```
 
+### hutool常用工具
+StrUtil：字符串处理工具类，提供了字符串的各种操作方法，如判断空、分割、替换、格式化等。
+DateUtil：日期处理工具类，支持日期的格式化、解析、计算等操作。
+FileUtil：文件操作工具类，提供了文件的读写、复制、删除等方法。
+SecureUtil：加密解密工具类，支持 MD5、SHA、AES、RSA 等多种加密算法。
+JsonUtil：JSON 处理工具类，简化了 JSON 数据的解析和生成。
+HttpUtil：HTTP 工具类，支持简单的 HTTP 请求和响应处理。
+ClassUtil：类和反射工具类，简化了类加载和反射操作。
+CollectionUtil：集合工具类，提供了对集合的各种操作方法，如排序、查找、过滤等。
+
+### json转换 hutool工具
+```
+// 对象转json字符串 (对象可以是类对象、数组、集合)
+String jsonString = JSONUtil.toJsonStr(person);
+// json字符串转对象
+Person person = JSONUtil.toBean(jsonString, Person.class);
+// json字符串转对象数组
+List<Person> personList = JSONUtil.toList(json, Person.class);
+
+// json字符串转json对象
+// 对象转json对象
+JSONObject jsonObject = JSONUtil.parseObj(person);
+JSONArray jsonArray = JSONUtil.parseArray(list)
+// 如果不确定是object还是array
+ JSON json = JSONUtil.parse(jsonString);
+if (json instanceof JSONObject) {
+    JSONObject jsonObject = (JSONObject) json;
+    System.out.println("Name: " + jsonObject.getStr("name")); // 输出: Name: Alice
+    System.out.println("Age: " + jsonObject.getInt("age"));   // 输出: Age: 30
+}
+```
+依赖
+```
+<dependency>
+    <groupId>cn.hutool</groupId>
+    <artifactId>hutool-all</artifactId>
+    <version>5.8.18</version>
+</dependency>
+```
 
 ### json转换
 用jsckson(fastjson有漏洞)
@@ -194,6 +236,46 @@ public class JsonUtil {
 }
 ```
 
+### list转逗号分割的字符串
+```
+import org.apache.commons.lang3.StringUtils;
+
+StringUtils.join(list, ",");
+```
+
+### list转数组
+```
+List<String> list = new ArrayList<>(2);
+list.add("guan");
+list.add("bao");
+String[] array = list.toArray(new String[0]);
+```
+说明：使用 toArray 带参方法，数组空间大小的 length： 1） 等于 0，动态创建与 size 相同的数组，性能最好。
+2） 大于 0 但小于 size，重新创建大小等于 size 的数组，增加 GC 负担。
+3） 等于 size，在高并发情况下，数组创建完成之后，size 正在变大的情况下，负面影响与 2 相同。
+4） 大于 size，空间浪费，且在 size 处插入 null 值，存在 NPE 隐患。
+
+### 数组转list
+```
+String[] str = new String[] { "chen", "yang", "hao" };
+List list = Arrays.asList(str);
+```
+
+### list转数组
+```
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+list.add("Cherry");
+// 使用带类型参数的 toArray 方法
+String[] array = list.toArray(new String[0]);
+```
+
+说明：
+使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，
+它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
+
+
 ### java8 stream使用
 .stream可以将集合内的元素做转换
 .foreach不可用对原集合元素转换，但是可以操作取出的每个元素(如果取出的是对象，也可以改变对象的属性)
@@ -286,26 +368,6 @@ r = RandomStringUtils.randomAlphabetic(5);
 r = RandomStringUtils.randomAscii(4);  
 ```
 
-### 集合转数组
-```
-List<String> list = new ArrayList<>(2);
-list.add("guan");
-list.add("bao");
-String[] array = list.toArray(new String[0]);
-```
-说明：使用 toArray 带参方法，数组空间大小的 length： 1） 等于 0，动态创建与 size 相同的数组，性能最好。
-2） 大于 0 但小于 size，重新创建大小等于 size 的数组，增加 GC 负担。
-3） 等于 size，在高并发情况下，数组创建完成之后，size 正在变大的情况下，负面影响与 2 相同。
-4） 大于 size，空间浪费，且在 size 处插入 null 值，存在 NPE 隐患。
-
-### 数组转list
-```
-String[] str = new String[] { "chen", "yang", "hao" };
-List list = Arrays.asList(str);
-```
-说明：
-使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，
-它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
 
 ### 读取excel 
 pom文件

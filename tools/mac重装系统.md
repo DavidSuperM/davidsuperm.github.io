@@ -17,7 +17,7 @@
 1. 360极速浏览器、chrome、印象笔记、qq、微信、wps、clashx、omi ntfs、qq影音、qq音乐、网易云音乐、有道词典、fiddler
 2. clipy <https://clipy-app.com/>
 3. idea(2021.1.3专业版)（设置jdk）(安装插件 *.ignore、alibaba java coding guidliness、bashsupport pro、easycode-mybaitscodehelper、
-   mybatisX、 ide eval reset、maven helper、python、sonarlint、vue.js) 
+   mybatisX、 ide eval reset、maven helper、python、sonarlint、vue.js,easyyapi) 
    datagrip
 3.2 homebrew(官网复制命令安装，可能unaccess to github.. 可用镜像源安装   /bin/bash -c "$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)"  )
    （m1的mac homebrew是安装在/opt/homebrew位置，而intel的是安装在/usr/local所以环境变量配置也不一样，m1为例，需要vim ~/.bash_profile  添加 export PATH=${PATH}:/opt/homebrew/bin，不添加的话比如brew安装mysql，在非安装目录下无法 mysql -uroot -p 使用）
@@ -38,4 +38,4 @@
 17. 安装redis
 18. 安装ntfs硬盘读写工具 mounty (打开mounty选择重新加载数据之后，就可以mac系统和ntfs硬盘互相传输数据)
 19. 安装maczip，keka压缩工具，mac自带的压缩会有多余的缓存文件。 maczip搜官网下载。keka用brew instal keka安装
-20. bartender4 (5也有需要最新系统)
+20. bartender4 (5也有,需要最新系统)
