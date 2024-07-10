@@ -64,9 +64,12 @@ import cn.hutool.core.date.DateUtil;
 // LocalDateTime转为String
 String str = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 String timeStr = DateUtil.format(LocalDateTime.now(), "yyyy-MM-dd HH:mm:ss");
+String timeStr = DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN);
 // String转LocalDateTime
 LocalDateTime localDateTime = LocalDateTime.parse("2018-07-28 14:11:15",  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 LocalDateTime time = DateUtil.parseLocalDateTime("2018-07-28 14:11:15", "yyyy-MM-dd HH:mm:ss");
+LocalDateTime localDateTime = DateUtil.parseLocalDateTime("2024-01-01 00:00:01", DatePattern.NORM_DATETIME_PATTERN);
+DateTime dateTime = DateUtil.parse("2024-01-01 00:00:01", DatePattern.NORM_DATETIME_PATTERN);
 ```
 
 6. 获取指定时间
@@ -491,3 +494,20 @@ for (Apple apple : appleList) {
 ```
 appleList.parallelStream().forEach(apple -> apple.setPrice(5.0 * apple.getWeight() / 1000));
 ```
+
+
+### 比较两个集合元素是否相等
+不考虑顺序：
+org.apache.commons.collections4.CollectionUtils.isEqualCollection(list1, list2);
+考虑顺序：
+cn.hutool.core.collection.CollectionUtil.isEqualList(list1, list2);
+
+### 判断集合是否有重复对象（判断条件是 id,name,age 是否都相等）
+1. 
+Map<List<Object>, Long> grouped = list.stream().collect(Collectors.groupingBy(
+    x -> Arrays.asList(x.getId(), x.getName(), x.getAge()), Collectors.counting()
+));
+boolean res = grouped.values().stream().anyMatch(count -> count > 1);
+
+2. 重写 equals和hashcode
+
