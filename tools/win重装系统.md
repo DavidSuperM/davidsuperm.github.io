@@ -18,6 +18,9 @@
 #### 9. fastStone capture 截图工具 
 （注册-> 名字：bluman,注册码:VPISCJULXUFGDDXYAUYF）
 
-#### 
+####  其他插件
+历史剪贴板:1clipboard
+热键修改：powerToys  ，将win映射到ctrl
+easyYapi
 
 
