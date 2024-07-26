@@ -11,13 +11,17 @@
 3. sublime text (安装 json插件、Log Highlight 日志查看插件)
 4. postman
 5. 设置easycode
-6. 安装npm(brew install npm)
-7. brew install maven,配置环境变量
 8. 安装redis
 
 #### 9. fastStone capture 截图工具 
 （注册-> 名字：bluman,注册码:VPISCJULXUFGDDXYAUYF）
 
-#### 
+#### 快捷键
+锁屏：win+L
+删除整行：ctrl+x
+#### mac键盘，powerToys映射快捷键
+win -> ctrl
+ctrl+backspace -> ctrl+x
+ctrl+shift+v -> win+v
 
 

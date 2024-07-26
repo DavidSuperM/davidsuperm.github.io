@@ -12,6 +12,7 @@
 9. maven helper  // 查看maven依赖树，解决冲突
 
 ### EasyCode配置 
+easycode用的Velocity这个语法
 使用教程：<https://zhuanlan.zhihu.com/p/106849549?utm_source=qq&utm_medium=social&utm_oi=753897324492632064&utm_content=first>
 用完后 maven reload generate 才会显示出生成的文件
 自定义配置：
