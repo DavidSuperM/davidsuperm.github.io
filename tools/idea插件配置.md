@@ -64,3 +64,6 @@ mybatis-plus
 
 另两个自动生成的项目:<https://springboot.plus/guide/generator.html#_2-%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8%E7%94%9F%E6%88%90curd%E4%BB%A3%E7%A0%81>
 <https://gitee.com/flying-cattle/mybatis-dsc-generator>
+
+### idea注释变成竖线
+file->setting->editor->general->apperance->取消Render documentation comments

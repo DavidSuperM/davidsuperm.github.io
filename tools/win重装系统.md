@@ -23,5 +23,10 @@
 win -> ctrl
 ctrl+backspace -> ctrl+x
 ctrl+shift+v -> win+v
+####  其他插件
+历史剪贴板:1clipboard
+热键修改：powerToys  ，将win映射到ctrl
+easyYapi
+安装git，并将git客户端配置为idea的默认terminal
 
 

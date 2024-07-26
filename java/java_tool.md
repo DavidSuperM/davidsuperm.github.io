@@ -64,9 +64,12 @@ import cn.hutool.core.date.DateUtil;
 // LocalDateTime转为String
 String str = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 String timeStr = DateUtil.format(LocalDateTime.now(), "yyyy-MM-dd HH:mm:ss");
+String timeStr = DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN);
 // String转LocalDateTime
 LocalDateTime localDateTime = LocalDateTime.parse("2018-07-28 14:11:15",  DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 LocalDateTime time = DateUtil.parseLocalDateTime("2018-07-28 14:11:15", "yyyy-MM-dd HH:mm:ss");
+LocalDateTime localDateTime = DateUtil.parseLocalDateTime("2024-01-01 00:00:01", DatePattern.NORM_DATETIME_PATTERN);
+DateTime dateTime = DateUtil.parse("2024-01-01 00:00:01", DatePattern.NORM_DATETIME_PATTERN);
 ```
 
 6. 获取指定时间
@@ -240,25 +243,7 @@ public class JsonUtil {
 ```
 import org.apache.commons.lang3.StringUtils;
 
-StringUtils.join(list, ",");
-```
-
-### list转数组
-```
-List<String> list = new ArrayList<>(2);
-list.add("guan");
-list.add("bao");
-String[] array = list.toArray(new String[0]);
-```
-说明：使用 toArray 带参方法，数组空间大小的 length： 1） 等于 0，动态创建与 size 相同的数组，性能最好。
-2） 大于 0 但小于 size，重新创建大小等于 size 的数组，增加 GC 负担。
-3） 等于 size，在高并发情况下，数组创建完成之后，size 正在变大的情况下，负面影响与 2 相同。
-4） 大于 size，空间浪费，且在 size 处插入 null 值，存在 NPE 隐患。
-
-### 数组转list
-```
-String[] str = new String[] { "chen", "yang", "hao" };
-List list = Arrays.asList(str);
+String res = StringUtils.join(list, ",");
 ```
 
 ### list转数组
@@ -274,6 +259,17 @@ String[] array = list.toArray(new String[0]);
 说明：
 使用工具类 Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方法，
 它的 add/remove/clear 方法会抛出 UnsupportedOperationException 异常。
+
+说明：使用 toArray 带参方法，数组空间大小的 length： 1） 等于 0，动态创建与 size 相同的数组，性能最好。
+2） 大于 0 但小于 size，重新创建大小等于 size 的数组，增加 GC 负担。
+3） 等于 size，在高并发情况下，数组创建完成之后，size 正在变大的情况下，负面影响与 2 相同。
+4） 大于 size，空间浪费，且在 size 处插入 null 值，存在 NPE 隐患。
+
+### 数组转list
+```
+String[] str = new String[] { "chen", "yang", "hao" };
+List list = Arrays.asList(str);
+```
 
 
 ### java8 stream使用
@@ -498,3 +494,20 @@ for (Apple apple : appleList) {
 ```
 appleList.parallelStream().forEach(apple -> apple.setPrice(5.0 * apple.getWeight() / 1000));
 ```
+
+
+### 比较两个集合元素是否相等
+不考虑顺序：
+org.apache.commons.collections4.CollectionUtils.isEqualCollection(list1, list2);
+考虑顺序：
+cn.hutool.core.collection.CollectionUtil.isEqualList(list1, list2);
+
+### 判断集合是否有重复对象（判断条件是 id,name,age 是否都相等）
+1. 
+Map<List<Object>, Long> grouped = list.stream().collect(Collectors.groupingBy(
+    x -> Arrays.asList(x.getId(), x.getName(), x.getAge()), Collectors.counting()
+));
+boolean res = grouped.values().stream().anyMatch(count -> count > 1);
+
+2. 重写 equals和hashcode
+
