@@ -25,3 +25,5 @@ easyYapi
 安装git，并将git客户端配置为idea的默认terminal
 
 
+// todo
+idea设置terminal为git bash
