@@ -14,7 +14,7 @@
 8. 安装redis
 
 #### 9. fastStone capture 截图工具 
-（注册-> 名字：bluman,注册码:VPISCJULXUFGDDXYAUYF）
+（注册-> 名字：bluman,注册码:VPISCJULXUFGDDXYAUYF
 
 #### 快捷键
 锁屏：win+L
