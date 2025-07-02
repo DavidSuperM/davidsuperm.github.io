@@ -97,7 +97,7 @@ git reflog    // 看到每一次提交的命令，包括reset的版本
 git log –graph
 //不如用idea的Version Control -> log -> 选择branch 界面来的清晰直观
 ```
-- 回退版本
+- 回退版本 回滚
 ```
 git log //查看提交记录
 git reflog
@@ -106,9 +106,9 @@ git reset –-hard HEAD^^   //回退上上一个版本
 git reset –-hard 3628164   //回退到指定版本 后面的版本号可从上一条命令的log中得到
 git revert HEAD   //  撤销前一次 commit
 git revert HEAD^  // 撤销前前一次 commit
-git revert abcsdsa   // 撤销指定commit id的版本
+git revert abcsdsa   // 撤销指定commit id的版本   
 ```
-> reset和revert的区别，reset是将指针后移，删除了最新的提交版本，revert是指针前移，做了一次新的commit，只不过提交内容刚好和上一次commmit的相反。
+> reset和revert的区别，reset是将指针后移，删除了最新的提交版本，revert是指针前移，做了一次新的commit，只不过提交内容刚好和上一次commmit的相反。revert只会撤销指定的一次提交，前后的提交不会被撤销
 > 参考<https://blog.csdn.net/yxlshk/article/details/79944535>
 ><https://www.cnblogs.com/0616--ataozhijia/p/3709917.html>
 

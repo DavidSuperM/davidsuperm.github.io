@@ -122,6 +122,8 @@ tail -100 test.log    //查看最后100行
 tail -200f log.txt   //滚动查看最后200行 -f表示循环读取
 tail -200f log.txt | grep --color -10 '123'   // --color表示加颜色,也可以在文件里永久配置
 
+
+
 cat tmp.txt | grep 'qidian' | tail -2     // 查看匹配的最后2行
 ```
 
