@@ -52,3 +52,9 @@ ctrl+shift+j  是多行变1行
 File > Settings > Tools > Terminal
 找到 Application settings → Shell path
 D:\work_software\git\Git\bin\bash.exe
+
+#### git pull push 失败， ping  github.com 超时  但是网页能访问
+是因为git没有走代理，命令行设置
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
+一般是这个，具体要看vpn的监听地址和端口，设置里或者 yaml配置文件里能看到
