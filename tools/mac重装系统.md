@@ -83,7 +83,11 @@ settings：
 这样文件夹中右击，选择服务，能打开iterm
 
 
-
+#### git pull push 失败， ping  github.com 超时  但是网页能访问
+是因为git没有走代理，命令行设置
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
+一般是这个，具体要看vpn的监听地址和端口，设置里或者 yaml配置文件里能看到
 
 
 
