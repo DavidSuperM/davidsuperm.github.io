@@ -54,6 +54,13 @@ idea设置utf8
 勾选 Enable annotation processing
 点击 Apply → OK
 
+maven设置
+/Users/david/config/settings.xml
+/Users/david/config/repository
+
+utf8设置
+editor-file encodings- 改为utf8 ,不勾选 translate to ascii
+
 
 
 ### sublime设置
