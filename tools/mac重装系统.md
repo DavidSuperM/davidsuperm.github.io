@@ -37,7 +37,7 @@
 15. 安装python、(brew search python,brew install python@3.11,设置环境变量 )
 16. brew install maven,配置环境变量
 17. 安装redis
-18. 安装ntfs硬盘读写工具 mounty (打开mounty选择重新加载数据之后，就可以mac系统和ntfs硬盘互相传输数据) 现在有插件装不上，直接用赤友ntfs，印象笔记有有注册码
+18. 安装ntfs硬盘读写工具 mounty (请看其他.md)(或者赤友ntfs，印象笔记有有注册码)
 19. 安装maczip，keka压缩工具，mac自带的压缩会有多余的缓存文件。 maczip搜官网下载。keka用brew instal keka安装
 20. bartender4 (5也有,需要最新系统，收费，为了管理状态栏多的图标 看不见,可以用这个展开 )  笔记有注册码
 21. runcat
