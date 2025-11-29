@@ -47,6 +47,8 @@
 idea设置主体 settings->appearance&behavior->appearance->theme->darcula
 idea设置utf8  
 2024idea恢复2021版ui界面    settings->appearance&behavior->new ui-> 取消勾选 enable new ui
+设置maven目录
+file->project structure -> SDK,language
 
 @Data注解不生效，代码里报红
 打开 IDEA → Preferences 
