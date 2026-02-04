@@ -210,13 +210,15 @@ rules:
 如果是hosts配置里域名
 比如 
 ```
-9.100.100.100    mq.ukangai.com
+8.133.253.65    nacos.my.com
 ```
 则在配置文件中增加
 ```
 hosts:
-  mq.ukangai.com: 9.100.100.100
+  nacos.my.com: 8.133.253.65
 ```
+但是上面的方法会被clash的自动订阅覆盖
+所以直接在clashxpro的配置-更多设置-忽略域名，加上 *.my.com即可
 
 
 

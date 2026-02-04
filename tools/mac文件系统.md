@@ -54,3 +54,6 @@ brew update
 参考：<https://www.jianshu.com/p/bea984d27cd2>
 
 
+## 查看公网ip
+mac查看公网ip
+curl ifconfig.me
