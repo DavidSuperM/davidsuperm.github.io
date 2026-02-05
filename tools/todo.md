@@ -221,4 +221,31 @@ hosts:
 所以直接在clashxpro的配置-更多设置-忽略域名，加上 *.my.com即可
 
 
+## 手机app 小程序 接口抓包
+#### 安装charles
+1. 官网下载 https://www.charlesproxy.com/download/
+2. 安装完成后，需要安装Charles的系统证书。路径如下：
+   Help -> SSL Proxying -> Install Charles Root Certificate
+   将证书保存到系统目录下，避免无法识别的问题。
+3. 在Mac的“钥匙串访问”中找到刚刚安装的Charles证书，默认情况下证书是不被信任的。你需要手动将其信任状态更改为“始终信任”。
+4. 路径：Proxy -> Proxy Settings
+   端口号默认是8888，你也可以自定义端口。勾选“Enable transparent HTTP proxying”以代理HTTP请求。
+5. 路径：Proxy -> SSL Proxy Settings
+   勾选“Enable SSL Proxying”，并添加抓包过滤条件。通常可以设置为Host: *和Port: *，（或者端口设置443）表示抓取所有接口。
+6. 完成上述配置后，勾选Proxy -> macOS Proxy，即可开始抓取网页的接口数据。
+7. 随便找到 charles在线生成密钥，名字输入 Charles4.6.2   会生成 key
+8. 路径：Help -> Register Charles
+   将生成的密钥填入相应的位置。 重启
+9. 再次进入Help -> Register Charles，确认密钥已成功应用。
+参考 https://blog.csdn.net/2501_91087985/article/details/146318645
+
+#### 手机配置
+1. 手机和电脑连接同一个局域网，手机关闭代理。
+2. 手机设置-无线局域网-wifi信息详情-最下面配置代理-手动 服务器填电脑ip（mac系统设置-wifi-详细信息-ip），端口设置8888
+3. 手机浏览器访问 chls.pro/ssl 会自动下载证书，如果没自动下载，那么电脑重启后，手机刷新网页。
+4. 手机设置-通用-vpn与设备管理-安装证书
+5. 手机设置-通用-关于本机-证书信任设置-启用信任charles证书
+
+#### 使用
+手机点开app，charles能看到所有的请求，可以在 proxy-recording settings- include 添加只想看的host
 
